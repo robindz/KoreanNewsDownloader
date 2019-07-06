@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.dt.co.kr/contents.html?article_no=2019042202109965035019&ref=daum", folder);
+            await downloader.DownloadAsync("http://enews.imbc.com/News/RetrieveNewsInfo/251704", folder);
 
             Console.ReadKey();
         }

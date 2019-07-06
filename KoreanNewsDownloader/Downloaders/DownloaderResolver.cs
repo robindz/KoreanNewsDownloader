@@ -37,6 +37,9 @@ namespace KoreanNewsDownloader
                 case "www.dailypop.kr": return _services.GetRequiredService<DailypopDownloader>();
                 case "www.dispatch.co.kr": return _services.GetRequiredService<DispatchDownloader>();
                 case "www.dt.co.kr": return _services.GetRequiredService<DtDownloader>();
+                case "www.edaily.co.kr": return _services.GetRequiredService<EdailyDownloader>();
+                case "www.egn.kr": return _services.GetRequiredService<EgnDownloader>();
+                case "enews.imbc.com": return _services.GetRequiredService<ImbcDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");
