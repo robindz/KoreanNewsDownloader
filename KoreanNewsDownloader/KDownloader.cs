@@ -22,6 +22,7 @@ namespace KoreanNewsDownloader
         {
             await DownloadAsync(new Uri(url), filePath, overwrite);
         }
+
         public async Task DownloadAsync(Uri uri, string filePath, bool overwrite = false)
         {
             var downloader = GetDownloader(uri.Host);
@@ -56,6 +57,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<HeraldcorpDownloader>()
                 .AddTransient<HankyungDownloader>()
                 .AddTransient<BreaknewsDownloader>()
+                .AddTransient<GetnewsDownloader>()
                 .BuildServiceProvider();
         }
     }

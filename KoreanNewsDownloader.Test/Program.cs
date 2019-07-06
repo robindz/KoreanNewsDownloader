@@ -12,7 +12,8 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.breaknews.com/sub_read.html?uid=665014", folder);
+            await downloader.DownloadAsync("http://cnews.getnews.co.kr/view.php?ud=20181129102859399280ed35aa76_16", folder);
+            await downloader.DownloadAsync("http://www.getnews.co.kr/view.php?ud=20190519193930687580ed35aa76_16", folder);
 
             Console.ReadKey();
         }
