@@ -1,5 +1,4 @@
-﻿using KoreanNewsDownloader.Downloaders;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Test
@@ -12,7 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.dailian.co.kr/news/view/789623", folder);
+            await downloader.DownloadAsync("https://www.dispatch.co.kr/1566345", folder);
 
             Console.ReadKey();
         }

@@ -18,6 +18,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             await DownloadAsync(new Uri(url), filePath, overwrite);
         }
+
         public async Task DownloadAsync(Uri uri, string filePath, bool overwrite)
         {
             IList<string> images = await GetImagesAsync(uri.AbsoluteUri);
@@ -35,6 +36,7 @@ namespace KoreanNewsDownloader.Downloaders
                 }
             }
         }
+
         public async Task<IList<string>> GetOgImageAsync(Uri uri)
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
@@ -47,11 +49,14 @@ namespace KoreanNewsDownloader.Downloaders
 
             return images;
         }
+
         public async Task<IList<string>> GetImagesAsync(string url)
         {
             return await GetImagesAsync(new Uri(url));
         }
+
         public abstract Task<IList<string>> GetImagesAsync(Uri uri);
+
         protected async Task<HtmlDocument> GetDocumentAsync(Uri uri)
         {
             string html = await GetHtmlAsync(uri);
@@ -59,10 +64,12 @@ namespace KoreanNewsDownloader.Downloaders
             doc.LoadHtml(html);
             return doc;
         }
+
         private async Task<string> GetHtmlAsync(Uri uri)
         {
             return await HttpClient.GetStringAsync(uri.AbsoluteUri);
         }
+
         private string CleanImageName(string fileName)
         {
             return fileName.Substring(fileName.LastIndexOf("=") + 1);
