@@ -36,9 +36,10 @@ namespace KoreanNewsDownloader
                 case "www.dailian.co.kr": return _services.GetRequiredService<DailianDownloader>();
                 case "www.dailypop.kr": return _services.GetRequiredService<DailypopDownloader>();
                 case "www.dispatch.co.kr": return _services.GetRequiredService<DispatchDownloader>();
+                case "www.dt.co.kr": return _services.GetRequiredService<DtDownloader>();
             }
 
-            throw new ArgumentException($"No downloader for '{host}' was found.");
+            throw new ArgumentException($"'{host}' is not a supported website.");
         }
     }
 }
