@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoreanNewsDownloader", "KoreanNewsDownloader.csproj", "{9C12F5B4-F41D-4E54-A420-4EF86BA19570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoreanNewsDownloader.Test", "..\KoreanNewsDownloader.Test\KoreanNewsDownloader.Test.csproj", "{BDD7AEFA-83FF-40FD-8115-41A8E412CC18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C12F5B4-F41D-4E54-A420-4EF86BA19570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C12F5B4-F41D-4E54-A420-4EF86BA19570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C12F5B4-F41D-4E54-A420-4EF86BA19570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C12F5B4-F41D-4E54-A420-4EF86BA19570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDD7AEFA-83FF-40FD-8115-41A8E412CC18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDD7AEFA-83FF-40FD-8115-41A8E412CC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDD7AEFA-83FF-40FD-8115-41A8E412CC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDD7AEFA-83FF-40FD-8115-41A8E412CC18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2440ED9A-663B-483C-99E9-56B449332AB1}
+	EndGlobalSection
+EndGlobal
