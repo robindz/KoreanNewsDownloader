@@ -58,6 +58,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<HankyungDownloader>()
                 .AddTransient<BreaknewsDownloader>()
                 .AddTransient<GetnewsDownloader>()
+                .AddTransient<ThebigdataDownloader>()
                 .BuildServiceProvider();
         }
     }
