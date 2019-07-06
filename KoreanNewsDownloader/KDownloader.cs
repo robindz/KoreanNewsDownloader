@@ -29,9 +29,9 @@ namespace KoreanNewsDownloader
             await downloader.DownloadAsync(uri, filePath, overwrite);
         }
 
-        private IDownloader GetDownloader(string website)
+        private IDownloader GetDownloader(string host)
         {
-            return _resolver.GetDownloaderByName(website);
+            return _resolver.GetDownloaderByName(host);
         }
 
         private ServiceProvider ConfigureServices()
@@ -68,6 +68,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<ImbcDownloader>()
                 .AddTransient<TvingDownloader>()
                 .AddTransient<EtodayDownloader>()
+                .AddTransient<DaumDownloader>()
                 .BuildServiceProvider();
         }
     }

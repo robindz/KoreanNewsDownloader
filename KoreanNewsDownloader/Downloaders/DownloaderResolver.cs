@@ -43,6 +43,7 @@ namespace KoreanNewsDownloader
                 case "enews24.tving.com": return _services.GetRequiredService<TvingDownloader>();
                 case "enter.etoday.co.kr":
                 case "www.etoday.co.kr":  return _services.GetRequiredService<EtodayDownloader>();
+                case "entertain.v.daum.net": return _services.GetRequiredService<DaumDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");
