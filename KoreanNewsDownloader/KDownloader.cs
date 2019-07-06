@@ -55,6 +55,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<AsiatodayDownloader>()
                 .AddTransient<HeraldcorpDownloader>()
                 .AddTransient<HankyungDownloader>()
+                .AddTransient<BreaknewsDownloader>()
                 .BuildServiceProvider();
         }
     }

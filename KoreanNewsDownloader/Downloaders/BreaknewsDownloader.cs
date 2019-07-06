@@ -3,30 +3,31 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class AjunewsDownloader : DownloaderBase
+    internal class BreaknewsDownloader : DownloaderBase
     {
-        public AjunewsDownloader(HttpClient httpClient)
+        public BreaknewsDownloader(HttpClient httpClient)
         {
             HostUrls = new List<string>()
             {
-                "www.ajunews.com"
+                "www.breaknews.com"
             };
             HttpClient = httpClient;
         }
 
         public override async Task<IList<string>> GetImagesAsync(Uri uri)
         {
+            IList<string> images = new List<string>();
             HtmlDocument doc = await GetDocumentAsync(uri);
 
-            var images = doc.DocumentNode.SelectSingleNode("//*[@id=\"articleBody\"]")
-                .Descendants()
-                .Where(x => x.Name == "img")
-                .Select(x => x.GetAttributeValue("src", ""))
-                .ToList();
+            string image = doc.DocumentNode
+                .SelectSingleNode("//*[@id=\"img_pop_view\"]")
+                .GetAttributeValue("src", "");
+            images.Add(image);
 
             return images;
         }

@@ -21,7 +21,7 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override async Task<IList<string>> GetImagesAsync(Uri uri)
         {
-            return await GetOgImageAsync(uri.AbsoluteUri);
+            return await GetOgImageAsync(uri);
         }
     }
 }

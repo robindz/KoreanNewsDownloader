@@ -25,7 +25,10 @@ namespace KoreanNewsDownloader
                 case "biz.heraldcorp.com":
                 case "pop.heraldcorp.com": return _services.GetRequiredService<HeraldcorpDownloader>();
                 case "bntnews.hankyung.com":
-                case "www.hankyung.com":  return _services.GetRequiredService<HankyungDownloader>();
+                case "www.hankyung.com":
+                case "news.hankyung.com":
+                case "tenasia.hankyung.com": return _services.GetRequiredService<HankyungDownloader>();
+                case "www.breaknews.com": return _services.GetRequiredService<BreaknewsDownloader>();
             }
 
             throw new ArgumentException($"No downloader for '{host}' was found.");
