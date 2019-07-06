@@ -12,8 +12,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://cnews.thebigdata.co.kr/view.php?ud=201811281430301567482b2d7606_23", folder);
-            await downloader.DownloadAsync("http://www.thebigdata.co.kr/view.php?ud=201905200956044318482b2d7606_23", folder);
+            await downloader.DownloadAsync("http://www.dailian.co.kr/news/view/789623", folder);
 
             Console.ReadKey();
         }

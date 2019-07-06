@@ -33,6 +33,7 @@ namespace KoreanNewsDownloader
                 case "cnews.getnews.co.kr": return _services.GetRequiredService<GetnewsDownloader>();
                 case "www.thebigdata.co.kr":
                 case "cnews.thebigdata.co.kr": return _services.GetRequiredService<ThebigdataDownloader>();
+                case "www.dailian.co.kr": return _services.GetRequiredService<DailianDownloader>();
             }
 
             throw new ArgumentException($"No downloader for '{host}' was found.");
