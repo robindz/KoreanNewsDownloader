@@ -40,6 +40,9 @@ namespace KoreanNewsDownloader
                 case "www.edaily.co.kr": return _services.GetRequiredService<EdailyDownloader>();
                 case "www.egn.kr": return _services.GetRequiredService<EgnDownloader>();
                 case "enews.imbc.com": return _services.GetRequiredService<ImbcDownloader>();
+                case "enews24.tving.com": return _services.GetRequiredService<TvingDownloader>();
+                case "enter.etoday.co.kr":
+                case "www.etoday.co.kr":  return _services.GetRequiredService<EtodayDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");

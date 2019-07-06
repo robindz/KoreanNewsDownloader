@@ -11,7 +11,8 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://enews.imbc.com/News/RetrieveNewsInfo/251704", folder);
+            await downloader.DownloadAsync("http://www.etoday.co.kr/news/section/newsview.php?idxno=1648199", folder);
+            await downloader.DownloadAsync("http://enter.etoday.co.kr/view/news_view.php?varAtcId=158112", folder);
 
             Console.ReadKey();
         }
