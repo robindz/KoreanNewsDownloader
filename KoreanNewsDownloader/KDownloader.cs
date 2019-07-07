@@ -76,6 +76,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<Inews24Downloader>()
                 .AddTransient<InsightDownloader>()
                 .AddTransient<IntronewsDownloader>()
+                .AddTransient<JoinsDownloader>()
                 .BuildServiceProvider();
         }
     }

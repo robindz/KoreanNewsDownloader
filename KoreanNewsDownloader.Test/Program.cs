@@ -11,7 +11,9 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.intronews.net/news/articleView.html?idxno=146726", folder);
+            await downloader.DownloadAsync("http://isplus.live.joins.com/news/article/article.asp?total_id=23152505&cloc=isplus%7Csport%7Cisplus_art_mustclick", folder);
+            await downloader.DownloadAsync("http://isplus.live.joins.com/news/article/article.asp?total_id=22456266", folder);
+            await downloader.DownloadAsync("https://dcnewsj.joins.com/article/23518080?cloc=dcnewsj|list", folder);
 
             Console.ReadKey();
         }
