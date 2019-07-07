@@ -54,6 +54,7 @@ namespace KoreanNewsDownloader
                 case "www.inews24.com": return _services.GetRequiredService<Inews24Downloader>();
                 case "www.insight.co.kr":
                 case "photo.insight.co.kr": return _services.GetRequiredService<InsightDownloader>();
+                case "www.intronews.net": return _services.GetRequiredService<IntronewsDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");

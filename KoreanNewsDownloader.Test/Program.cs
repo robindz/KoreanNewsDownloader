@@ -11,8 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("https://www.insight.co.kr/news/223957", folder);
-            await downloader.DownloadAsync("https://photo.insight.co.kr/news/196409", folder);
+            await downloader.DownloadAsync("http://www.intronews.net/news/articleView.html?idxno=146726", folder);
 
             Console.ReadKey();
         }
