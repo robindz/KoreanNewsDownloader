@@ -51,6 +51,9 @@ namespace KoreanNewsDownloader
                 case "gall.dcinside.com": return _services.GetRequiredService<DcinsideDownloader>();
                 case "www.getitk.com": return _services.GetRequiredService<GetitkDownloader>();
                 case "www.ilyoseoul.co.kr": return _services.GetRequiredService<IlyoseoulDownloader>();
+                case "www.inews24.com": return _services.GetRequiredService<Inews24Downloader>();
+                case "www.insight.co.kr":
+                case "photo.insight.co.kr": return _services.GetRequiredService<InsightDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");

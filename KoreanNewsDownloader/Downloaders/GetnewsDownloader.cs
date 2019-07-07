@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>()
             {
-                "getnews.co.kr","cnews.getnews.co.kr"
+                "www.getnews.co.kr", "cnews.getnews.co.kr"
             };
             HttpClient = httpClient;
         }
