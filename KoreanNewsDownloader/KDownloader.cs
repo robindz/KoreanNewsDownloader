@@ -71,6 +71,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<DaumDownloader>()
                 .AddTransient<FnnewsDownloader>()
                 .AddTransient<DcinsideDownloader>()
+                .AddTransient<GetitkDownloader>()
+                .AddTransient<IlyoseoulDownloader>()
                 .BuildServiceProvider();
         }
     }

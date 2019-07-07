@@ -49,6 +49,8 @@ namespace KoreanNewsDownloader
                 case "www.fnnews.com":
                 case "star.fnnews.com": return _services.GetRequiredService<FnnewsDownloader>();
                 case "gall.dcinside.com": return _services.GetRequiredService<DcinsideDownloader>();
+                case "www.getitk.com": return _services.GetRequiredService<GetitkDownloader>();
+                case "www.ilyoseoul.co.kr": return _services.GetRequiredService<IlyoseoulDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");
