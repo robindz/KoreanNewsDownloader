@@ -11,7 +11,9 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("https://entertain.v.daum.net/v/20181207002356215?f=o", folder);
+            await downloader.DownloadAsync("https://gall.dcinside.com/board/view/?id=issuezoom&no=4025", folder);
+            await downloader.DownloadAsync("https://gall.dcinside.com/board/view/?id=twice&no=9362256&exception_mode=recommend&page=1", folder);
+            await downloader.DownloadAsync("https://gall.dcinside.com/board/view/?id=twice&no=9334076&exception_mode=recommend", folder);
 
             Console.ReadKey();
         }

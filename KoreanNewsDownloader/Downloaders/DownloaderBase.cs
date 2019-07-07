@@ -72,7 +72,12 @@ namespace KoreanNewsDownloader.Downloaders
 
         private string CleanImageName(string fileName)
         {
-            return fileName.Substring(fileName.LastIndexOf("=") + 1);
+            fileName = fileName.Substring(fileName.LastIndexOf("=") + 1);
+            if (!(fileName.EndsWith(".png") || fileName.EndsWith(".jpg") || fileName.EndsWith(".jpeg") || fileName.EndsWith(".gif")))
+            {
+                fileName += ".jpg";
+            }
+            return fileName;
         }
     }
 }

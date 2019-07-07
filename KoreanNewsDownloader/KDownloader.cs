@@ -69,6 +69,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<TvingDownloader>()
                 .AddTransient<EtodayDownloader>()
                 .AddTransient<DaumDownloader>()
+                .AddTransient<FnnewsDownloader>()
+                .AddTransient<DcinsideDownloader>()
                 .BuildServiceProvider();
         }
     }

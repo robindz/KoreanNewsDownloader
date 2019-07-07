@@ -12,10 +12,12 @@ namespace KoreanNewsDownloader
     public class DownloaderResolver : IDownloaderResolver
     {
         private readonly IServiceProvider _services;
+
         public DownloaderResolver(IServiceProvider services)
         {
             _services = services;
         }
+
         public IDownloader GetDownloaderByName(string host)
         {
             switch (host)
@@ -44,6 +46,9 @@ namespace KoreanNewsDownloader
                 case "enter.etoday.co.kr":
                 case "www.etoday.co.kr":  return _services.GetRequiredService<EtodayDownloader>();
                 case "entertain.v.daum.net": return _services.GetRequiredService<DaumDownloader>();
+                case "www.fnnews.com":
+                case "star.fnnews.com": return _services.GetRequiredService<FnnewsDownloader>();
+                case "gall.dcinside.com": return _services.GetRequiredService<DcinsideDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");
