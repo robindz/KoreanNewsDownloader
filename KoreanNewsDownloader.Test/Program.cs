@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://news.kstyle.com/article.ksn?articleNo=2106872", folder);
+            await downloader.DownloadAsync("http://news.tf.co.kr/read/photomovie/1741282.htm", folder);
 
             Console.ReadKey();
         }
