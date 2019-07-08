@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -70,7 +71,7 @@ namespace KoreanNewsDownloader.Downloaders
 
         private async Task<string> GetHtmlAsync(Uri uri)
         {
-            return await HttpClient.GetStringAsync(uri.AbsoluteUri);
+            return Encoding.UTF8.GetString(await HttpClient.GetByteArrayAsync(uri.AbsoluteUri));
         }
 
         private string CleanImageName(string fileName)

@@ -87,6 +87,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, MdprDownloader>()
                 .AddTransient<IDownloader, MediasrDownloader>()
                 .AddTransient<IDownloader, MetroseoulDownloader>()
+                .AddTransient<IDownloader, MtDownloader>()
                 .BuildServiceProvider();
         }
     }
