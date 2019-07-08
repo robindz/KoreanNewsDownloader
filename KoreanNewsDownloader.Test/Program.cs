@@ -11,7 +11,9 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.nbnnews.co.kr/news/articleView.html?idxno=226960", folder);
+            await downloader.DownloadAsync("http://nc.asiae.co.kr/view.htm?idxno=2019021215491181796", folder);
+            await downloader.DownloadAsync("http://stoo.asiae.co.kr/article.php?aid=52011665816", folder);
+            await downloader.DownloadAsync("http://tvdaily.asiae.co.kr/read.php3?aid=15433825051417865017", folder);
 
             Console.ReadKey();
         }
