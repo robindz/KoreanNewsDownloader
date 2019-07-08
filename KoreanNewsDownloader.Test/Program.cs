@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("https://news.imaeil.com/Entertainments/2018122520110023242", folder);
+            await downloader.DownloadAsync("http://news.kstyle.com/article.ksn?articleNo=2106872", folder);
 
             Console.ReadKey();
         }

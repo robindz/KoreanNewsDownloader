@@ -94,6 +94,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, NewdailyDownloader>()
                 .AddTransient<IDownloader, NewsreportDownloader>()
                 .AddTransient<IDownloader, ImaeilDownloader>()
+                .AddTransient<IDownloader, KstyleDownloader>()
                 .BuildServiceProvider();
         }
     }
