@@ -61,6 +61,9 @@ namespace KoreanNewsDownloader
                 case "www.joynews24.com": return _services.GetRequiredService<Joynews24Downloader>();
                 case "www.kookje.co.kr": return _services.GetRequiredService<KookjeDownloader>();
                 case "www.kukinews.com": return _services.GetRequiredService<KukinewsDownloader>();
+                case "www.liveen.co.kr": return _services.GetRequiredService<LiveenDownloader>();
+                case "post.naver.com":
+                case "m.post.naver.com": return _services.GetRequiredService<NaverDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");

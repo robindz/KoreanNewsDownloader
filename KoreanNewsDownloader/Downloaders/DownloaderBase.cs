@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -77,7 +78,7 @@ namespace KoreanNewsDownloader.Downloaders
             {
                 fileName += ".jpg";
             }
-            return fileName;
+            return HttpUtility.UrlDecode(fileName);
         }
     }
 }
