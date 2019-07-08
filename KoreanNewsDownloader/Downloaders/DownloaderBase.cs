@@ -23,6 +23,8 @@ namespace KoreanNewsDownloader.Downloaders
         public async Task DownloadAsync(Uri uri, string filePath, bool overwrite)
         {
             IList<string> images = await GetImagesAsync(uri.AbsoluteUri);
+            images = images.Distinct().ToList();
+
             for (int i = 0; i < images.Count(); i++)
             {
                 string fileName = CleanImageName($"{images[i].Split('/').Last()}");

@@ -11,8 +11,9 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://m.sportschosun.com/news.htm?id=201904220100178910012180&ServiceDate=20190422&f_url=Fire#_enliple", folder);
-            await downloader.DownloadAsync("http://sports.chosun.com/news/utype.htm?id=201906260100198980013567&ServiceDate=20190626", folder);
+            await downloader.DownloadAsync("https://mdpr.jp/music/detail/1809786", folder);
+            await downloader.DownloadAsync("https://mdpr.jp/photo/detail/6909306", folder);
+            await downloader.DownloadAsync("https://mdpr.jp/k-enta/detail/1809977", folder);
 
             Console.ReadKey();
         }

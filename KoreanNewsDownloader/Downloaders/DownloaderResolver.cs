@@ -66,6 +66,8 @@ namespace KoreanNewsDownloader
                 case "m.post.naver.com": return _services.GetRequiredService<NaverDownloader>();
                 case "sports.chosun.com":
                 case "m.sportschosun.com": return _services.GetRequiredService<ChosunDownloader>();
+                case "www.mdpr.jp":
+                case "mdpr.jp":  return _services.GetRequiredService<MdprDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");
