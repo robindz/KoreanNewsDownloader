@@ -11,7 +11,8 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.issuedaily.com/news/news_view.php?ns_idx=219988", folder);
+            await downloader.DownloadAsync("http://www.kukinews.com/news/article.html?no=616048", folder);
+            await downloader.DownloadAsync("http://www.kukinews.com/news/article.html?no=616048&mode=orig&rvw_no=", folder, true);
 
             Console.ReadKey();
         }

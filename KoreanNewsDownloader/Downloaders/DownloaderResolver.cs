@@ -58,6 +58,9 @@ namespace KoreanNewsDownloader
                 case "isplus.live.joins.com":
                 case "dcnewsj.joins.com": return _services.GetRequiredService<JoinsDownloader>();
                 case "www.issuedaily.com": return _services.GetRequiredService<IssuedailyDownloader>();
+                case "www.joynews24.com": return _services.GetRequiredService<Joynews24Downloader>();
+                case "www.kookje.co.kr": return _services.GetRequiredService<KookjeDownloader>();
+                case "www.kukinews.com": return _services.GetRequiredService<KukinewsDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");
