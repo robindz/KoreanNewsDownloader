@@ -44,7 +44,7 @@ namespace KoreanNewsDownloader
                 case "enews.imbc.com": return _services.GetRequiredService<ImbcDownloader>();
                 case "enews24.tving.com": return _services.GetRequiredService<TvingDownloader>();
                 case "enter.etoday.co.kr":
-                case "www.etoday.co.kr":  return _services.GetRequiredService<EtodayDownloader>();
+                case "www.etoday.co.kr": return _services.GetRequiredService<EtodayDownloader>();
                 case "entertain.v.daum.net": return _services.GetRequiredService<DaumDownloader>();
                 case "www.fnnews.com":
                 case "star.fnnews.com": return _services.GetRequiredService<FnnewsDownloader>();
@@ -64,6 +64,8 @@ namespace KoreanNewsDownloader
                 case "www.liveen.co.kr": return _services.GetRequiredService<LiveenDownloader>();
                 case "post.naver.com":
                 case "m.post.naver.com": return _services.GetRequiredService<NaverDownloader>();
+                case "sports.chosun.com":
+                case "m.sportschosun.com": return _services.GetRequiredService<ChosunDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");

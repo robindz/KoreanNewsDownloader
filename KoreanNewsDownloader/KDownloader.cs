@@ -83,6 +83,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<KukinewsDownloader>()
                 .AddTransient<LiveenDownloader>()
                 .AddTransient<NaverDownloader>()
+                .AddTransient<ChosunDownloader>()
                 .BuildServiceProvider();
         }
     }
