@@ -11,9 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("https://mdpr.jp/music/detail/1809786", folder);
-            await downloader.DownloadAsync("https://mdpr.jp/photo/detail/6909306", folder);
-            await downloader.DownloadAsync("https://mdpr.jp/k-enta/detail/1809977", folder);
+            await downloader.DownloadAsync("http://www.mediasr.co.kr/news/articleView.html?idxno=50932", folder);
 
             Console.ReadKey();
         }
