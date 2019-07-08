@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public JoinsDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "isplus.live.joins.com", "dcnewsj.joins.com"
             };

@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public KookjeDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.kookje.co.kr"
             };

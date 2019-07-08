@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class HeraldcorpDownloader : DownloaderBase
+    internal class MetroseoulDownloader : DownloaderBase
     {
-        public HeraldcorpDownloader(HttpClient httpClient)
+        public MetroseoulDownloader(HttpClient httpClient)
         {
             HostUrls = new List<string>
             {
-                "biz.heraldcorp.com", "pop.heraldcorp.com"
+                "www.metroseoul.co.kr"
             };
             HttpClient = httpClient;
         }
 
         public override async Task<IList<string>> GetImagesAsync(Uri uri)
         {
-            IList<string> images = await GetOgImageAsync(uri);
+            var images = await GetOgImageAsync(uri);
 
-            if (uri.Host == HostUrls[1])
-            {
-                images = images.Select(x => x.Replace("idx=42", "idx=999")).ToList();
-            }
+            images = images.Select(x => $"http://cdn.emetro.co.kr/html/image_view_maxw.php?x=9999999999&ds=9999999999&f={x.Split('/').Last()}").ToList();
 
             return images;
         }

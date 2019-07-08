@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public DispatchDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.dispatch.co.kr"
             };

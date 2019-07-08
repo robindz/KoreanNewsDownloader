@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public HankyungDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "bntnews.hankyung.com", "www.hankyung.com", "news.hankyung.com", "tenasia.hankyung.com"
             };

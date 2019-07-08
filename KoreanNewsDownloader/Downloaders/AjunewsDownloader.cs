@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public AjunewsDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.ajunews.com"
             };

@@ -69,6 +69,7 @@ namespace KoreanNewsDownloader
                 case "www.mdpr.jp":
                 case "mdpr.jp":  return _services.GetRequiredService<MdprDownloader>();
                 case "www.mediasr.co.kr": return _services.GetRequiredService<MediasrDownloader>();
+                case "www.metroseoul.co.kr": return _services.GetRequiredService<MetroseoulDownloader>();
             }
 
             throw new ArgumentException($"'{host}' is not a supported website.");

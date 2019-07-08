@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public EgnDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.egn.kr"
             };

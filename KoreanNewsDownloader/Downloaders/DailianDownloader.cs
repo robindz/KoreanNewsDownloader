@@ -9,7 +9,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public DailianDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.dailian.co.kr"
             };

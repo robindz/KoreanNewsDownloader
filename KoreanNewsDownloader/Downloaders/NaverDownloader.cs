@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public NaverDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "post.naver.com", "m.post.naver.com"
             };

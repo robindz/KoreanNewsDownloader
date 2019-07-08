@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public Joynews24Downloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.joynews24.com"
             };

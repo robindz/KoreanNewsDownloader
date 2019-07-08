@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public DaumDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "entertain.v.daum.net"
             };

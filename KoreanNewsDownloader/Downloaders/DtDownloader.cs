@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public DtDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.dt.co.kr"
             };

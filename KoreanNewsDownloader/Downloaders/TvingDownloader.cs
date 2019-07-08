@@ -9,7 +9,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public TvingDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "enews24.tving.com"
             };

@@ -9,7 +9,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public FnnewsDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "star.fnnews.com", "www.fnnews.com"
             };

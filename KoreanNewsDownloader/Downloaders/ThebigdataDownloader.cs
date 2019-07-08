@@ -9,7 +9,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public ThebigdataDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.thebigdata.co.kr", "cnews.thebigdata.co.kr"
             };

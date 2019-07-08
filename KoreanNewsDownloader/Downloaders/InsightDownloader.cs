@@ -11,9 +11,9 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public InsightDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
-                "www.insight.co.kr","photo.insight.co.kr"
+                "www.insight.co.kr", "photo.insight.co.kr"
             };
             HttpClient = httpClient;
         }

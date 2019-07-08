@@ -9,7 +9,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public EtodayDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "enter.etoday.co.kr", "www.etoday.co.kr"
             };

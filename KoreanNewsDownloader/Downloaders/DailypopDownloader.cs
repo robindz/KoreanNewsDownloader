@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public DailypopDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.dailypop.kr"
             };

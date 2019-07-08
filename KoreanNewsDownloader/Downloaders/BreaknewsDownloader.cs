@@ -10,7 +10,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public BreaknewsDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.breaknews.com"
             };

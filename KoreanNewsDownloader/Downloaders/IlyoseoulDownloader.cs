@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public IlyoseoulDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "www.ilyoseoul.co.kr"
             };

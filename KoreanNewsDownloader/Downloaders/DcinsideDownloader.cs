@@ -12,7 +12,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public DcinsideDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "gall.dcinside.com"
             };

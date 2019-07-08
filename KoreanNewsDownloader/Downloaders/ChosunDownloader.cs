@@ -9,7 +9,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         public ChosunDownloader(HttpClient httpClient)
         {
-            HostUrls = new List<string>()
+            HostUrls = new List<string>
             {
                 "sports.chosun.com", "m.sportschosun.com"
             };
