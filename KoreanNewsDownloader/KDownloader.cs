@@ -99,6 +99,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, News1Downloader>()
                 .AddTransient<IDownloader, NewsinsideDownloader>()
                 .AddTransient<IDownloader, NewspimDownloader>()
+                .AddTransient<IDownloader, NewsshareDownloader>()
                 .BuildServiceProvider();
         }
     }

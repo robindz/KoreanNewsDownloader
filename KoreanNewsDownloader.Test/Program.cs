@@ -11,8 +11,8 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.newspim.com/news/view/20181206000799", folder);
-            await downloader.DownloadAsync("http://newspim.com/news/view/20181206000799", folder, true);
+            await downloader.DownloadAsync("http://www.newsshare.co.kr/sub_read.html?uid=96026", folder);
+            await downloader.DownloadAsync("http://newsshare.co.kr/sub_read.html?uid=96026", folder, true);
 
             Console.ReadKey();
         }
