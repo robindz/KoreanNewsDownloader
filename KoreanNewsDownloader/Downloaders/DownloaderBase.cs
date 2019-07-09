@@ -28,7 +28,7 @@ namespace KoreanNewsDownloader.Downloaders
 
             for (int i = 0; i < images.Count(); i++)
             {
-                string fileName = CleanImageName($"{images[i].Split('/').Last()}");
+                string fileName = CleanImageName($"{images[i].Replace("/original.jpg", ".jpg").Split('/').Last()}");
                 using (Stream imageStream = await HttpClient.GetStreamAsync(images[i]))
                 {
                     FileMode fileMode = overwrite ? FileMode.Create : FileMode.CreateNew;
