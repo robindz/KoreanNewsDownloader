@@ -29,6 +29,8 @@ namespace KoreanNewsDownloader.Downloaders
             for (int i = 0; i < images.Count(); i++)
             {
                 string fileName = CleanImageName($"{images[i].Replace("/original.jpg", ".jpg").Split('/').Last()}");
+                byte[] t = await HttpClient.GetByteArrayAsync(images[i]);
+
                 using (Stream imageStream = await HttpClient.GetStreamAsync(images[i]))
                 {
                     FileMode fileMode = overwrite ? FileMode.Create : FileMode.CreateNew;
@@ -45,7 +47,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
 
-            var images = doc.DocumentNode
+             var images = doc.DocumentNode
                 .Descendants()
                 .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
                 .Select(x => x.GetAttributeValue("content", "").Replace("?1", ""))
