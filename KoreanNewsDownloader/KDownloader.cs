@@ -103,6 +103,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, NewstomatoDownloader>()
                 //.AddTransient<IDownloader, NewsenDownloader>()
                 .AddTransient<IDownloader, NocutnewsDownloader>()
+                .AddTransient<IDownloader, OhmynewsDownloader>()
                 .BuildServiceProvider();
         }
     }
