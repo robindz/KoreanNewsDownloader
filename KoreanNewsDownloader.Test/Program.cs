@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Test
@@ -11,8 +13,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync("http://www.newstomato.com/ReadNews.aspx?no=890702", folder);
-            await downloader.DownloadAsync("http://newstomato.com/ReadNews.aspx?no=890702", folder, true);
+            await downloader.DownloadAsync("https://www.nocutnews.co.kr/news/5139037", folder);
 
             Console.ReadKey();
         }

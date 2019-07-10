@@ -40,7 +40,7 @@ namespace KoreanNewsDownloader
             {
                 AllowAutoRedirect = true,
                 UseCookies = true,
-                CookieContainer = new CookieContainer(),
+                CookieContainer = new CookieContainer()
             };
 
             HttpClient httpClient = new HttpClient(handler);
@@ -101,6 +101,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, NewspimDownloader>()
                 .AddTransient<IDownloader, NewsshareDownloader>()
                 .AddTransient<IDownloader, NewstomatoDownloader>()
+                //.AddTransient<IDownloader, NewsenDownloader>()
+                .AddTransient<IDownloader, NocutnewsDownloader>()
                 .BuildServiceProvider();
         }
     }
