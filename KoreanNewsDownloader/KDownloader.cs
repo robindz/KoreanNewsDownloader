@@ -18,11 +18,6 @@ namespace KoreanNewsDownloader
             _resolver = _services.GetRequiredService<IDownloaderResolver>();
         }
 
-        public async Task DownloadAsync(string url, string filePath, bool overwrite = false)
-        {
-            await DownloadAsync(new Uri(url), filePath, overwrite);
-        }
-
         public async Task DownloadAsync(Uri uri, string filePath, bool overwrite = false)
         {
             var downloader = GetDownloader(uri.Host);
@@ -104,6 +99,7 @@ namespace KoreanNewsDownloader
                 //.AddTransient<IDownloader, NewsenDownloader>()
                 .AddTransient<IDownloader, NocutnewsDownloader>()
                 .AddTransient<IDownloader, OhmynewsDownloader>()
+                .AddTransient<IDownloader, OriconDownloader>()
                 .BuildServiceProvider();
         }
     }
