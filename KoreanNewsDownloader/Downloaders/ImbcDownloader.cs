@@ -18,12 +18,12 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
 
             var images = doc.DocumentNode
-                    .SelectSingleNode("//*[@class=\"ent-img\"]")
+                    .SelectSingleNode("//*[@class=\"ent-cont\"]")
                     .Descendants("img")
                     .Select(x => x.GetAttributeValue("src", ""))
                     .ToList();

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -13,66 +14,41 @@ namespace KoreanNewsDownloader.Downloaders
     public abstract class DownloaderBase : IDownloader
     {
         public IList<string> HostUrls { get; set; }
-        protected readonly int BufferSize = 65536;
+        protected readonly int BufferSize = (int)Math.Pow(2, 16);
         protected HttpClient HttpClient { get; set; }
 
-        public async Task DownloadAsync(string url, string filePath, bool overwrite)
+        public async Task DownloadArticleImagesAsync(string url, string filePath, bool overwrite)
         {
-            await DownloadAsync(new Uri(url), filePath, overwrite);
+            await DownloadArticleImagesAsync(new Uri(url), filePath, overwrite);
         }
 
-        public async Task DownloadAsync(Uri uri, string filePath, bool overwrite)
+        public async Task DownloadArticleImagesAsync(Uri uri, string filePath, bool overwrite)
         {
-            IList<string> images = await GetImagesAsync(uri.AbsoluteUri);
+            IList<string> images = await GetImageUrlsAsync(uri);
             images = images.Distinct().ToList();
+
+            IList<string> fileNames = GetFilenames(images).ToList();
 
             for (int i = 0; i < images.Count(); i++)
             {
-                string fileName = CleanImageName($"{images[i].Replace("/original.jpg", ".jpg").Split('/').Last()}");
-                byte[] t = await HttpClient.GetByteArrayAsync(images[i]);
-
-                using (Stream imageStream = await HttpClient.GetStreamAsync(images[i]))
-                {
-                    FileMode fileMode = overwrite ? FileMode.Create : FileMode.CreateNew;
-
-                    using (FileStream fileStream = new FileStream($"{filePath}/{fileName}", fileMode, FileAccess.Write, FileShare.None, BufferSize, true))
-                    {
-                        await imageStream.CopyToAsync(fileStream);
-                    }
-                }
+                await DownloadImageAsync(images[i], filePath, fileNames[i], overwrite ? FileMode.Create : FileMode.CreateNew);
             }
         }
 
-        public async Task<IList<string>> GetOgImageAsync(Uri uri)
+        public virtual async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
 
-             var images = doc.DocumentNode
-                .Descendants()
-                .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
-                .Select(x => x.GetAttributeValue("content", "").Replace("?1", ""))
-                .ToList();
-
-            return images;
-        }
-
-        public IList<string> GetOgImage(HtmlDocument doc)
-        {
             var images = doc.DocumentNode
-                .Descendants()
-                .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
-                .Select(x => x.GetAttributeValue("content", "").Replace("?1", ""))
-                .ToList();
+               .Descendants()
+               .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
+               .Select(x => x.GetAttributeValue("content", ""))
+               .ToList();
 
             return images;
         }
 
-        public async Task<IList<string>> GetImagesAsync(string url)
-        {
-            return await GetImagesAsync(new Uri(url));
-        }
-
-        public abstract Task<IList<string>> GetImagesAsync(Uri uri);
+        public virtual IEnumerable<string> GetFilenames(IEnumerable<string> images) => images.Select(x => x.Split('/').Last());
 
         protected async Task<HtmlDocument> GetDocumentAsync(Uri uri)
         {
@@ -80,6 +56,17 @@ namespace KoreanNewsDownloader.Downloaders
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
             return doc;
+        }
+
+        private async Task DownloadImageAsync(string source, string filePath, string fileName, FileMode fileMode)
+        {
+            using (Stream imageStream = await HttpClient.GetStreamAsync(source))
+            {
+                using (FileStream fileStream = new FileStream($"{filePath}/{fileName}", fileMode, FileAccess.Write, FileShare.None, BufferSize, true))
+                {
+                    await imageStream.CopyToAsync(fileStream);
+                }
+            }
         }
 
         private async Task<string> GetHtmlAsync(Uri uri)

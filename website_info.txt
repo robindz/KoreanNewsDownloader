@@ -1,0 +1,124 @@
+AJUNEWS.COM:
+URL: https://www.ajunews.com/view/20190704072752092
+M IMAGES: Y
+SAVENAME: default
+
+ASIATODAY.CO.KR:
+URL: http://www.asiatoday.co.kr/view.php?key=20190705010003683
+M IMAGES: N
+SAVENAME: remove ?1 at end of url
+
+HERALDCORP.COM:
+URL: http://biz.heraldcorp.com/culture/view.php?ud=201901151754080859875_1
+     http://pop.heraldcorp.com/view.php?ud=201907021700105694458_1
+M IMAGES: N
+SAVENAME: everything after last '=' in image url
+NOTE: pop.heraldcorp.com: replace 'idx=42' with 'idx=999' in image url, other: default
+
+HANKYUNG.COM:
+URL: http://bntnews.hankyung.com/apps/news?popup=0&nid=04&c1=04&c2=04&c3=00&nkey=201812110834233&mode=sub_view
+     https://www.hankyung.com/entertainment/article/201904221513H
+	 http://news.hankyung.com/article/201811053473H
+	 http://tenasia.hankyung.com/archives/1607731
+M IMAGES: Y: http://bntnews.hankyung.com/apps/news?popup=0&nid=04&c1=04&c2=04&c3=00&nkey=201812110834233&mode=sub_view
+			 http://tenasia.hankyung.com/archives/1607731
+	      N: https://www.hankyung.com/entertainment/article/201904221513H
+			 http://news.hankyung.com/article/201811053473H
+SAVENAME: tenasia.hankyung.com: remove resolution attributes after last '-' in image url, others: default
+
+BREAKNEWS.COM:
+URL: http://www.breaknews.com/sub_read.html?uid=665014
+M IMAGES: N
+SAVENAME: default
+
+GETNEWS.CO.KR:
+URL: http://www.getnews.co.kr/view.php?ud=20190519193930687580ed35aa76_16
+	 http://cnews.getnews.co.kr/view.php?ud=20181129102859399280ed35aa76_16
+M IMAGES: N
+SAVENAME: everything after last '=' in image url
+NOTE: replace 'idx=3' with 'idx=999' in image url
+
+THEBIGDATA.CO.KR:
+URL: http://cnews.thebigdata.co.kr/view.php?ud=201811281430301567482b2d7606_23
+	 http://www.thebigdata.co.kr/view.php?ud=201905200956044318482b2d7606_23
+M IMAGES: N
+SAVENAME: everything after last '=' in image url
+
+DAILIAN.CO.KR:
+URL: http://www.dailian.co.kr/news/view/789623
+M IMAGES: N
+SAVENAME: default
+
+DAILYPOP.KR:
+URL: http://www.dailypop.kr/news/articleView.html?idxno=39563
+M IMAGES: Y
+SAVENAME: default
+
+DISPATCH.CO.KR:
+URL: https://www.dispatch.co.kr/1566345
+M IMAGES: Y
+SAVENAME: default
+
+DT.CO.KR:
+URL: http://www.dt.co.kr/contents.html?article_no=2019042202109965035019&ref=daum
+M IMAGES: Y
+SAVENAME: remove ?var=... at end of url
+
+EDAILY.CO.KR: 
+URL: https://www.edaily.co.kr/news/read?newsId=01315286619442128&mediaCodeNo=258
+M IMAGES: N
+SAVENAME: default
+
+EGN.KR:
+URL: http://www.egn.kr/news/articleView.html?idxno=118150
+M IMAGES: Y
+SAVENAME: default
+
+IMBC.COM:
+URL: http://enews.imbc.com/News/RetrieveNewsInfo/242123
+M IMAGES: Y
+SAVENAME: default
+
+TVING.COM:
+URL: http://enews24.tving.com/news/article?nsID=1318559
+M IMAGES: N
+SAVENAME: default
+
+ETODAY.CO.KR:
+URL: http://www.etoday.co.kr/news/section/newsview.php?idxno=1648199
+     http://enter.etoday.co.kr/view/news_view.php?varAtcId=158112
+M IMAGES: N
+SAVENAME: default
+
+FNNEWS.COM
+URL: https://hugs.fnnews.com/article/201908041615131181
+     http://star.fnnews.com/archives/754837
+	 http://www.fnnews.com/news/201908041108002346
+M IMAGES: N
+SAVENAME: default
+
+DCINSIDE.COM:
+URL: https://gall.dcinside.com/board/view/?id=twice&no=9362256&exception_mode=recommend&page=1
+M IMAGES: Y
+SAVENAME: everything after last '=' in image url and append '.jpg'
+
+GETITK.COM:
+URL: https://www.getitk.com/%ED%8F%AC%ED%86%A0-%ED%8A%B8%EC%99%80%EC%9D%B4%EC%8A%A4-%EB%AF%B8%EB%AA%A8%EC%9D%98-%EC%8B%9C%EB%84%88%EC%A7%80-%ED%9A%A8%EA%B3%BC%EB%A5%BC-%EC%B2%B4%EA%B0%90%ED%95%98%EA%B3%A0-%EC%9E%88/
+M IMAGES: Y
+SAVENAME: default
+
+ILYOSEOUL.CO.KR:
+URL: http://www.ilyoseoul.co.kr/news/articleView.html?idxno=304669
+M IMAGES: Y
+SAVENAME: default
+
+INEWS24.COM:
+URL: http://www.inews24.com/view/1138814
+M IMAGES: Y
+SAVENAME: default
+
+INSIGHT.CO.KR:
+URL: https://www.insight.co.kr/news/223957
+     https://photo.insight.co.kr/news/239073
+M IMAGES: Y
+SAVENAME: default

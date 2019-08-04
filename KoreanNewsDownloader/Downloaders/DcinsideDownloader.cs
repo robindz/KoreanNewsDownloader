@@ -19,7 +19,7 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
 
@@ -30,6 +30,11 @@ namespace KoreanNewsDownloader.Downloaders
                 .ToList();
 
             return images;
+        }
+
+        public override IEnumerable<string> GetFilenames(IEnumerable<string> images)
+        {
+            return images.Select(x => $"{x.Substring(x.LastIndexOf("=") + 1)}.jpg");
         }
     }
 }

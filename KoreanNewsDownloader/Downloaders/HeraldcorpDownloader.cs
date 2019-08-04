@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
@@ -17,16 +18,21 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
-            IList<string> images = await GetOgImageAsync(uri);
+            IList<string> images = await base.GetImageUrlsAsync(uri);
 
             if (uri.Host == HostUrls[1])
             {
-                images = images.Select(x => x.Replace("idx=42", "idx=999")).ToList();
+                images = images.Select(x => Regex.Replace(x, @"idx=\d+", "idx=999")).ToList();
             }
 
             return images;
+        }
+
+        public override IEnumerable<string> GetFilenames(IEnumerable<string> images)
+        {
+            return images.Select(x => x.Substring(x.LastIndexOf("=") + 1));
         }
     }
 }

@@ -18,13 +18,13 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
             IList<string> images = new List<string>();
-            HtmlDocument doc = await GetDocumentAsync(uri);
 
             if (uri.Host == HostUrls[0])
             {
+                HtmlDocument doc = await GetDocumentAsync(uri);
                 images = doc.DocumentNode
                     .Descendants()
                     .Where(x => x.GetAttributeValue("bgcolor", "") == "#EEEEEE")
@@ -33,10 +33,11 @@ namespace KoreanNewsDownloader.Downloaders
             }
             else if (uri.Host == HostUrls[1] || uri.Host == HostUrls[2])
             {
-                images = await GetOgImageAsync(uri);
+                images = await base.GetImageUrlsAsync(uri);
             }
             else if (uri.Host == HostUrls[3])
             {
+                HtmlDocument doc = await GetDocumentAsync(uri);
                 images = doc.DocumentNode
                     .Descendants()
                     .Where(x => x.Id.Contains("attachment_"))

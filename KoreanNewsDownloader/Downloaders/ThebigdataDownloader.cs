@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -16,9 +16,9 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        public override IEnumerable<string> GetFilenames(IEnumerable<string> images)
         {
-            return await GetOgImageAsync(uri);
+            return images.Select(x => x.Substring(x.LastIndexOf("=") + 1));
         }
     }
 }

@@ -18,11 +18,11 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
             if (uri.Host == HostUrls[0])
             {
-                return await GetOgImageAsync(uri);
+                //return await GetOgImageAsync(uri);
             }
 
             HtmlDocument doc = await GetDocumentAsync(uri);

@@ -18,10 +18,10 @@ namespace KoreanNewsDownloader
             _resolver = _services.GetRequiredService<IDownloaderResolver>();
         }
 
-        public async Task DownloadAsync(Uri uri, string filePath, bool overwrite = false)
+        public async Task DownloadArticleImagesAsync(Uri uri, string filePath, bool overwrite = false)
         {
             var downloader = GetDownloader(uri.Host);
-            await downloader.DownloadAsync(uri, filePath, overwrite);
+            await downloader.DownloadArticleImagesAsync(uri, filePath, overwrite);
         }
 
         private IDownloader GetDownloader(string host)
@@ -63,7 +63,6 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, ImbcDownloader>()
                 .AddTransient<IDownloader, TvingDownloader>()
                 .AddTransient<IDownloader, EtodayDownloader>()
-                .AddTransient<IDownloader, DaumDownloader>()
                 .AddTransient<IDownloader, FnnewsDownloader>()
                 .AddTransient<IDownloader, DcinsideDownloader>()
                 .AddTransient<IDownloader, GetitkDownloader>()
@@ -96,7 +95,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, NewspimDownloader>()
                 .AddTransient<IDownloader, NewsshareDownloader>()
                 .AddTransient<IDownloader, NewstomatoDownloader>()
-                //.AddTransient<IDownloader, NewsenDownloader>()
+                .AddTransient<IDownloader, NewsenDownloader>()
                 .AddTransient<IDownloader, NocutnewsDownloader>()
                 .AddTransient<IDownloader, OhmynewsDownloader>()
                 .AddTransient<IDownloader, OriconDownloader>()

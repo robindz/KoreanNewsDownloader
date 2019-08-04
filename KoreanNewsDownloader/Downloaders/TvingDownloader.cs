@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -14,11 +12,6 @@ namespace KoreanNewsDownloader.Downloaders
                 "enews24.tving.com"
             };
             HttpClient = httpClient;
-        }
-
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
-        {
-            return await GetOgImageAsync(uri);
         }
     }
 }

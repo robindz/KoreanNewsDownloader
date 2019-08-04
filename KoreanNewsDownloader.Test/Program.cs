@@ -11,7 +11,8 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadAsync(new Uri("https://www.oricon.co.jp/news/2125266/photo/8/"), folder, true);
+            await downloader.DownloadArticleImagesAsync(new Uri("https://photo.insight.co.kr/news/239073"), folder, true);
+            await downloader.DownloadArticleImagesAsync(new Uri("https://www.insight.co.kr/news/223957"), folder, true);
 
             Console.ReadKey();
         }

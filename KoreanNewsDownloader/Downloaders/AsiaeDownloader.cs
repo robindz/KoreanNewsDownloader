@@ -18,13 +18,13 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
             IList<string> images = new List<string>();
-            HtmlDocument doc = await GetDocumentAsync(uri);
 
             if (uri.Host == HostUrls[0])
             {
+                HtmlDocument doc = await GetDocumentAsync(uri);
                 images = doc.DocumentNode
                     .SelectSingleNode("//*[@id=\"txt_area\"]")
                     .Descendants("img")
@@ -33,6 +33,7 @@ namespace KoreanNewsDownloader.Downloaders
             }
             else if (uri.Host == HostUrls[1])
             {
+                HtmlDocument doc = await GetDocumentAsync(uri);
                 images = doc.DocumentNode
                     .SelectSingleNode("//*[@id=\"article\"]")
                     .Descendants("img")
@@ -41,7 +42,7 @@ namespace KoreanNewsDownloader.Downloaders
             }
             else
             {
-                images = GetOgImage(doc);
+                images = await base.GetImageUrlsAsync(uri);
             }
 
             return images;
