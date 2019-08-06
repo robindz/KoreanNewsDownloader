@@ -122,3 +122,64 @@ URL: https://www.insight.co.kr/news/223957
      https://photo.insight.co.kr/news/239073
 M IMAGES: Y
 SAVENAME: default
+
+INTRONEWS.NET:
+URL: http://www.intronews.net/news/articleView.html?idxno=146726
+M IMAGES: N
+SAVENAME: default
+NOTE: replace 'thumbnail' to 'photo' and replace '_v150' to ''
+
+JOINS.COM:
+URL: http://isplus.live.joins.com/news/article/article.asp?total_id=22456266
+	 https://dcnewsj.joins.com/article/23518080?cloc=dcnewsj%7Clist
+M IMAGES: N: http://isplus.live.joins.com/news/article/article.asp?total_id=22456266
+		  Y: https://dcnewsj.joins.com/article/23518080?cloc=dcnewsj%7Clist
+SAVENAME: default
+
+ISSUEDAILY.COM:
+URL: http://www.issuedaily.com/news/news_view.php?ns_idx=219988
+M IMAGES: N
+SAVENAME: default
+
+JOYNEWS24.COM:
+URL: http://www.joynews24.com/view/1142298
+M IMAGES: Y
+SAVENAME: default
+
+KOOKJE.CO.KR:
+URL: http://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0500&key=20190617.99099007501
+     http://www.kookje.co.kr/news2011/asp/photo.asp?code=0900&pkey=719
+M IMAGES: Y
+SAVENAME: default
+NOTE: if url is a photo compilation (has photo.asp?code=...) then all the images are inside the div with id = 'thumbs', also replace the 'S' in the image url with 'L'
+
+KUKINEWS.COM:
+URL: http://www.kukinews.com/news/article.html?no=616048&mode=orig&rvw_no=
+M IMAGES: N
+SAVENAME: default
+
+LIVEEN.CO.KR:
+URL: http://www.liveen.co.kr/news/articleView.html?idxno=243468
+M IMAGES: N
+SAVENAME: default
+
+NAVER.COM:
+URL: https://m.post.naver.com/viewer/postView.nhn?volumeNo=19894147&memberNo=22171331
+	 https://post.naver.com/viewer/postView.nhn?volumeNo=18717990&memberNo=29747755
+M IMAGES: Y
+SAVENAME: UrlDecode the image name
+NOTE: extract the html from the script tag with id = '_clipContent' and remove everything after .jpg in url
+
+CHOSUN.COM:
+URL: http://sports.chosun.com/news/utype.htm?id=201906260100198980013567&ServiceDate=20190626
+     http://m.sportschosun.com/news.htm?id=201904220100178910012180&ServiceDate=20190422&f_url=Fire#_enliple
+M IMAGES: N
+SAVENAME: default
+
+MDPR.JP:
+URL: https://mdpr.jp/music/detail/1809786
+	 https://mdpr.jp/photo/detail/6909306
+	 https://mdpr.jp/k-enta/detail/1809977
+M IMAGES: Y
+SAVENAME: default
+NOTE: remove everything after .jpg in url

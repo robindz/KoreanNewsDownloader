@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
@@ -22,13 +23,26 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
 
-            var images = doc.DocumentNode
-                .SelectSingleNode("//*[@class=\"news_article\"]")
-                .Descendants("img")
-                .Select(x => x.GetAttributeValue("src", ""))
-                .ToList();
+            if (uri.AbsoluteUri.Contains("newsbody"))
+            {
+                var images = doc.DocumentNode
+                    .SelectSingleNode("//*[@class=\"news_article\"]")
+                    .Descendants("img")
+                    .Select(x => x.GetAttributeValue("src", ""))
+                    .ToList();
 
-            return images;
+                return images;
+            }
+            else
+            {
+                var images = doc.DocumentNode
+                    .SelectSingleNode("//*[@id=\"thumbs\"]")
+                    .Descendants("img")
+                    .Select(x => Regex.Replace(x.GetAttributeValue("src", ""), "/S", "/L"))
+                    .ToList();
+
+                return images;
+            }
         }
     }
 }

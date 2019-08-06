@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
@@ -24,7 +25,7 @@ namespace KoreanNewsDownloader.Downloaders
 
             var images = doc.DocumentNode
                 .SelectNodes("//*[@class=\"outputthumb\"]")
-                .Select(x => x.GetAttributeValue("src", "").Substring(0, x.GetAttributeValue("src", "").LastIndexOf(".jpg") + 4))
+                .Select(x => Regex.Replace(x.GetAttributeValue("src", ""), @"\?width.*", ""))
                 .ToList();
 
             return images;

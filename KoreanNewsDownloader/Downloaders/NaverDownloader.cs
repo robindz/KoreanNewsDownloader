@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -30,10 +32,15 @@ namespace KoreanNewsDownloader.Downloaders
 
             var images = doc.DocumentNode
                 .SelectNodes("//*[@class=\"se_mediaImage __se_img_el\"]")
-                .Select(x => x.GetAttributeValue("data-src", "").Substring(0, x.GetAttributeValue("data-src", "").LastIndexOf("?type=")))
+                .Select(x => Regex.Replace(x.GetAttributeValue("data-src", ""), @"\?type.*", ""))
                 .ToList();
 
             return images;
+        }
+
+        public override IEnumerable<string> GetFilenames(IEnumerable<string> images)
+        {
+            return images.Select(x => HttpUtility.UrlDecode(x.Split('/').Last()));
         }
     }
 }

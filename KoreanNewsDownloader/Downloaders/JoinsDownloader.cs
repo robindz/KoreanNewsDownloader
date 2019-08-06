@@ -22,11 +22,10 @@ namespace KoreanNewsDownloader.Downloaders
         {
             if (uri.Host == HostUrls[0])
             {
-                //return await GetOgImageAsync(uri);
+                return await base.GetImageUrlsAsync(uri);
             }
 
             HtmlDocument doc = await GetDocumentAsync(uri);
-
             var images = doc.DocumentNode
                 .SelectNodes("//*[@class=\"image\"]")
                 .Descendants("img")
