@@ -11,9 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadArticleImagesAsync(new Uri("https://mdpr.jp/music/detail/1809786"), folder, true);
-            await downloader.DownloadArticleImagesAsync(new Uri("https://mdpr.jp/photo/detail/6909306"), folder, true);
-            await downloader.DownloadArticleImagesAsync(new Uri("https://mdpr.jp/k-enta/detail/1809977"), folder, true);
+            await downloader.DownloadArticleImagesAsync(new Uri("http://osen.mt.co.kr/article/G1110961803"), folder, true);
 
             Console.ReadKey();
         }

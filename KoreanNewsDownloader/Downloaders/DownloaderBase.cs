@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -14,7 +13,7 @@ namespace KoreanNewsDownloader.Downloaders
     public abstract class DownloaderBase : IDownloader
     {
         public IList<string> HostUrls { get; set; }
-        protected readonly int BufferSize = (int)Math.Pow(2, 16);
+        protected readonly int BufferSize = (int)Math.Pow(2, 13);
         protected HttpClient HttpClient { get; set; }
 
         public async Task DownloadArticleImagesAsync(string url, string filePath, bool overwrite)

@@ -16,14 +16,16 @@ namespace KoreanNewsDownloader.Downloaders
             };
             HttpClient = httpClient;
         }
-        /*
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
-            var images = await GetOgImageAsync(uri);
+            var images = await base.GetImageUrlsAsync(uri);
+            return images.Select(x => $"http://cdn.emetro.co.kr/html/image_view_maxw.php?x=9999999999&ds=9999999999&f={x.Split('/').Last()}").ToList();
+        }
 
-            images = images.Select(x => $"http://cdn.emetro.co.kr/html/image_view_maxw.php?x=9999999999&ds=9999999999&f={x.Split('/').Last()}").ToList();
-
-            return images;
-        }*/
+        public override IEnumerable<string> GetFilenames(IEnumerable<string> images)
+        {
+            return images.Select(x => x.Substring(x.LastIndexOf("=") + 1));
+        }
     }
 }
