@@ -205,3 +205,54 @@ SAVENAME: default
 NOTE: moneys.ms.co.kr: replace the numbers between the last two '/'s by 00
 	  star.mr.co.kr: replace 'thumb' by 'image' and replace the first '/' and first two numbers after '.com'
 	  osen.mt.co.kr: append 'original' after 'article/' and remove '_1024x' from the url
+	  
+MYDAILY.CO.KR:
+URL: http://www.mydaily.co.kr/new_yk/html/read.php?newsid=201811281442305523&ext=da
+M IMAGES: Y
+SAVENAME: default
+
+NBNNEWS.CO.KR:
+URL: http://www.nbnnews.co.kr/news/articleView.html?idxno=226960
+M IMAGES: Y
+SAVENAME: default
+
+ASIAE.CO.KR:
+URL: http://nc.asiae.co.kr/view.htm?idxno=2019021215491181796
+	 http://stoo.asiae.co.kr/article.php?aid=52011665816
+	 http://tvdaily.asiae.co.kr/read.php3?aid=15433825051417865017
+M IMAGES: Y: http://nc.asiae.co.kr/view.htm?idxno=2019021215491181796
+		  N: http://stoo.asiae.co.kr/article.php?aid=52011665816
+			 http://tvdaily.asiae.co.kr/read.php3?aid=15433825051417865017
+SAVENAME: default
+
+NEWDAILY.CO.KR:
+URL: http://www.newdaily.co.kr/site/data/html/2018/12/28/2018122800157.html
+M IMAGES: Y
+SAVENAME: default
+
+NEWS-REPORT.CO.KR:
+URL: https://www.news-report.co.kr/69/?idx=1430120&bmode=view
+M IMAGES: Y
+SAVENAME: default
+
+IMAEIL.COM:
+URL: https://news.imaeil.com/Entertainments/2018122520110023242
+M IMAGES: Y
+SAVENAME: default
+
+KSTYLE.COM:
+URL: http://news.kstyle.com/article.ksn?articleNo=2106872
+M IMAGES: Y
+SAVENAME: default
+NOTE: remove everything after 'jpg' in the url
+
+TF.CO.KR:
+URL: http://news.tf.co.kr/read/photomovie/1741282.htm
+M IMAGES: Y
+SAVENAME: default
+
+NEWS1.KR:
+URL: http://www.news1.kr/photos/details/?3402915
+M IMAGES: N
+SAVENAME: use the numbers before the last '/' as the filename
+NOTE: replace 'article' with 'orginal' in the url and if the url contains 'view' replace it with 'details' and remove any parameters at the end of the url

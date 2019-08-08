@@ -16,14 +16,25 @@ namespace KoreanNewsDownloader.Downloaders
             };
             HttpClient = httpClient;
         }
-        /*
-        public override async Task<IList<string>> GetImagesAsync(Uri uri)
+        
+        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
-            var images = await GetOgImageAsync(uri);
+            IList<string> images = new List<string>();
 
-            images = images.Select(x => x.Replace("article", "original")).ToList();
+            if (uri.AbsoluteUri.Contains("view"))
+            {
+                uri = new Uri(uri.AbsoluteUri.Replace("view", "details").Replace("&80", ""));
+                images = await base.GetImageUrlsAsync(uri);
+                return images.Select(x => x.Replace("article", "original")).ToList();
+            }
 
-            return images;
-        }*/
+            images = await base.GetImageUrlsAsync(uri);
+            return images.Select(x => x.Replace("article", "original")).ToList();
+        }
+
+        public override IEnumerable<string> GetFilenames(IEnumerable<string> images)
+        {
+            return images.Select(x => $"{x.Replace("/original.jpg", "").Substring(x.Replace("/original.jpg", "").LastIndexOf('/') + 1)}.jpg");
+        }
     }
 }
