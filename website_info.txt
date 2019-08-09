@@ -256,3 +256,44 @@ URL: http://www.news1.kr/photos/details/?3402915
 M IMAGES: N
 SAVENAME: use the numbers before the last '/' as the filename
 NOTE: replace 'article' with 'orginal' in the url and if the url contains 'view' replace it with 'details' and remove any parameters at the end of the url
+
+NEWSINSIDE.KR:
+URL: http://www.newsinside.kr/news/articleView.html?idxno=652740
+M IMAGES: N
+SAVENAME: default
+
+NEWSPIM.COM:
+URL: http://newspim.com/news/view/20181206000799
+M IMAGES: N
+SAVENAME: default
+NOTE: remove '_w' from the image url
+
+NEWSSHARE.CO.KR:
+URL: http://www.newsshare.co.kr/sub_read.html?uid=96026
+M IMAGES: N
+SAVENAME: default
+
+NEWSTOMATO.COM:
+URL: http://www.newstomato.com/ReadNews.aspx?no=890702
+M IMAGES: N
+SAVENAME: default
+
+NOCUTNEWS.CO.KR:
+URL: https://www.nocutnews.co.kr/news/5139037
+M IMAGES: N
+SAVENAME: default
+
+OHMYNEWS.COM:
+URL: http://star.ohmynews.com/NWS_Web/OhmyStar/at_pg.aspx?CNTN_CD=A0002501468
+	 http://www.ohmynews.com/NWS_Web/View/img_pg.aspx?CNTN_CD=IE002416385
+M IMAGES: Y: http://www.ohmynews.com/NWS_Web/View/img_pg.aspx?CNTN_CD=IE002416385
+		  N: http://star.ohmynews.com/NWS_Web/OhmyStar/at_pg.aspx?CNTN_CD=A0002501468
+SAVENAME: default
+NOTE: star.ohmynews.com: replace 'STD' by 'ORG' in the image url
+	  ohmynews.com: get the image url from the style attribute from tags with class 'gal-thumb cssAjaxLink', replace 'CT_T_IMG' and 'MT' by 'ORG_IMG_FILE' and 'ORG' respectively
+	  
+ORICON.JP:
+URL: https://www.oricon.co.jp/news/2125266/photo/1/
+M IMAGES: N
+SAVENAME: default
+NOTE: multiple images available, but haven't found a way to get the HQ versions without making multiple HTTP requests
