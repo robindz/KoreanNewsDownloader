@@ -297,3 +297,42 @@ URL: https://www.oricon.co.jp/news/2125266/photo/1/
 M IMAGES: N
 SAVENAME: default
 NOTE: multiple images available, but haven't found a way to get the HQ versions without making multiple HTTP requests
+
+OSEN.CO.KR:
+URL: http://osen.mt.co.kr/article/G1111126968
+M IMAGES: N
+SAVENAME: default
+NOTE: append 'original' after 'article/' and remove '_1024x' from the url
+
+POLINEWS.CO.KR:
+URL: http://polinews.co.kr/news/article.html?no=400970
+M IMAGES: N
+SAVENAME: default
+
+SEDAILY.COM:
+URL: https://www.sedaily.com/NewsView/1S7ATY29FF
+M IMAGES: N
+SAVENAME: default
+
+SEGYE.COM:
+URL: http://segye.com/newsView/20190115002414
+M IMAGES: N
+SAVENAME: default
+NOTE: prepend 'http:' to the image url
+
+SEOUL.CO.KR:
+URL: https://www.seoul.co.kr/news/newsView.php?id=20181206500185&wlog_tag3=daum
+M IMAGES: Y
+SAVENAME: default
+NOTE: prepend 'https:' to the image url and remove '_V' from the image url
+
+SISAJOURNAL.COM:
+URL: http://www.sisajournal.com/news/articleView.html?idxno=184393
+M IMAGES: Y
+SAVENAME: default
+NOTE: prepend 'http://www.sisajournal.com' to the image url
+
+SPORBIZ.CO.KR:
+URL: http://www.sporbiz.co.kr/news/articleView.html?idxno=299210
+M IMAGES: N
+SAVENAME: default

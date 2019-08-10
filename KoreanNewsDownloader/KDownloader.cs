@@ -99,6 +99,13 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, NocutnewsDownloader>()
                 .AddTransient<IDownloader, OhmynewsDownloader>()
                 .AddTransient<IDownloader, OriconDownloader>()
+                .AddTransient<IDownloader, OsenDownloader>()
+                .AddTransient<IDownloader, PolinewsDownloader>()
+                .AddTransient<IDownloader, SedailyDownloader>()
+                .AddTransient<IDownloader, SegyeDownloader>()
+                .AddTransient<IDownloader, SeoulDownloader>()
+                .AddTransient<IDownloader, SisajournalDownloader>()
+                .AddTransient<IDownloader, SporbizDownloader>()
                 .BuildServiceProvider();
         }
     }
