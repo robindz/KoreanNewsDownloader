@@ -114,6 +114,9 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, SportsseoulDownloader>()
                 .AddTransient<IDownloader, SpotvnewsDownloader>()
                 .AddTransient<IDownloader, HankookilboDownloader>()
+                .AddTransient<IDownloader, StardailynewsDownloader>()
+                .AddTransient<IDownloader, TheceluvDownloader>()
+                .AddTransient<IDownloader, TheviewersDownloader>()
                 .BuildServiceProvider();
         }
     }

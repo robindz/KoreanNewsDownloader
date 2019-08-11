@@ -3,13 +3,13 @@ using System.Net.Http;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class SpotvnewsDownloader : DownloaderBase
+    internal class TheceluvDownloader : DownloaderBase
     {
-        public SpotvnewsDownloader(HttpClient httpClient)
+        public TheceluvDownloader(HttpClient httpClient)
         {
             HostUrls = new List<string>
             {
-                "spotvnews.co.kr", "www.spotvnews.co.kr"
+                "theceluv.com", "www.theceluv.com"
             };
             HttpClient = httpClient;
         }

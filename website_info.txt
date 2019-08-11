@@ -379,3 +379,20 @@ HANKOOKILBO.COM:
 URL: http://star.hankookilbo.com/News/Read/201811062091080318
 M IMAGES: N
 SAVENAME: default
+
+STARDAILYNEWS.CO.KR:
+URL: http://www.stardailynews.co.kr/news/articleView.html?idxno=223243
+M IMAGES: N
+SAVENAME: default
+NOTE: replace 'thumbnail' and '_v150' with 'photo' and '' respectively in the image url
+
+THECELUV.COM:
+URL: http://www.theceluv.com/article.php?aid=1545723443228418009
+M IMAGES: N
+SAVENAME: default
+
+THEVIEWERS.CO.KR:
+URL: http://theviewers.co.kr/news/articleView.html?idxno=41767
+M IMAGES: Y
+SAVENAME: default
+NOTE: prepend 'http://cds.theviewers.co.kr' if the image url starts with '/news/'
