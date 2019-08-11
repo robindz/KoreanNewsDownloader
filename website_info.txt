@@ -336,3 +336,46 @@ SPORBIZ.CO.KR:
 URL: http://www.sporbiz.co.kr/news/articleView.html?idxno=299210
 M IMAGES: N
 SAVENAME: default
+
+DONGA.COM:
+URL: http://sports.donga.com/3/all/20181228/93482736/1
+M IMAGES: Y
+SAVENAME: default
+
+HANKOOKI.COM:
+URL: http://sports.hankooki.com/lpage/entv/201908/sp20190801201547136730.htm
+M IMAGES: N
+SAVENAME: default
+NOTE: replace 'photo/' with 'original/' in image url
+
+KHAN.CO.KR:
+URL: http://sports.khan.co.kr/entertainment/sk_index.html?art_id=201904221718003&sec_id=540101&pt=nv
+M IMAGES: Y
+SAVENAME: default
+NOTE: replace 'l_' with '' in the image url
+
+MK.CO.KR:
+URl: https://www.mk.co.kr/star/photos/view/2018/12/771603/
+	 http://star.mk.co.kr/new/view.php?mc=ST&year=2018&no=771603
+	 http://sports.mk.co.kr/view.php?year=2018&no=744521
+M IMAGES: N
+
+SPORTSQ.CO.KR:
+URL: http://www.sportsq.co.kr/news/articleView.html?idxno=312470
+M IMAGES: Y
+SAVENAME: default
+
+SPORTSSEOUL.COM:
+URL: http://www.sportsseoul.com/news/read/803439
+M IMAGES: Y
+SAVENAME: default
+
+SPOTVNEWS.CO.KR:
+URL: http://www.spotvnews.co.kr/?mod=news&act=articleView&idxno=246655&sc_code=&page=3&total=448
+M IMAGES: N
+SAVENAME: default
+
+HANKOOKILBO.COM:
+URL: http://star.hankookilbo.com/News/Read/201811062091080318
+M IMAGES: N
+SAVENAME: default

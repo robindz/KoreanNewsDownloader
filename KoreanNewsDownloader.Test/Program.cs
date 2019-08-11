@@ -11,8 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadArticleImagesAsync(new Uri("http://www.sporbiz.co.kr/news/articleView.html?idxno=299210"), folder, true);
-            await downloader.DownloadArticleImagesAsync(new Uri("http://sporbiz.co.kr/news/articleView.html?idxno=299210"), folder, true);
+            await downloader.DownloadArticleImagesAsync(new Uri("http://star.hankookilbo.com/News/Read/201811062091080318"), folder, true);
 
             Console.ReadKey();
         }

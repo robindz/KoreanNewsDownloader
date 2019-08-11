@@ -106,6 +106,14 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, SeoulDownloader>()
                 .AddTransient<IDownloader, SisajournalDownloader>()
                 .AddTransient<IDownloader, SporbizDownloader>()
+                .AddTransient<IDownloader, DongaDownloader>()
+                .AddTransient<IDownloader, HankookiDownloader>()
+                .AddTransient<IDownloader, KhanDownloader>()
+                .AddTransient<IDownloader, MkDownloader>()
+                .AddTransient<IDownloader, SportsqDownloader>()
+                .AddTransient<IDownloader, SportsseoulDownloader>()
+                .AddTransient<IDownloader, SpotvnewsDownloader>()
+                .AddTransient<IDownloader, HankookilboDownloader>()
                 .BuildServiceProvider();
         }
     }
