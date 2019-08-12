@@ -47,6 +47,17 @@ namespace KoreanNewsDownloader.Downloaders
             return images;
         }
 
+        public IList<string> GetOgImageUrl(HtmlDocument document)
+        {
+            var images = document.DocumentNode
+               .Descendants()
+               .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
+               .Select(x => x.GetAttributeValue("content", ""))
+               .ToList();
+
+            return images;
+        }
+
         public virtual IEnumerable<string> GetFilenames(IEnumerable<string> images) => images.Select(x => x.Split('/').Last());
 
         protected async Task<HtmlDocument> GetDocumentAsync(Uri uri)

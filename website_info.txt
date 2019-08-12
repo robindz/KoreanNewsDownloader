@@ -396,3 +396,26 @@ URL: http://theviewers.co.kr/news/articleView.html?idxno=41767
 M IMAGES: Y
 SAVENAME: default
 NOTE: prepend 'http://cds.theviewers.co.kr' if the image url starts with '/news/'
+
+TOPSTARNEWS.NET:
+URL: http://www.topstarnews.net/news/articleView.html?idxno=653891
+M IMAGES: N
+SAVENAME: default
+NOTE: if the title of the article contains 'HD포토' or 'UHD포토' then replace 'thumbnail', 'v150' and '.jpg' with 'photo', '' and '_org.jpg' respectively
+
+TVJ.CO.KR:
+URL: http://www.tvj.co.kr/news/articleView.html?idxno=51159
+M IMAGES: N
+SAVENAME: default
+NOTE: replace 'thumbnail' and '_v150' with 'photo' and '' respectively
+
+TVREPORT.CO.KR:
+URL: https://www.tvreport.co.kr/1091393
+M IMAGES: N
+SAVENAME: default
+NOTE: replace '_1' with '_0' in the image url
+
+UPINEWS.KR:
+URL: http://www.upinews.kr/news/newsview.php?ncode=1065605968763168
+M IMAGES: N
+SAVENAME: default
