@@ -122,6 +122,16 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, TvreportDownloader>()
                 .AddTransient<IDownloader, UpinewsDownloader>()
                 .AddTransient<IDownloader, Viva100Downloader>()
+                .AddTransient<IDownloader, VopDownloader>()
+                .AddTransient<IDownloader, WebdailyDownloader>()
+                .AddTransient<IDownloader, WikitreeDownloader>()
+                .AddTransient<IDownloader, XportsnewsDownloader>()
+                .AddTransient<IDownloader, Istyle24Downloader>()
+                .AddTransient<IDownloader, KndailyDownloader>()
+                .AddTransient<IDownloader, BusanDownloader>()
+                .AddTransient<IDownloader, GenewsDownloader>()
+                .AddTransient<IDownloader, MediapenDownloader>()
+                .AddTransient<IDownloader, SiminilboDownloader>()
                 .BuildServiceProvider();
         }
     }

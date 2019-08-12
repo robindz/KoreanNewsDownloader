@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class ImbcDownloader : DownloaderBase
+    internal class WikitreeDownloader : DownloaderBase
     {
-        public ImbcDownloader(HttpClient httpClient)
+        public WikitreeDownloader(HttpClient httpClient)
         {
             HostUrls = new List<string>
             {
-                "enews.imbc.com"
+                "www.wikitree.co.kr"
             };
             HttpClient = httpClient;
         }
@@ -22,10 +22,10 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
             var images = doc.DocumentNode
-                    .SelectSingleNode("//*[@class=\"ent-cont\"]")
-                    .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", ""))
-                    .ToList();
+                .SelectSingleNode("//*[@id=\"wikicon\"]")
+                .Descendants("img")
+                .Select(x => x.GetAttributeValue("data-src", ""))
+                .ToList();
 
             return images;
         }

@@ -81,7 +81,7 @@ namespace KoreanNewsDownloader.Downloaders
 
         private async Task<string> GetHtmlAsync(Uri uri)
         {
-            return Encoding.UTF8.GetString(await HttpClient.GetByteArrayAsync(uri.AbsoluteUri));
+            return Encoding.UTF8.GetString(await HttpClient.GetByteArrayAsync(uri));
         }
 
         private string CleanImageName(string fileName)

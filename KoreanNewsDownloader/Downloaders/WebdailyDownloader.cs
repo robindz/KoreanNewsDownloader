@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class GetnewsDownloader : DownloaderBase
+    internal class WebdailyDownloader : DownloaderBase
     {
-        public GetnewsDownloader(HttpClient httpClient)
+        public WebdailyDownloader(HttpClient httpClient)
         {
             HostUrls = new List<string>
             {
-                "www.getnews.co.kr", "cnews.getnews.co.kr"
+                "www.webdaily.co.kr", "webdaily.co.kr"
             };
             HttpClient = httpClient;
         }

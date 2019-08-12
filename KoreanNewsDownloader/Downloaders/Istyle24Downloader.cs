@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class ImbcDownloader : DownloaderBase
+    internal class Istyle24Downloader : DownloaderBase
     {
-        public ImbcDownloader(HttpClient httpClient)
+        public Istyle24Downloader(HttpClient httpClient)
         {
             HostUrls = new List<string>
             {
-                "enews.imbc.com"
+                "zine.istyle24.com"
             };
             HttpClient = httpClient;
         }
@@ -22,10 +22,10 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
             var images = doc.DocumentNode
-                    .SelectSingleNode("//*[@class=\"ent-cont\"]")
-                    .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", ""))
-                    .ToList();
+                .SelectSingleNode("//*[@class=\"editor_area\"]")
+                .Descendants("img")
+                .Select(x => x.GetAttributeValue("src", ""))
+                .ToList();
 
             return images;
         }

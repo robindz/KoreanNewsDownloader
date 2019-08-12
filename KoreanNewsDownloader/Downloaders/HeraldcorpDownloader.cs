@@ -20,7 +20,7 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
-            IList<string> images = await base.GetImageUrlsAsync(uri);
+            var images = await base.GetImageUrlsAsync(uri);
 
             if (uri.Host == HostUrls[1])
             {

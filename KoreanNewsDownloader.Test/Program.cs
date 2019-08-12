@@ -11,8 +11,8 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadArticleImagesAsync(new Uri("http://www.viva100.com/main/view.php?key=20181106010002278"), folder, true);
-            await downloader.DownloadArticleImagesAsync(new Uri("http://viva100.com/main/view.php?key=20181106010002278"), folder, true);
+            await downloader.DownloadArticleImagesAsync(new Uri("http://www.siminilbo.co.kr/news/newsview.php?ncode=179524305975223"), folder, true);
+            await downloader.DownloadArticleImagesAsync(new Uri("http://siminilbo.co.kr/news/newsview.php?ncode=179524305975223"), folder, true);
 
             Console.ReadKey();
         }

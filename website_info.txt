@@ -419,3 +419,62 @@ UPINEWS.KR:
 URL: http://www.upinews.kr/news/newsview.php?ncode=1065605968763168
 M IMAGES: N
 SAVENAME: default
+NOTE: prepend 'http://www.upinews.kr' to the image url
+
+VIVA100.COM:
+URL: http://viva100.com/main/view.php?key=20181106010002278
+M IMAGES: N
+SAVENAME: default
+
+VOP.CO.KR:
+URL: http://www.vop.co.kr/A00001360142.html
+M IMAGES: Y
+SAVENAME: default
+NOTE: if the image url doesn't contain 'marked', insert 'marked/' after the last '/' in the image url, also make sure the protocol is always https
+
+WEBDAILY.CO.KR:
+URL: http://www.webdaily.co.kr/view.php?ud=201811151726536425ccf1619543_7
+M IMAGES: N
+SAVENAME: everything after last '=' in image url
+NOTE: replace 'idx=[number]' with 'idx=999' in image url
+
+WIKITREE.CO.KR:
+URL: https://www.wikitree.co.kr/main/news_view.php?id=403181
+M IMAGES: Y
+SAVENAME: default
+
+XPORTSNEWS.COM:
+URL: http://www.xportsnews.com/?ac=article_view&entry_id=1043631
+M IMAGES: Y
+SAVENAME: default
+
+ISTYLE24.COM:
+URL: http://zine.istyle24.com/Star/StarView.aspx?Idx=41168&Menu=3&_C_=23069
+M IMAGES: N
+SAVENAME: default
+
+KNDAILY.CO.KR:
+URL: http://www.kndaily.co.kr/news/articleView.html?idxno=89339
+M IMAGES: N
+SAVENAME: default
+
+BUSAN.COM:
+URL: http://www.busan.com/view/busan/view.php?code=2019071911285593000
+M IMAGES: N
+SAVENAME: default
+
+G-ENEWS.COM:
+URL: http://www.g-enews.com/view.php?ud=201904041751078093e8b8a793f7_1&ssk=search
+M IMAGES: N
+SAVENAME: everything after last '=' in image url
+NOTE: replace 'idx=[number]' with 'idx=999' in image url
+
+MEDIAPEN.COM:
+URL: http://www.mediapen.com/news/view/447602
+M IMAGES: N
+SAVENAME: default
+
+SIMINILBO.CO.KR:
+URL: http://www.siminilbo.co.kr/news/newsview.php?ncode=179524305975223
+M IMAGES: N
+SAVENAME: default
