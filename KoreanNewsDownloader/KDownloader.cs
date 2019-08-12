@@ -1,6 +1,7 @@
 ﻿using KoreanNewsDownloader.Downloaders;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,10 +19,26 @@ namespace KoreanNewsDownloader
             _resolver = _services.GetRequiredService<IDownloaderResolver>();
         }
 
+        public async Task DownloadArticleImagesAsync(string url, string filePath, bool overwrite = false)
+        {
+            await DownloadArticleImagesAsync(new Uri(url), filePath, overwrite);
+        }
+
         public async Task DownloadArticleImagesAsync(Uri uri, string filePath, bool overwrite = false)
         {
             var downloader = GetDownloader(uri.Host);
             await downloader.DownloadArticleImagesAsync(uri, filePath, overwrite);
+        }
+
+        public async Task<IList<string>> GetArticleImagesUrlsAsync(string url)
+        {
+            return await GetArticleImagesUrlsAsync(new Uri(url));
+        }
+
+        public async Task<IList<string>> GetArticleImagesUrlsAsync(Uri uri)
+        {
+            var downloader = GetDownloader(uri.Host);
+            return await downloader.GetImageUrlsAsync(uri);
         }
 
         private IDownloader GetDownloader(string host)

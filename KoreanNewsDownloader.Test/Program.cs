@@ -11,8 +11,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
-            await downloader.DownloadArticleImagesAsync(new Uri("http://www.siminilbo.co.kr/news/newsview.php?ncode=179524305975223"), folder, true);
-            await downloader.DownloadArticleImagesAsync(new Uri("http://siminilbo.co.kr/news/newsview.php?ncode=179524305975223"), folder, true);
+            Console.WriteLine(string.Join("\n", await downloader.GetArticleImagesUrlsAsync("https://mdpr.jp/music/detail/1809786")));
 
             Console.ReadKey();
         }
