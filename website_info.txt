@@ -258,9 +258,10 @@ SAVENAME: use the numbers before the last '/' as the filename
 NOTE: replace 'article' with 'orginal' in the url and if the url contains 'view' replace it with 'details' and remove any parameters at the end of the url
 
 NEWSINSIDE.KR:
-URL: http://www.newsinside.kr/news/articleView.html?idxno=652740
-M IMAGES: N
+URL: http://www.newsinside.kr/news/articleView.html?idxno=977287
+M IMAGES: Y
 SAVENAME: default
+NOTE: replace 'thumbnail' and '_v150' with 'photo' and '' respectively, prepend 'http://cds.newsinside.kr' to the image url if it doesn't begin with that
 
 NEWSPIM.COM:
 URL: http://newspim.com/news/view/20181206000799
@@ -482,4 +483,15 @@ SAVENAME: default
 CBCI.CO.KR:
 URL: http://www.cbci.co.kr/news/articleView.html?idxno=326582
 M IMAGES: N
+SAVENAME: default
+NOTE: replace 'thumbnail' and '_v150' with 'photo' and '' respectively
+
+FASHIONN.COM:
+URL: http://www.fashionn.com/board/read_new.php?table=1024&number=29799
+M IMAGES: Y
+SAVENAME: default
+
+BIZTRIBUNE.CO.KR:
+URL: http://www.biztribune.co.kr/news/articleView.html?idxno=220259
+M IMAGES: Y
 SAVENAME: default

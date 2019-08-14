@@ -150,6 +150,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, MediapenDownloader>()
                 .AddTransient<IDownloader, SiminilboDownloader>()
                 .AddTransient<IDownloader, CbciDownloader>()
+                .AddTransient<IDownloader, FashionnDownloader>()
+                .AddTransient<IDownloader, BiztribuneDownloader>()
                 .BuildServiceProvider();
         }
     }

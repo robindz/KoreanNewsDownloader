@@ -23,7 +23,8 @@ namespace KoreanNewsDownloader.Downloaders
             HtmlDocument doc = await GetDocumentAsync(uri);
             var images = doc.DocumentNode
                     .SelectNodes("//figure/img")
-                    .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.theviewers.co.kr{x.GetAttributeValue("src", "")}" : x.GetAttributeValue("src", ""))
+                    .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.theviewers.co.kr{x.GetAttributeValue("src", "")}" 
+                                                                                     : x.GetAttributeValue("src", ""))
                     .ToList();
 
             Console.WriteLine(uri.AbsoluteUri);

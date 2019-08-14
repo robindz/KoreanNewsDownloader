@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class NewsinsideDownloader : DownloaderBase
+    internal class BiztribuneDownloader : DownloaderBase
     {
-        public NewsinsideDownloader(HttpClient httpClient)
+        public BiztribuneDownloader(HttpClient httpClient)
         {
             HostUrls = new List<string>
             {
-                "www.newsinside.kr", "newsinside.kr"
+                "www.biztribune.co.kr", "biztribune.co.kr"
             };
             HttpClient = httpClient;
         }
@@ -21,12 +21,11 @@ namespace KoreanNewsDownloader.Downloaders
         public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
         {
             HtmlDocument doc = await GetDocumentAsync(uri);
-
             var images = doc.DocumentNode
-                .SelectSingleNode("//*[@id=\"articleBody\"]")
+                .SelectSingleNode("//*[@id=\"article-view-content-div\"]")
                 .SelectNodes("//figure/img")
-                .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.newsinside.kr{x.GetAttributeValue("src", "").Replace("thumbnail", "photo").Replace("_v150", "")}"
-                                                                                 : x.GetAttributeValue("src", "").Replace("thumbnail", "photo").Replace("_v150", ""))
+                .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://www.biztribune.co.kr{x.GetAttributeValue("src", "")}"
+                                                                                 : x.GetAttributeValue("src", ""))
                 .ToList();
 
             return images;
