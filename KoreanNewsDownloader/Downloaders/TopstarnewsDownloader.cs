@@ -1,9 +1,6 @@
-﻿using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -18,12 +15,11 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            HtmlDocument doc = await GetDocumentAsync(uri);
-            var images = GetOgImageUrl(doc);
+            var images = base.GetArticleImages();
 
-            string title = doc.DocumentNode
+            string title = Document.DocumentNode
                 .Descendants("meta")
                 .Where(x => x.GetAttributeValue("name", "") == "title")
                 .FirstOrDefault()
@@ -31,7 +27,7 @@ namespace KoreanNewsDownloader.Downloaders
 
             if (title.Contains("HD포토") || title.Contains("UHD포토"))
             {
-                images = images.Select(x => x.Replace("thumbnail", "photo").Replace("v150", "org").Replace(".jpg", "_org.jpg")).ToList();
+                images = images.Select(x => x.Replace("thumbnail", "photo").Replace("v150", "org").Replace(".jpg", "_org.jpg"));
             }
 
             return images;

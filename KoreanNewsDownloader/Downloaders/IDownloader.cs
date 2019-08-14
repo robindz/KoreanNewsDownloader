@@ -6,8 +6,9 @@ namespace KoreanNewsDownloader.Downloaders
 {
     public interface IDownloader
     {
-        IList<string> HostUrls { get; set; }
-        Task DownloadArticleImagesAsync(Uri uri, string filePath, bool overwrite);
-        Task<IList<string>> GetImageUrlsAsync(Uri uri);
+        List<string> HostUrls { get; set; }
+        Task LoadArticleAsync(Uri uri);
+        Task DownloadArticleImagesAsync(string filePath, bool overwrite);
+        IEnumerable<string> GetArticleImages();
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -16,20 +14,11 @@ namespace KoreanNewsDownloader.Downloaders
             };
             HttpClient = httpClient;
         }
-        
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+
+        public override IEnumerable<string> GetArticleImages()
         {
-            IList<string> images = new List<string>();
-
-            if (uri.AbsoluteUri.Contains("view"))
-            {
-                uri = new Uri(uri.AbsoluteUri.Replace("view", "details").Replace("&80", ""));
-                images = await base.GetImageUrlsAsync(uri);
-                return images.Select(x => x.Replace("article", "original")).ToList();
-            }
-
-            images = await base.GetImageUrlsAsync(uri);
-            return images.Select(x => x.Replace("article", "original")).ToList();
+            var images = base.GetArticleImages();
+            return images.Select(x => x.Replace("article", "original"));
         }
 
         public override IEnumerable<string> GetFilenames(IEnumerable<string> images)

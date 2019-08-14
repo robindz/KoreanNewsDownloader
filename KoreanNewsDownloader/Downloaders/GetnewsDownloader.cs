@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -18,10 +16,10 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            var images = await base.GetImageUrlsAsync(uri);
-            return images.Select(x => Regex.Replace(x, @"idx=\d+", "idx=999")).ToList();
+            var images = base.GetArticleImages();
+            return images.Select(x => Regex.Replace(x, @"idx=\d+", "idx=999"));
         }
 
         public override IEnumerable<string> GetFilenames(IEnumerable<string> images)

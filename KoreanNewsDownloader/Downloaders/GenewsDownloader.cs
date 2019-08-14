@@ -1,10 +1,7 @@
-﻿using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -19,16 +16,12 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            HtmlDocument doc = await GetDocumentAsync(uri);
-            var images = doc.DocumentNode
+            return Document.DocumentNode
                     .SelectNodes("//*[@class=\"article_con_img\"]")
                     .Descendants("img")
-                    .Select(x => Regex.Replace(x.GetAttributeValue("src", ""), @"idx=\d+", "idx=999"))
-                    .ToList();
-
-            return images;
+                    .Select(x => Regex.Replace(x.GetAttributeValue("src", ""), @"idx=\d+", "idx=999"));
         }
 
         public override IEnumerable<string> GetFilenames(IEnumerable<string> images)

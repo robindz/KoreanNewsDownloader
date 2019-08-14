@@ -1,10 +1,8 @@
 ﻿using HtmlAgilityPack;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
@@ -20,22 +18,18 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            HtmlDocument doc = await GetDocumentAsync(uri);
-
-            string html = doc.DocumentNode
+            string html = Document.DocumentNode
                 .SelectSingleNode("//*[@id=\"__clipContent\"]")
                 .InnerText;
 
+            HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
 
-            var images = doc.DocumentNode
+            return doc.DocumentNode
                 .SelectNodes("//*[@class=\"se_mediaImage __se_img_el\"]")
-                .Select(x => Regex.Replace(x.GetAttributeValue("data-src", ""), @"\?type.*", ""))
-                .ToList();
-
-            return images;
+                .Select(x => Regex.Replace(x.GetAttributeValue("data-src", ""), @"\?type.*", ""));
         }
 
         public override IEnumerable<string> GetFilenames(IEnumerable<string> images)

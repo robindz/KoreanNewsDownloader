@@ -1,9 +1,7 @@
-﻿using HtmlAgilityPack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -18,34 +16,26 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            IList<string> images = new List<string>();
-
-            if (uri.Host == HostUrls[0])
+            if (Uri.Host == HostUrls[0])
             {
-                HtmlDocument doc = await GetDocumentAsync(uri);
-                images = doc.DocumentNode
+                return Document.DocumentNode
                     .Descendants()
                     .Where(x => x.GetAttributeValue("bgcolor", "") == "#EEEEEE")
-                    .Select(x => x.FirstChild.GetAttributeValue("src", ""))
-                    .ToList();
+                    .Select(x => x.FirstChild.GetAttributeValue("src", ""));
             }
-            else if (uri.Host == HostUrls[1] || uri.Host == HostUrls[2])
+            else if (Uri.Host == HostUrls[1] || Uri.Host == HostUrls[2])
             {
-                images = await base.GetImageUrlsAsync(uri);
+                return base.GetArticleImages();
             }
-            else if (uri.Host == HostUrls[3])
+            else
             {
-                HtmlDocument doc = await GetDocumentAsync(uri);
-                images = doc.DocumentNode
+                return Document.DocumentNode
                     .Descendants()
                     .Where(x => x.Id.Contains("attachment_"))
-                    .Select(x => x.FirstChild.GetAttributeValue("src", "").Substring(0, x.FirstChild.GetAttributeValue("src", "").LastIndexOf("-")) + ".jpg")
-                    .ToList();
+                    .Select(x => x.FirstChild.GetAttributeValue("src", "").Substring(0, x.FirstChild.GetAttributeValue("src", "").LastIndexOf("-")) + ".jpg");
             }
-            
-            return images;
         }
     }
 }

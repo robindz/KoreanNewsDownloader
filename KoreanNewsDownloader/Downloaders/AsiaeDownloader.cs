@@ -1,9 +1,7 @@
-﻿using HtmlAgilityPack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -18,34 +16,26 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            IList<string> images = new List<string>();
-
-            if (uri.Host == HostUrls[0])
+            if (Uri.Host == HostUrls[0])
             {
-                HtmlDocument doc = await GetDocumentAsync(uri);
-                images = doc.DocumentNode
+                return Document.DocumentNode
                     .SelectSingleNode("//*[@id=\"txt_area\"]")
                     .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", "").Replace("/1/", "/4/"))
-                    .ToList();
+                    .Select(x => x.GetAttributeValue("src", "").Replace("/1/", "/4/"));
             }
-            else if (uri.Host == HostUrls[1])
+            else if (Uri.Host == HostUrls[1])
             {
-                HtmlDocument doc = await GetDocumentAsync(uri);
-                images = doc.DocumentNode
+                return Document.DocumentNode
                     .SelectSingleNode("//*[@id=\"article\"]")
                     .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", ""))
-                    .ToList();
+                    .Select(x => x.GetAttributeValue("src", ""));
             }
             else
             {
-                images = await base.GetImageUrlsAsync(uri);
+                return base.GetArticleImages();
             }
-
-            return images;
         }
     }
 }

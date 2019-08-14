@@ -495,3 +495,4 @@ BIZTRIBUNE.CO.KR:
 URL: http://www.biztribune.co.kr/news/articleView.html?idxno=220259
 M IMAGES: Y
 SAVENAME: default
+NOTE: prepend 'http://www.biztribune.co.kr' to the image url if it doesn't begin with that

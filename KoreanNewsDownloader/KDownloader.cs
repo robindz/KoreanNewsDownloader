@@ -12,6 +12,7 @@ namespace KoreanNewsDownloader
     {
         private readonly IServiceProvider _services;
         private readonly IDownloaderResolver _resolver;
+        private IDownloader _downloader;
 
         public KDownloader()
         {
@@ -19,26 +20,25 @@ namespace KoreanNewsDownloader
             _resolver = _services.GetRequiredService<IDownloaderResolver>();
         }
 
-        public async Task DownloadArticleImagesAsync(string url, string filePath, bool overwrite = false)
+        public async Task LoadArticleAsync(string url)
         {
-            await DownloadArticleImagesAsync(new Uri(url), filePath, overwrite);
+            await LoadArticleAsync(new Uri(url));
         }
 
-        public async Task DownloadArticleImagesAsync(Uri uri, string filePath, bool overwrite = false)
+        public async Task LoadArticleAsync(Uri uri)
         {
-            var downloader = GetDownloader(uri.Host);
-            await downloader.DownloadArticleImagesAsync(uri, filePath, overwrite);
+            _downloader = GetDownloader(uri.Host);
+            await _downloader.LoadArticleAsync(uri);
         }
 
-        public async Task<IList<string>> GetArticleImagesUrlsAsync(string url)
+        public async Task DownloadArticleImagesAsync(string path, bool overwrite = false)
         {
-            return await GetArticleImagesUrlsAsync(new Uri(url));
+            await _downloader.DownloadArticleImagesAsync(path, overwrite);
         }
 
-        public async Task<IList<string>> GetArticleImagesUrlsAsync(Uri uri)
+        public IEnumerable<string> GetArticleImages()
         {
-            var downloader = GetDownloader(uri.Host);
-            return await downloader.GetImageUrlsAsync(uri);
+            return  _downloader.GetArticleImages();
         }
 
         private IDownloader GetDownloader(string host)
@@ -56,7 +56,7 @@ namespace KoreanNewsDownloader
             };
 
             HttpClient httpClient = new HttpClient(handler);
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36");
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36");
 
             return new ServiceCollection()
                 // HttpClient

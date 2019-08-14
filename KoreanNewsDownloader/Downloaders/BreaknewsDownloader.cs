@@ -1,8 +1,6 @@
-﻿using HtmlAgilityPack;
-using System;
+﻿using KoreanNewsDownloader.Extensions;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -17,18 +15,11 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            HtmlDocument doc = await GetDocumentAsync(uri);
-
-            IList<string> images = new List<string>
-            {
-                doc.DocumentNode
-                .SelectSingleNode("//*[@id=\"img_pop_view\"]")
-                .GetAttributeValue("src", "")
-            };
-
-            return images;
+            return Document.DocumentNode
+                           .SelectSingleNode("//*[@id=\"img_pop_view\"]")
+                           .GetAttributeValue("src", "").Yield();
         }
     }
 }

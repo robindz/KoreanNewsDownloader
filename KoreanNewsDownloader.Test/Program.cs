@@ -10,9 +10,14 @@ namespace KoreanNewsDownloader.Test
             string folder = @"C:\Users\robin\Desktop\botlog";
 
             var downloader = new KDownloader();
-
-            await downloader.DownloadArticleImagesAsync("http://www.biztribune.co.kr/news/articleView.html?idxno=220259", folder, true);
-            await downloader.DownloadArticleImagesAsync("http://biztribune.co.kr/news/articleView.html?idxno=220259", folder, true);
+            await downloader.LoadArticleAsync("http://bntnews.hankyung.com/apps/news?popup=0&nid=04&c1=04&c2=04&c3=00&nkey=201812110834233&mode=sub_view");
+            await downloader.DownloadArticleImagesAsync(folder, true);
+            await downloader.LoadArticleAsync("https://www.hankyung.com/entertainment/article/201904221513H");
+            await downloader.DownloadArticleImagesAsync(folder, true);
+            await downloader.LoadArticleAsync("http://news.hankyung.com/article/201811053473H");
+            await downloader.DownloadArticleImagesAsync(folder, true);
+            await downloader.LoadArticleAsync("http://tenasia.hankyung.com/archives/1607731");
+            await downloader.DownloadArticleImagesAsync(folder, true);
 
             Console.ReadKey();
         }

@@ -1,9 +1,6 @@
-﻿using HtmlAgilityPack;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -18,17 +15,13 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            HtmlDocument doc = await GetDocumentAsync(uri);
-            var images = doc.DocumentNode
+            return Document.DocumentNode
                 .SelectNodes("//*[@id=\"vopimageAD\"]")
                 .Select(x => (x.GetAttributeValue("src", "").Contains("marked") ? x.GetAttributeValue("src", "")
                                                                                 : x.GetAttributeValue("src", "").Insert(x.GetAttributeValue("src", "")
-                                                                                   .LastIndexOf('/'), "/marked")).Replace("http:", "https:"))
-                .ToList();
-
-            return images;
+                                                                                   .LastIndexOf('/'), "/marked")).Replace("http:", "https:"));
         }
     }
 }

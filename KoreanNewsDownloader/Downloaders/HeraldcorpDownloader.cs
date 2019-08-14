@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -18,13 +17,13 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            var images = await base.GetImageUrlsAsync(uri);
+            var images = base.GetArticleImages();
 
-            if (uri.Host == HostUrls[1])
+            if (Uri.Host == HostUrls[1])
             {
-                images = images.Select(x => Regex.Replace(x, @"idx=\d+", "idx=999")).ToList();
+                images = images.Select(x => Regex.Replace(x, @"idx=\d+", "idx=999"));
             }
 
             return images;

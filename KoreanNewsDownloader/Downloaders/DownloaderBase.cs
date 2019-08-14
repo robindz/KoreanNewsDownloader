@@ -3,95 +3,77 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
     public abstract class DownloaderBase : IDownloader
     {
-        public IList<string> HostUrls { get; set; }
+        public List<string> HostUrls { get; set; }
         protected readonly int BufferSize = (int)Math.Pow(2, 13);
+        protected HtmlDocument Document { get; set; } = new HtmlDocument();
+        protected Uri Uri { get; set; }
         protected HttpClient HttpClient { get; set; }
 
-        public async Task DownloadArticleImagesAsync(string url, string filePath, bool overwrite)
+        public async Task LoadArticleAsync(Uri uri)
         {
-            await DownloadArticleImagesAsync(new Uri(url), filePath, overwrite);
+            Uri = ValidateUri(uri);
+            string html = await GetHtmlAsync();
+            Document.LoadHtml(html);
         }
 
-        public async Task DownloadArticleImagesAsync(Uri uri, string filePath, bool overwrite)
+        public async Task DownloadArticleImagesAsync(string path, bool overwrite)
         {
-            IList<string> images = await GetImageUrlsAsync(uri);
+            List<string> images = GetArticleImages().ToList();
             images = images.Distinct().ToList();
 
             IList<string> fileNames = GetFilenames(images).ToList();
 
             for (int i = 0; i < images.Count(); i++)
             {
-                await DownloadImageAsync(images[i], filePath, fileNames[i], overwrite ? FileMode.Create : FileMode.CreateNew);
+                await DownloadImageAsync(images[i], path, fileNames[i], overwrite ? FileMode.Create : FileMode.CreateNew);
             }
         }
 
-        public virtual async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public virtual IEnumerable<string> GetArticleImages()
         {
-            HtmlDocument doc = await GetDocumentAsync(uri);
-
-            var images = doc.DocumentNode
-               .Descendants()
-               .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
-               .Select(x => x.GetAttributeValue("content", ""))
-               .ToList();
-
-            return images;
-        }
-
-        public IList<string> GetOgImageUrl(HtmlDocument document)
-        {
-            var images = document.DocumentNode
-               .Descendants()
-               .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
-               .Select(x => x.GetAttributeValue("content", ""))
-               .ToList();
-
-            return images;
+            return GetOgArticleImage();
         }
 
         public virtual IEnumerable<string> GetFilenames(IEnumerable<string> images) => images.Select(x => x.Split('/').Last());
 
-        protected async Task<HtmlDocument> GetDocumentAsync(Uri uri)
+        private IEnumerable<string> GetOgArticleImage()
         {
-            string html = await GetHtmlAsync(uri);
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(html);
-            return doc;
+            return Document.DocumentNode
+               .Descendants()
+               .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
+               .Select(x => x.GetAttributeValue("content", ""));
         }
 
-        private async Task DownloadImageAsync(string source, string filePath, string fileName, FileMode fileMode)
+        private async Task DownloadImageAsync(string source, string path, string name, FileMode fileMode)
         {
             using (Stream imageStream = await HttpClient.GetStreamAsync(source))
             {
-                using (FileStream fileStream = new FileStream($"{filePath}/{fileName}", fileMode, FileAccess.Write, FileShare.None, BufferSize, true))
+                using (FileStream fileStream = new FileStream($"{path}/{name}", fileMode, FileAccess.Write, FileShare.None, BufferSize, true))
                 {
                     await imageStream.CopyToAsync(fileStream);
                 }
             }
         }
 
-        private async Task<string> GetHtmlAsync(Uri uri)
+        private async Task<string> GetHtmlAsync()
         {
-            return Encoding.UTF8.GetString(await HttpClient.GetByteArrayAsync(uri));
+            return Encoding.UTF8.GetString(await HttpClient.GetByteArrayAsync(Uri));
         }
 
-        private string CleanImageName(string fileName)
+        private Uri ValidateUri(Uri uri)
         {
-            fileName = fileName.Substring(fileName.LastIndexOf("=") + 1);
-            if (!(fileName.EndsWith(".png") || fileName.EndsWith(".jpg") || fileName.EndsWith(".jpeg") || fileName.EndsWith(".gif")))
-            {
-                fileName += ".jpg";
-            }
-            return HttpUtility.UrlDecode(fileName);
+            if ((uri.Host == "www.news1.kr" || uri.Host == "news1.kr") && uri.AbsoluteUri.Contains("view"))
+                return new Uri(uri.AbsoluteUri.Replace("view", "details").Replace("&80", ""));
+            return uri;
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using HtmlAgilityPack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -18,37 +16,29 @@ namespace KoreanNewsDownloader.Downloaders
             HttpClient = httpClient;
         }
 
-        public override async Task<IList<string>> GetImageUrlsAsync(Uri uri)
+        public override IEnumerable<string> GetArticleImages()
         {
-            IList<string> images = new List<string>();
-            HtmlDocument doc = await GetDocumentAsync(uri);
-
-            if (uri.Host == HostUrls[0])
+            if (Uri.Host == HostUrls[0])
             {
-                images = doc.DocumentNode
+                return Document.DocumentNode
                     .SelectSingleNode("//*[@id=\"textBody\"]")
                     .Descendants("img")
                     .Select(x => x.GetAttributeValue("src", ""))
-                    .Select(x => $"{x.Substring(0, x.LastIndexOf('/') - 2)}00{x.Substring(x.LastIndexOf('/'))}")
-                    .ToList();
+                    .Select(x => $"{x.Substring(0, x.LastIndexOf('/') - 2)}00{x.Substring(x.LastIndexOf('/'))}");
             }
-            else if (uri.Host == HostUrls[1])
+            else if (Uri.Host == HostUrls[1])
             {
-                images = doc.DocumentNode
+                return Document.DocumentNode
                     .SelectSingleNode("//*[@id=\"textBody\"]")
                     .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", "").Replace("thumb", "image").Replace(".com/06", ".com"))
-                    .ToList();
+                    .Select(x => x.GetAttributeValue("src", "").Replace("thumb", "image").Replace(".com/06", ".com"));
             }
             else
             {
-                images = doc.DocumentNode
+                return Document.DocumentNode
                     .SelectNodes("//*[@class=\"view_photo up\"]")
-                    .Select(x => x.GetAttributeValue("src", "").Replace("article", "article/original").Replace("_1024x", ""))
-                    .ToList();
+                    .Select(x => x.GetAttributeValue("src", "").Replace("article", "article/original").Replace("_1024x", ""));
             }
-
-            return images;
         }
     }
 }
