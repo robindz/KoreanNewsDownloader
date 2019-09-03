@@ -41,6 +41,11 @@ namespace KoreanNewsDownloader
             return  _downloader.GetArticleImages();
         }
 
+        public string GetArticleTitle()
+        {
+            return _downloader.GetArticleTitle();
+        }
+
         private IDownloader GetDownloader(string host)
         {
             return _resolver.GetDownloaderByName(host);

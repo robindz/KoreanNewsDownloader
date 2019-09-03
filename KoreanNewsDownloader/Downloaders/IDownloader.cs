@@ -10,5 +10,6 @@ namespace KoreanNewsDownloader.Downloaders
         Task LoadArticleAsync(Uri uri);
         Task DownloadArticleImagesAsync(string filePath, bool overwrite);
         IEnumerable<string> GetArticleImages();
+        string GetArticleTitle();
     }
 }

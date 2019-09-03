@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,14 +42,28 @@ namespace KoreanNewsDownloader.Downloaders
             return GetOgArticleImage();
         }
 
+        public virtual string GetArticleTitle()
+        {
+            return GetOgArticleTitle();
+        }
+
         public virtual IEnumerable<string> GetFilenames(IEnumerable<string> images) => images.Select(x => x.Split('/').Last());
 
         private IEnumerable<string> GetOgArticleImage()
         {
             return Document.DocumentNode
-               .Descendants()
-               .Where(x => x.Name == "meta" && x.GetAttributeValue("property", "") == "og:image")
+               .Descendants("meta")
+               .Where(x => x.GetAttributeValue("property", "") == "og:image")
                .Select(x => x.GetAttributeValue("content", ""));
+        }
+
+        private string GetOgArticleTitle()
+        {
+            return Document.DocumentNode
+                .Descendants("meta")
+                .Where(x => x.GetAttributeValue("property", "") == "og:title")
+                .Select(x => x.GetAttributeValue("content", ""))
+                .FirstOrDefault();
         }
 
         private async Task DownloadImageAsync(string source, string path, string name, FileMode fileMode)
