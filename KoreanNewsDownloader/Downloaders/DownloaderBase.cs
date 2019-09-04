@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using KoreanNewsDownloader.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -53,17 +55,17 @@ namespace KoreanNewsDownloader.Downloaders
         {
             return Document.DocumentNode
                .Descendants("meta")
-               .Where(x => x.GetAttributeValue("property", "") == "og:image")
-               .Select(x => x.GetAttributeValue("content", ""));
+               .First(x => x.GetAttributeValue("property", "") == "og:image")
+               .GetAttributeValue("content", "")
+               .Yield();
         }
 
         private string GetOgArticleTitle()
         {
-            return Document.DocumentNode
-                .Descendants("meta")
-                .Where(x => x.GetAttributeValue("property", "") == "og:title")
-                .Select(x => x.GetAttributeValue("content", ""))
-                .FirstOrDefault();
+            return HttpUtility.HtmlDecode(Document.DocumentNode
+                .Descendants("title")
+                .First()
+                .InnerText);
         }
 
         private async Task DownloadImageAsync(string source, string path, string name, FileMode fileMode)
