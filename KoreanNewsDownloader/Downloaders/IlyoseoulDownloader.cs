@@ -10,7 +10,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "www.ilyoseoul.co.kr"
+                "ilyoseoul.co.kr", "www.ilyoseoul.co.kr"
             };
             HttpClient = httpClient;
         }
@@ -18,10 +18,9 @@ namespace KoreanNewsDownloader.Downloaders
         public override IEnumerable<string> GetArticleImages()
         {
             return Document.DocumentNode
-                .SelectSingleNode("//*[@id=\"article-view-content-div\"]")
-                .Descendants("img")
-                .Where(x => !x.GetAttributeValue("src", "").Contains("member"))
-                .Select(x => x.GetAttributeValue("src", ""));
+                .SelectNodes("//figure/div/img")
+                .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.ilyoseoul.co.kr{x.GetAttributeValue("src", "")}"
+                                                                                 : x.GetAttributeValue("src", ""));
         }
     }
 }

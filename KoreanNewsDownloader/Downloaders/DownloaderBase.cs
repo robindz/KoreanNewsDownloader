@@ -81,7 +81,8 @@ namespace KoreanNewsDownloader.Downloaders
 
         private async Task<string> GetHtmlAsync()
         {
-            return Encoding.UTF8.GetString(await HttpClient.GetByteArrayAsync(Uri));
+            var encoding = GetEncoding();
+            return encoding.GetString(await HttpClient.GetByteArrayAsync(Uri));
         }
 
         private Uri ValidateUri(Uri uri)
@@ -89,6 +90,22 @@ namespace KoreanNewsDownloader.Downloaders
             if ((uri.Host == "www.news1.kr" || uri.Host == "news1.kr") && uri.AbsoluteUri.Contains("view"))
                 return new Uri(uri.AbsoluteUri.Replace("view", "details").Replace("&80", ""));
             return uri;
+        }
+
+        private Encoding GetEncoding()
+        {
+            switch (Uri.Host) {
+                case "www.breaknews.com":
+                case "bntnews.hankyung.com":
+                case "www.dt.co.kr":
+                case "www.intronews.net":
+                case "intronews.net":
+                case "www.issuedaily.com":
+                case "issuedaily.com":
+                    return Encoding.GetEncoding("EUC-KR");
+                default:
+                    return Encoding.UTF8;
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "www.intronews.net"
+                "intronews.net", "www.intronews.net"
             };
             HttpClient = httpClient;
         }

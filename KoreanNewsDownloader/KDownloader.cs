@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader
@@ -18,6 +19,8 @@ namespace KoreanNewsDownloader
         {
             _services = ConfigureServices();
             _resolver = _services.GetRequiredService<IDownloaderResolver>();
+
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
 
         public async Task LoadArticleAsync(string url)
@@ -53,6 +56,9 @@ namespace KoreanNewsDownloader
 
         private ServiceProvider ConfigureServices()
         {
+            
+
+
             HttpClientHandler handler = new HttpClientHandler()
             {
                 AllowAutoRedirect = true,

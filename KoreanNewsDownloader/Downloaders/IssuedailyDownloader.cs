@@ -10,7 +10,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "www.issuedaily.com"
+                "issuedaily.com", "www.issuedaily.com"
             };
             HttpClient = httpClient;
         }
@@ -20,6 +20,14 @@ namespace KoreanNewsDownloader.Downloaders
             return Document.DocumentNode
                 .Descendants("center")
                 .Select(x => x.FirstChild.GetAttributeValue("src", ""));
+        }
+
+        public override string GetArticleTitle()
+        {
+            return Document.DocumentNode
+               .Descendants("h2")
+               .FirstOrDefault()
+               .InnerText;
         }
     }
 }
