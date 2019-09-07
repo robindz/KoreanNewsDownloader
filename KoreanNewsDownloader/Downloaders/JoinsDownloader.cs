@@ -7,13 +7,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class JoinsDownloader : DownloaderBase
     {
-        public JoinsDownloader(HttpClient httpClient)
+        public JoinsDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "isplus.live.joins.com", "dcnewsj.joins.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

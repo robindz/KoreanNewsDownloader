@@ -6,13 +6,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class UpinewsDownloader : DownloaderBase
     {
-        public UpinewsDownloader(HttpClient httpClient)
+        public UpinewsDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.upinews.kr", "upinews.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

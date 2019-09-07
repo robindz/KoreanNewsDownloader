@@ -6,13 +6,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class DongaDownloader : DownloaderBase
     {
-        public DongaDownloader(HttpClient httpClient)
+        public DongaDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "sports.donga.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

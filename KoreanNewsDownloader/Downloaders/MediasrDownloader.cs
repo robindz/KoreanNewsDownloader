@@ -6,13 +6,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class MediasrDownloader : DownloaderBase
     {
-        public MediasrDownloader(HttpClient httpClient)
+        public MediasrDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.mediasr.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

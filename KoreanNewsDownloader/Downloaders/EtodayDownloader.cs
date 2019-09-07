@@ -5,13 +5,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class EtodayDownloader : DownloaderBase
     {
-        public EtodayDownloader(HttpClient httpClient)
+        public EtodayDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "enter.etoday.co.kr", "www.etoday.co.kr"
             };
-            HttpClient = httpClient;
         }
     }
 }

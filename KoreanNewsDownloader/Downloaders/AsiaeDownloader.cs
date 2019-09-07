@@ -9,13 +9,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class AsiaeDownloader : DownloaderBase
     {
-        public AsiaeDownloader(HttpClient httpClient)
+        public AsiaeDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {
             HostUrls = new List<string>
             {
                 "nc.asiae.co.kr", "stoo.asiae.co.kr", "tvdaily.asiae.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()
@@ -47,7 +46,7 @@ namespace KoreanNewsDownloader.Downloaders
                 return HttpUtility.HtmlDecode(Document.DocumentNode
                     .Descendants("meta")
                     .First(x => x.GetAttributeValue("property", "") == "og:title")
-                    .GetAttributeValue("content", ""));
+                    .GetAttributeValue("content", "")).Trim();
             }
 
             return base.GetArticleTitle();

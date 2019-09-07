@@ -6,13 +6,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class Inews24Downloader : DownloaderBase
     {
-        public Inews24Downloader(HttpClient httpClient)
+        public Inews24Downloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.inews24.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

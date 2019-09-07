@@ -8,13 +8,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class IssuedailyDownloader : DownloaderBase
     {
-        public IssuedailyDownloader(HttpClient httpClient)
+        public IssuedailyDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "issuedaily.com", "www.issuedaily.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()
@@ -29,7 +28,7 @@ namespace KoreanNewsDownloader.Downloaders
             return HttpUtility.HtmlDecode(Document.DocumentNode
                .Descendants("h2")
                .FirstOrDefault()
-               .InnerText);
+               .InnerText).Trim();
         }
 
         public override Encoding GetEncoding()

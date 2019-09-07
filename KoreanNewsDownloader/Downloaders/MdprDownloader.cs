@@ -7,13 +7,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class MdprDownloader : DownloaderBase
     {
-        public MdprDownloader(HttpClient httpClient)
+        public MdprDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "mdpr.jp", "www.mdpr.jp"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

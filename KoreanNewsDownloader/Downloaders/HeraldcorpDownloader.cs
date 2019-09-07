@@ -8,13 +8,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class HeraldcorpDownloader : DownloaderBase
     {
-        public HeraldcorpDownloader(HttpClient httpClient)
+        public HeraldcorpDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "biz.heraldcorp.com", "pop.heraldcorp.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

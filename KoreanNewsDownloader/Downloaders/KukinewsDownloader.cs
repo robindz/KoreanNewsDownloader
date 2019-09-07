@@ -5,13 +5,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class KukinewsDownloader : DownloaderBase
     {
-        public KukinewsDownloader(HttpClient httpClient)
+        public KukinewsDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.kukinews.com"
             };
-            HttpClient = httpClient;
         }
     }
 }

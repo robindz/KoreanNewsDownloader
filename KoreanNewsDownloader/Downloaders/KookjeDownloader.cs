@@ -10,13 +10,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class KookjeDownloader : DownloaderBase
     {
-        public KookjeDownloader(HttpClient httpClient)
+        public KookjeDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.kookje.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()
@@ -45,7 +44,7 @@ namespace KoreanNewsDownloader.Downloaders
             return HttpUtility.HtmlDecode(Document.DocumentNode
                .Descendants("h2")
                .LastOrDefault()
-               .InnerText);
+               .InnerText).Trim();
         }
 
         public override Encoding GetEncoding()

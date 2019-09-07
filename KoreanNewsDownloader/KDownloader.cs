@@ -41,7 +41,7 @@ namespace KoreanNewsDownloader
 
         public IEnumerable<string> GetArticleImages()
         {
-            return  _downloader.GetArticleImages();
+            return _downloader.GetArticleImages();
         }
 
         public string GetArticleTitle()
@@ -56,8 +56,15 @@ namespace KoreanNewsDownloader
 
         private ServiceProvider ConfigureServices()
         {
-            
-
+            HttpClientHandler proxyHandler = new HttpClientHandler()
+            {
+                AllowAutoRedirect = true,
+                UseCookies = true,
+                CookieContainer = new CookieContainer(),
+                Proxy = new WebProxy("203.246.112.133", 3128)
+            };
+            ProxyHttpClient proxyHttpClient = new ProxyHttpClient(proxyHandler);
+            proxyHttpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36");
 
             HttpClientHandler handler = new HttpClientHandler()
             {
@@ -65,12 +72,12 @@ namespace KoreanNewsDownloader
                 UseCookies = true,
                 CookieContainer = new CookieContainer()
             };
-
             HttpClient httpClient = new HttpClient(handler);
             httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36");
 
             return new ServiceCollection()
-                // HttpClient
+                // ProxyHttpClient and HttpClient
+                .AddSingleton(proxyHttpClient)
                 .AddSingleton(httpClient)
                 // RepositoryResolver
                 .AddSingleton<IDownloaderResolver, DownloaderResolver>()

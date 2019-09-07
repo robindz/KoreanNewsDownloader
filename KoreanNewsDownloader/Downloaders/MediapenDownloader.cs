@@ -5,13 +5,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class MediapenDownloader : DownloaderBase
     {
-        public MediapenDownloader(HttpClient httpClient)
+        public MediapenDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.mediapen.com", "mediapen.com"
             };
-            HttpClient = httpClient;
         }
     }
 }

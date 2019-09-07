@@ -7,13 +7,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class OriconDownloader : DownloaderBase
     {
-        public OriconDownloader(HttpClient httpClient)
+        public OriconDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.oricon.co.jp"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

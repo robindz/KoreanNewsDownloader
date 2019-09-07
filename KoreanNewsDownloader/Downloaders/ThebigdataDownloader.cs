@@ -7,13 +7,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class ThebigdataDownloader : DownloaderBase
     {
-        public ThebigdataDownloader(HttpClient httpClient)
+        public ThebigdataDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.thebigdata.co.kr", "thebigdata.co.kr", "cnews.thebigdata.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

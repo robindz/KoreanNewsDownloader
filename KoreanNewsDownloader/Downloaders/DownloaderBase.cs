@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public abstract class DownloaderBase : IDownloader
+    public partial class DownloaderBase : IDownloader
     {
         public List<string> HostUrls { get; set; }
 
@@ -20,6 +21,13 @@ namespace KoreanNewsDownloader.Downloaders
         protected HtmlDocument Document { get; set; } = new HtmlDocument();
         protected Uri Uri { get; set; }
         protected HttpClient HttpClient { get; set; }
+        protected ProxyHttpClient ProxyHttpClient { get; set; }
+
+        public DownloaderBase(HttpClient httpClient, ProxyHttpClient proxyHttpClient)
+        {
+            HttpClient = httpClient;
+            ProxyHttpClient = proxyHttpClient;
+        }
 
         public async Task LoadArticleAsync(Uri uri)
         {
@@ -55,6 +63,8 @@ namespace KoreanNewsDownloader.Downloaders
 
         public virtual Encoding GetEncoding() => Encoding.UTF8;
 
+        public virtual bool UseProxy() => false;
+
         private IEnumerable<string> GetOgArticleImage()
         {
             return Document.DocumentNode
@@ -69,7 +79,7 @@ namespace KoreanNewsDownloader.Downloaders
             return HttpUtility.HtmlDecode(Document.DocumentNode
                 .Descendants("title")
                 .First()
-                .InnerText);
+                .InnerText).Trim();
         }
 
         private async Task DownloadImageAsync(string source, string path, string name, FileMode fileMode)
@@ -86,7 +96,14 @@ namespace KoreanNewsDownloader.Downloaders
         private async Task<string> GetHtmlAsync()
         {
             Encoding encoding = GetEncoding();
-            return encoding.GetString(await HttpClient.GetByteArrayAsync(Uri));
+            if (UseProxy())
+            {
+                return encoding.GetString(await ProxyHttpClient.GetByteArrayAsync(Uri));
+            }
+            else
+            {
+                return encoding.GetString(await HttpClient.GetByteArrayAsync(Uri));
+            }
         }
 
         private Uri ValidateUri(Uri uri)

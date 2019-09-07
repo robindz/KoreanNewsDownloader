@@ -8,13 +8,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class OhmynewsDownloader : DownloaderBase
     {
-        public OhmynewsDownloader(HttpClient httpClient)
+        public OhmynewsDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.ohmynews.com", "star.ohmynews.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

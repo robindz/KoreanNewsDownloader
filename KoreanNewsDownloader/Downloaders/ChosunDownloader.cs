@@ -6,13 +6,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class ChosunDownloader : DownloaderBase
     {
-        public ChosunDownloader(HttpClient httpClient)
+        public ChosunDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "sports.chosun.com", "m.sportschosun.com"
             };
-            HttpClient = httpClient;
         }
 
         public override Encoding GetEncoding()

@@ -8,13 +8,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class MtDownloader : DownloaderBase
     {
-        public MtDownloader(HttpClient httpClient)
+        public MtDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "moneys.mt.co.kr", "star.mt.co.kr", "osen.mt.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

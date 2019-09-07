@@ -496,3 +496,8 @@ URL: http://www.biztribune.co.kr/news/articleView.html?idxno=220259
 M IMAGES: Y
 SAVENAME: default
 NOTE: prepend 'http://www.biztribune.co.kr' to the image url if it doesn't begin with that
+
+NEWSEN.COM:
+URL: http://www.newsen.com/news_view.php?uid=201909071804403510
+M IMAGES: Y
+SAVENAME: default

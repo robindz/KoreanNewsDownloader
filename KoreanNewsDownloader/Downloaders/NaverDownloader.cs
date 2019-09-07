@@ -9,13 +9,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class NaverDownloader : DownloaderBase
     {
-        public NaverDownloader(HttpClient httpClient)
+        public NaverDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "post.naver.com", "m.post.naver.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()

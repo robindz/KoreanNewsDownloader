@@ -8,13 +8,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class MydailyDownloader : DownloaderBase
     {
-        public MydailyDownloader(HttpClient httpClient)
+        public MydailyDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.mydaily.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()
@@ -30,7 +29,7 @@ namespace KoreanNewsDownloader.Downloaders
             return HttpUtility.HtmlDecode(Document.DocumentNode
                .Descendants("meta")
                .First(x => x.GetAttributeValue("property", "") == "og:title")
-               .GetAttributeValue("content", ""));
+               .GetAttributeValue("content", "")).Trim();
         }
 
         public override Encoding GetEncoding()

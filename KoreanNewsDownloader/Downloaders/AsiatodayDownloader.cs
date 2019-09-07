@@ -6,13 +6,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class AsiatodayDownloader : DownloaderBase
     {
-        public AsiatodayDownloader(HttpClient httpClient)
+        public AsiatodayDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.asiatoday.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetFilenames(IEnumerable<string> images)

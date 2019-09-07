@@ -6,19 +6,18 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class SportsseoulDownloader : DownloaderBase
     {
-        public SportsseoulDownloader(HttpClient httpClient)
+        public SportsseoulDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.sportsseoul.com", "sportsseoul.com"
             };
-            HttpClient = httpClient;
         }
 
         public override IEnumerable<string> GetArticleImages()
         {
             return Document.DocumentNode
-                .SelectSingleNode("//*[@class=\"news_text\"]")
+                .SelectSingleNode("//*[@class=\"bk_article_view\"]")
                 .Descendants("img")
                 .Select(x => x.GetAttributeValue("src", ""));
         }

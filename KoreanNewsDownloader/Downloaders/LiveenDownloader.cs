@@ -6,13 +6,12 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class LiveenDownloader : DownloaderBase
     {
-        public LiveenDownloader(HttpClient httpClient)
+        public LiveenDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
         {
             HostUrls = new List<string>
             {
                 "www.liveen.co.kr"
             };
-            HttpClient = httpClient;
         }
 
         public override Encoding GetEncoding()
