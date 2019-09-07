@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -12,6 +13,14 @@ namespace KoreanNewsDownloader.Downloaders
                 "sports.chosun.com", "m.sportschosun.com"
             };
             HttpClient = httpClient;
+        }
+
+        public override Encoding GetEncoding()
+        {
+            if (Uri.Host == HostUrls[0])
+                return Encoding.GetEncoding("EUC-KR");
+
+            return base.GetEncoding();
         }
     }
 }

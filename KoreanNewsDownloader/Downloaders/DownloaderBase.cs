@@ -14,7 +14,9 @@ namespace KoreanNewsDownloader.Downloaders
     public abstract class DownloaderBase : IDownloader
     {
         public List<string> HostUrls { get; set; }
+
         protected readonly int BufferSize = (int)Math.Pow(2, 13);
+
         protected HtmlDocument Document { get; set; } = new HtmlDocument();
         protected Uri Uri { get; set; }
         protected HttpClient HttpClient { get; set; }
@@ -51,6 +53,8 @@ namespace KoreanNewsDownloader.Downloaders
 
         public virtual IEnumerable<string> GetFilenames(IEnumerable<string> images) => images.Select(x => x.Split('/').Last());
 
+        public virtual Encoding GetEncoding() => Encoding.UTF8;
+
         private IEnumerable<string> GetOgArticleImage()
         {
             return Document.DocumentNode
@@ -81,7 +85,7 @@ namespace KoreanNewsDownloader.Downloaders
 
         private async Task<string> GetHtmlAsync()
         {
-            var encoding = GetEncoding();
+            Encoding encoding = GetEncoding();
             return encoding.GetString(await HttpClient.GetByteArrayAsync(Uri));
         }
 
@@ -90,22 +94,6 @@ namespace KoreanNewsDownloader.Downloaders
             if ((uri.Host == "www.news1.kr" || uri.Host == "news1.kr") && uri.AbsoluteUri.Contains("view"))
                 return new Uri(uri.AbsoluteUri.Replace("view", "details").Replace("&80", ""));
             return uri;
-        }
-
-        private Encoding GetEncoding()
-        {
-            switch (Uri.Host) {
-                case "www.breaknews.com":
-                case "bntnews.hankyung.com":
-                case "www.dt.co.kr":
-                case "www.intronews.net":
-                case "intronews.net":
-                case "www.issuedaily.com":
-                case "issuedaily.com":
-                    return Encoding.GetEncoding("EUC-KR");
-                default:
-                    return Encoding.UTF8;
-            }
         }
     }
 }

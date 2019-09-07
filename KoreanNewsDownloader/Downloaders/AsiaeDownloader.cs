@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
+using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -36,6 +38,27 @@ namespace KoreanNewsDownloader.Downloaders
             {
                 return base.GetArticleImages();
             }
+        }
+
+        public override string GetArticleTitle()
+        {
+            if (Uri.Host == HostUrls[1])
+            {
+                return HttpUtility.HtmlDecode(Document.DocumentNode
+                    .Descendants("meta")
+                    .First(x => x.GetAttributeValue("property", "") == "og:title")
+                    .GetAttributeValue("content", ""));
+            }
+
+            return base.GetArticleTitle();
+        }
+
+        public override Encoding GetEncoding()
+        {
+            if (Uri.Host == HostUrls[0])
+                return base.GetEncoding();
+
+            return Encoding.GetEncoding("EUC-KR");
         }
     }
 }

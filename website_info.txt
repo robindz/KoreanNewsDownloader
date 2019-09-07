@@ -300,7 +300,7 @@ SAVENAME: default
 NOTE: multiple images available, but haven't found a way to get the HQ versions without making multiple HTTP requests
 
 OSEN.CO.KR:
-URL: http://osen.mt.co.kr/article/G1111126968
+URL: http://www.osen.co.kr/article/G1111212743
 M IMAGES: N
 SAVENAME: default
 NOTE: append 'original' after 'article/' and remove '_1024x' from the url

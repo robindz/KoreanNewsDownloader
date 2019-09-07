@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
+using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -24,10 +26,15 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override string GetArticleTitle()
         {
-            return Document.DocumentNode
+            return HttpUtility.HtmlDecode(Document.DocumentNode
                .Descendants("h2")
                .FirstOrDefault()
-               .InnerText;
+               .InnerText);
+        }
+
+        public override Encoding GetEncoding()
+        {
+            return Encoding.GetEncoding("EUC-KR");
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -36,6 +37,14 @@ namespace KoreanNewsDownloader.Downloaders
                     .Where(x => x.Id.Contains("attachment_"))
                     .Select(x => x.FirstChild.GetAttributeValue("src", "").Substring(0, x.FirstChild.GetAttributeValue("src", "").LastIndexOf("-")) + ".jpg");
             }
+        }
+
+        public override Encoding GetEncoding()
+        {
+            if (Uri.Host == HostUrls[0])
+                return Encoding.GetEncoding("EUC-KR");
+
+            return base.GetEncoding();
         }
     }
 }

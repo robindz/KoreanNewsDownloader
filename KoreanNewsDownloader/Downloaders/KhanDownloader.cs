@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -21,6 +22,11 @@ namespace KoreanNewsDownloader.Downloaders
                 .SelectSingleNode("//*[@id=\"articleBody\"]")
                 .Descendants("img")
                 .Select(x => x.GetAttributeValue("src", "").Replace("l_", ""));
+        }
+
+        public override Encoding GetEncoding()
+        {
+            return Encoding.GetEncoding("EUC-KR");
         }
     }
 }
