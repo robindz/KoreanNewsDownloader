@@ -511,3 +511,13 @@ NEWSKR.KR:
 URL: http://www.newskr.kr/news/articleView.html?idxno=31476
 M IMAGES: Y
 SAVENAME: default
+
+CCDN.CO.KR:
+URL: http://www.ccdn.co.kr/news/articleView.html?idxno=601129
+M IMAGES: N?
+SAVENAME: default
+
+JEJUTWN.COM:
+URL: http://www.jejutwn.com/news/article.html?no=54485
+M IMAGES: Y
+SAVENAME: default
