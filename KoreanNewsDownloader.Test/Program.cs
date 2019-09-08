@@ -8,16 +8,21 @@ namespace KoreanNewsDownloader.Test
     {
         public static async Task Main(string[] args)
         {
-            string folder = @"C:\Users\robin\Desktop\";
             List<string> titles = new List<string>();
 
             var downloader = new KDownloader();
-            
+
+        
+
+            await downloader.LoadArticleAsync("http://www.newskr.kr/news/articleView.html?idxno=31476");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("https://www.ajunews.com/view/20190704072752092");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
-            await downloader.LoadArticleAsync("http://www.newsen.com/news_view.php?uid=201908132004189410");
+            await downloader.LoadArticleAsync("http://www.newsen.com/news_view.php?uid=201909070827353510");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 

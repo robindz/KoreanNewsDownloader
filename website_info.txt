@@ -501,3 +501,13 @@ NEWSEN.COM:
 URL: http://www.newsen.com/news_view.php?uid=201909071804403510
 M IMAGES: Y
 SAVENAME: default
+
+TENASIA.CO.KR:
+URL: http://www.tenasia.co.kr/archives/1806123
+M IMAGES: Y
+SAVENAME: default
+
+NEWSKR.KR:
+URL: http://www.newskr.kr/news/articleView.html?idxno=31476
+M IMAGES: Y
+SAVENAME: default

@@ -1,4 +1,5 @@
 ﻿using KoreanNewsDownloader.Downloaders;
+using KoreanNewsDownloader.Exceptions;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace KoreanNewsDownloader
 
             if (downloader == null)
             {
-                throw new ArgumentException($"'{host}' is not a supported website.");
+                throw new UnsupportedHostException($"{host} is not a supported host.");
             }
 
             return downloader;

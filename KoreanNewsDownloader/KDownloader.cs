@@ -49,6 +49,11 @@ namespace KoreanNewsDownloader
             return _downloader.GetArticleTitle();
         }
 
+        public string GetHost()
+        {
+            return _downloader.GetHost();
+        }
+
         private IDownloader GetDownloader(string host)
         {
             return _resolver.GetDownloaderByName(host);
@@ -170,6 +175,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, CbciDownloader>()
                 .AddTransient<IDownloader, FashionnDownloader>()
                 .AddTransient<IDownloader, BiztribuneDownloader>()
+                .AddTransient<IDownloader, TenasiaDownloader>()
+                .AddTransient<IDownloader, NewskrDownloader>()
                 .BuildServiceProvider();
         }
     }

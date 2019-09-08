@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +58,11 @@ namespace KoreanNewsDownloader.Downloaders
             return GetOgArticleTitle();
         }
 
+        public string GetHost()
+        {
+            return Uri.Host;
+        }
+
         public virtual IEnumerable<string> GetFilenames(IEnumerable<string> images) => images.Select(x => x.Split('/').Last());
 
         public virtual Encoding GetEncoding() => Encoding.UTF8;
@@ -76,6 +80,9 @@ namespace KoreanNewsDownloader.Downloaders
 
         private string GetOgArticleTitle()
         {
+            var a = Document.DocumentNode
+                .Descendants("title");
+
             return HttpUtility.HtmlDecode(Document.DocumentNode
                 .Descendants("title")
                 .First()

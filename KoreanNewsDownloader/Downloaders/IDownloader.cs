@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Downloaders
@@ -12,5 +11,6 @@ namespace KoreanNewsDownloader.Downloaders
         Task DownloadArticleImagesAsync(string filePath, bool overwrite);
         IEnumerable<string> GetArticleImages();
         string GetArticleTitle();
+        string GetHost();
     }
 }
