@@ -12,7 +12,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "bntnews.hankyung.com", "www.hankyung.com", "news.hankyung.com", "tenasia.hankyung.com"
+                "bntnews.hankyung.com", "www.hankyung.com", "news.hankyung.com", "tenasia.hankyung.com", "hei.hankyung.com"
             };
         }
 
@@ -29,12 +29,19 @@ namespace KoreanNewsDownloader.Downloaders
             {
                 return base.GetArticleImages();
             }
-            else
+            else if (Uri.Host == HostUrls[3])
             {
                 return Document.DocumentNode
                     .Descendants()
                     .Where(x => x.Id.Contains("attachment_"))
                     .Select(x => x.FirstChild.GetAttributeValue("src", "").Substring(0, x.FirstChild.GetAttributeValue("src", "").LastIndexOf("-")) + ".jpg");
+            }
+            else
+            {
+                return Document.DocumentNode
+                    .SelectNodes("//*[@class=\"articleImg txtC\"]")
+                    .Descendants("img")
+                    .Select(x => x.GetAttributeValue("src", ""));
             }
         }
 
