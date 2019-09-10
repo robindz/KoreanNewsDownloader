@@ -533,3 +533,8 @@ KSILBO.CO.KR:
 URL: http://www.ksilbo.co.kr/news/articleView.html?idxno=722287
 M IMAGES: N
 SAVENAME: default
+
+WHITEPAPER.CO.KR:
+URL: http://www.whitepaper.co.kr/news/articleView.html?idxno=172239
+M IMAGES: N
+SAVENAME: default
