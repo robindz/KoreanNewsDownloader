@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "sports.khan.co.kr"
+                "sports.khan.co.kr", "news.khan.co.kr"
             };
         }
 
