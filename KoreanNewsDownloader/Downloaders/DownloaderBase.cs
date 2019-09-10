@@ -80,9 +80,6 @@ namespace KoreanNewsDownloader.Downloaders
 
         private string GetOgArticleTitle()
         {
-            var a = Document.DocumentNode
-                .Descendants("title");
-
             return HttpUtility.HtmlDecode(Document.DocumentNode
                 .Descendants("title")
                 .First()
