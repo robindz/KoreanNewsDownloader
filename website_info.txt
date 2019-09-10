@@ -200,15 +200,18 @@ SAVENAME: default
 
 MT.CO.KR:
 URL: http://moneys.mt.co.kr/news/mwView.php?no=2019021210028052916&outlink=1
-	 http://star.mt.co.kr/stview.php?no=2019042215133513159&outlink=1&ref=https%3A%2F%2Fsearch.daum.net
+	 http://star.mt.co.kr/stview.php?no=2019091017200766265
 	 http://osen.mt.co.kr/article/G1110961803
+	 https://news.mt.co.kr/mtview.php?no=2019081411000963342
 M IMAGES: Y: http://osen.mt.co.kr/article/G1110961803
+		     https://news.mt.co.kr/mtview.php?no=2019081411000963342
+			 http://star.mt.co.kr/stview.php?no=2019091017200766265
 		  N: http://moneys.mt.co.kr/news/mwView.php?no=2019021210028052916&outlink=1
-			 http://star.mt.co.kr/stview.php?no=2019042215133513159&outlink=1&ref=https%3A%2F%2Fsearch.daum.net
 SAVENAME: default
 NOTE: moneys.ms.co.kr: replace the numbers between the last two '/'s by 00
-	  star.mr.co.kr: replace 'thumb' by 'image' and replace the first '/' and first two numbers after '.com'
+	  star.mt.co.kr: replace 'thumb' by 'image' and replace the first '/' and first two numbers after '.com'
 	  osen.mt.co.kr: append 'original' after 'article/' and remove '_1024x' from the url
+	  news.mt.co.kr: remove everything after .jpg
 	  
 MYDAILY.CO.KR:
 URL: http://www.mydaily.co.kr/new_yk/html/read.php?newsid=201811281442305523&ext=da

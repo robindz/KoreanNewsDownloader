@@ -12,7 +12,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "moneys.mt.co.kr", "star.mt.co.kr", "osen.mt.co.kr"
+                "moneys.mt.co.kr", "star.mt.co.kr", "osen.mt.co.kr", "news.mt.co.kr"
             };
         }
 
@@ -33,17 +33,26 @@ namespace KoreanNewsDownloader.Downloaders
                     .Descendants("img")
                     .Select(x => x.GetAttributeValue("src", "").Replace("thumb", "image").Replace(".com/06", ".com"));
             }
-            else
+            else if (Uri.Host == HostUrls[2])
             {
                 return Document.DocumentNode
                     .SelectNodes("//*[@class=\"view_photo up\"]")
                     .Select(x => x.GetAttributeValue("src", "").Replace("article", "article/original").Replace("_1024x", ""));
             }
+            else
+            {
+                return Document.DocumentNode
+                    .SelectSingleNode("//*[@id=\"textBody\"]")
+                    .Descendants("img")
+                    .Select(x => x.GetAttributeValue("src", "").StartsWith("//") ? $"https:{x.GetAttributeValue("src", "")}"
+                                                                                 : x.GetAttributeValue("src", ""))
+                    .Select(x => x.Substring(0, x.IndexOf(".jpg") + 4));
+            }
         }
 
         public override Encoding GetEncoding()
         {
-            if (Uri.Host == HostUrls[0])
+            if (Uri.Host == HostUrls[0] || Uri.Host == HostUrls[3])
                 return Encoding.GetEncoding("EUC-KR");
 
             return base.GetEncoding();
