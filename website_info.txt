@@ -528,3 +528,8 @@ ECONOMYTALK.KR:
 URL: http://www.economytalk.kr/news/articleView.html?idxno=197061
 M IMAGES: N
 SAVENAME: default
+
+KSILBO.CO.KR:
+URL: http://www.ksilbo.co.kr/news/articleView.html?idxno=722287
+M IMAGES: N
+SAVENAME: default
