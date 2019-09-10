@@ -347,9 +347,11 @@ SAVENAME: default
 
 HANKOOKI.COM:
 URL: http://sports.hankooki.com/lpage/entv/201908/sp20190801201547136730.htm
-M IMAGES: N
+	 http://daily.hankooki.com/lpage/entv/201909/dh20190910200210139020.htm
+M IMAGES: N: http://sports.hankooki.com/lpage/entv/201908/sp20190801201547136730.htm
+		  Y: http://daily.hankooki.com/lpage/entv/201909/dh20190910200210139020.htm
 SAVENAME: default
-NOTE: replace 'photo/' with 'original/' in image url
+NOTE: sports.hankooki.com: replace 'photo/' with 'original/' in image url
 
 KHAN.CO.KR:
 URL: http://sports.khan.co.kr/entertainment/sk_index.html?art_id=201904221718003&sec_id=540101&pt=nv

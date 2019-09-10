@@ -11,14 +11,22 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "sports.hankooki.com"
+                "sports.hankooki.com", "daily.hankooki.com"
             };
         }
 
         public override IEnumerable<string> GetArticleImages()
         {
-            var images = base.GetArticleImages();
-            return images.Select(x => x.Replace("photo/", "original/"));
+            if (Uri.Host == HostUrls[0])
+            {
+                var images = base.GetArticleImages();
+                return images.Select(x => x.Replace("photo/", "original/"));
+            }
+
+            return Document.DocumentNode
+                .SelectNodes("//*[@class=\"gisaimg\"]")
+                .Descendants("img")
+                .Select(x => x.GetAttributeValue("src", ""));
         }
 
         public override Encoding GetEncoding()
