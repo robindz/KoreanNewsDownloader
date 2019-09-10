@@ -564,3 +564,8 @@ SISAMAGAZINE.CO.KR:
 URL: http://www.sisamagazine.co.kr/news/articleView.html?idxno=140314
 M IMAGES: Y
 SAVENAME: default
+
+BETANEWS.NET:
+URL: http://www.betanews.net/article/1048292
+M IMAGES: Y
+SAVENAME: default

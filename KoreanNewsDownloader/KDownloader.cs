@@ -186,6 +186,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, SeconomyDownloader>()
                 .AddTransient<IDownloader, SlistDownloader>()
                 .AddTransient<IDownloader, SisamagazineDownloader>()
+                .AddTransient<IDownloader, BetanewsDownloader>()
                 .BuildServiceProvider();
         }
     }
