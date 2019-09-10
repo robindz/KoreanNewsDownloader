@@ -559,3 +559,8 @@ SLIST.KR:
 URL: http://www.slist.kr/news/articleView.html?idxno=101736
 M IMAGES: Y
 SAVENAME: default
+
+SISAMAGAZINE.CO.KR:
+URL: http://www.sisamagazine.co.kr/news/articleView.html?idxno=140314
+M IMAGES: Y
+SAVENAME: default
