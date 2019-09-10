@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "isplus.live.joins.com", "dcnewsj.joins.com"
+                "isplus.live.joins.com", "dcnewsj.joins.com", "koreajoongangdaily.joins.com"
             };
         }
 
@@ -21,11 +21,18 @@ namespace KoreanNewsDownloader.Downloaders
             {
                 return base.GetArticleImages();
             }
+            else if (Uri.Host == HostUrls[1])
+            {
+                return Document.DocumentNode
+                    .SelectNodes("//*[@class=\"image\"]")
+                    .Descendants("img")
+                    .Select(x => x.GetAttributeValue("data-src", ""));
+            }
 
             return Document.DocumentNode
-                .SelectNodes("//*[@class=\"image\"]")
+                .SelectSingleNode("//*[@id=\"articlebody\"]")
                 .Descendants("img")
-                .Select(x => x.GetAttributeValue("data-src", ""));
+                .Select(x => x.GetAttributeValue("src", ""));
         }
     }
 }

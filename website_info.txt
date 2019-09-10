@@ -134,8 +134,10 @@ NOTE: replace 'thumbnail' to 'photo' and replace '_v150' to ''
 JOINS.COM:
 URL: http://isplus.live.joins.com/news/article/article.asp?total_id=22456266
 	 https://dcnewsj.joins.com/article/23518080?cloc=dcnewsj%7Clist
+	 http://koreajoongangdaily.joins.com/news/article/article.aspx?aid=3067809
 M IMAGES: N: http://isplus.live.joins.com/news/article/article.asp?total_id=22456266
 		  Y: https://dcnewsj.joins.com/article/23518080?cloc=dcnewsj%7Clist
+			 http://koreajoongangdaily.joins.com/news/article/article.aspx?aid=3067809
 SAVENAME: default
 
 ISSUEDAILY.COM:
@@ -355,6 +357,7 @@ NOTE: sports.hankooki.com: replace 'photo/' with 'original/' in image url
 
 KHAN.CO.KR:
 URL: http://sports.khan.co.kr/entertainment/sk_index.html?art_id=201904221718003&sec_id=540101&pt=nv
+	 http://img.khan.co.kr/news/2019/09/10/2019091101001101900104181.jpg
 M IMAGES: Y
 SAVENAME: default
 NOTE: replace 'l_' with '' in the image url
