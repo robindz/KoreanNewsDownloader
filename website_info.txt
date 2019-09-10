@@ -582,3 +582,8 @@ KWANGJU.CO.KR:
 URL: http://www.kwangju.co.kr/read.php3?aid=1568145000676667010
 M IMAGES: Y
 SAVENAME: default
+
+FUTUREKOREA.CO.KR:
+URL: http://www.futurekorea.co.kr/news/articleView.html?idxno=120715
+M IMAGES: Y
+SAVENAME: default
