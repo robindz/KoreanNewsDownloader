@@ -554,3 +554,8 @@ URL: http://www.seconomy.kr/view.php?ud=201908161109443764798818e98b_2
 M IMAGES: Y
 SAVENAME: everything after last '=' in image url
 NOTE: replace 'idx=[number]' with 'idx=999' in image url
+
+SLIST.KR:
+URL: http://www.slist.kr/news/articleView.html?idxno=101736
+M IMAGES: Y
+SAVENAME: default
