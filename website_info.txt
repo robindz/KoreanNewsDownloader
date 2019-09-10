@@ -572,3 +572,13 @@ BETANEWS.NET:
 URL: http://www.betanews.net/article/1048292
 M IMAGES: Y
 SAVENAME: default
+
+DAUM.NET:
+URL: https://news.v.daum.net/v/20190911052407025?f=o
+M IMAGES: N
+SAVENAME: remove '?original' at the end of the image url
+
+KWANGJU.CO.KR:
+URL: http://www.kwangju.co.kr/read.php3?aid=1568145000676667010
+M IMAGES: Y
+SAVENAME: default
