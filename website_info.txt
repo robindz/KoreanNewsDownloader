@@ -587,3 +587,8 @@ FUTUREKOREA.CO.KR:
 URL: http://www.futurekorea.co.kr/news/articleView.html?idxno=120715
 M IMAGES: Y
 SAVENAME: default
+
+WOWTV.CO.KR:
+URL: http://news.wowtv.co.kr/NewsCenter/News/Read?articleId=A201909110031&t=NN
+M IMAGES: N
+SAVENAME: default

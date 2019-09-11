@@ -12,6 +12,10 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
+            await downloader.LoadArticleAsync("http://sbsfune.sbs.co.kr/news/news_content.jsp?article_id=E10009648148");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("http://news.wowtv.co.kr/NewsCenter/News/Read?articleId=A201909110031");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
