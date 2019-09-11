@@ -592,3 +592,14 @@ WOWTV.CO.KR:
 URL: http://news.wowtv.co.kr/NewsCenter/News/Read?articleId=A201909110031&t=NN
 M IMAGES: N
 SAVENAME: default
+
+SBS.CO.KR:
+URL: http://sbsfune.sbs.co.kr/news/news_content.jsp?article_id=E10009648148
+M IMAGES: Y
+SAVENAME: default
+NOTE: remove everything after last '_' in image url and append '.jpg'
+
+FNTODAY.CO.KR:
+URL: http://www.fntoday.co.kr/news/articleView.html?idxno=203418
+M IMAGES: N
+SAVENAME: default

@@ -192,6 +192,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, FuturekoreaDownloader>()
                 .AddTransient<IDownloader, WowtvDownloader>()
                 .AddTransient<IDownloader, SbsDownloader>()
+                .AddTransient<IDownloader, FntodayDownloader>()
                 .BuildServiceProvider();
         }
     }
