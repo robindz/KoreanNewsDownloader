@@ -603,3 +603,13 @@ FNTODAY.CO.KR:
 URL: http://www.fntoday.co.kr/news/articleView.html?idxno=203418
 M IMAGES: N
 SAVENAME: default
+
+GPKOREA.COM:
+URL: http://www.gpkorea.com/news/articleView.html?idxno=56248
+M IMAGES: N
+SAVENAME: default
+
+NEWSWORKS.CO.KR:
+URL: http://www.newsworks.co.kr/news/articleView.html?idxno=393932
+M IMAGES: N
+SAVENAME: default

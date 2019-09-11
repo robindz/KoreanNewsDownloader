@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class WowtvDownloader : DownloaderBase
+    internal class WowtvDownloader : DownloaderBase
     {
         public WowtvDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

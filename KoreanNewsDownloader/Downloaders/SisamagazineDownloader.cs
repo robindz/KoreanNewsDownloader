@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class SisamagazineDownloader : DownloaderBase
+    internal class SisamagazineDownloader : DownloaderBase
     {
         public SisamagazineDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

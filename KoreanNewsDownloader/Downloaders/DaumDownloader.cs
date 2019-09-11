@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class DaumDownloader : DownloaderBase
+    internal class DaumDownloader : DownloaderBase
     {
         public DaumDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

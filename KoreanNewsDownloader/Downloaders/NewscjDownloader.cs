@@ -5,7 +5,7 @@ using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class NewscjDownloader : DownloaderBase
+    internal class NewscjDownloader : DownloaderBase
     {
         public NewscjDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

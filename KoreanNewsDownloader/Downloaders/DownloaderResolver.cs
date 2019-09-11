@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace KoreanNewsDownloader
 {
-    public interface IDownloaderResolver
+    internal interface IDownloaderResolver
     {
         IDownloader GetDownloaderByName(string name);
     }
 
-    public class DownloaderResolver : IDownloaderResolver
+    internal class DownloaderResolver : IDownloaderResolver
     {
         private readonly IServiceProvider _services;
 

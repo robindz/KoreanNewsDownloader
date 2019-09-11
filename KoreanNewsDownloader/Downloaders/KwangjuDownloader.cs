@@ -7,7 +7,7 @@ using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class KwangjuDownloader : DownloaderBase
+    internal class KwangjuDownloader : DownloaderBase
     {
         public KwangjuDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

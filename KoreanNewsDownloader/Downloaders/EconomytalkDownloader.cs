@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class EconomytalkDownloader : DownloaderBase
+    internal class EconomytalkDownloader : DownloaderBase
     {
         public EconomytalkDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

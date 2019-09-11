@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class SeconomyDownloader : DownloaderBase
+    internal class SeconomyDownloader : DownloaderBase
     {
         public SeconomyDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

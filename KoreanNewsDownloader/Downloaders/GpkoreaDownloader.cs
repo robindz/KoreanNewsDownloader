@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class GpkoreaDownloader : DownloaderBase
+    internal class GpkoreaDownloader : DownloaderBase
     {
         public GpkoreaDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

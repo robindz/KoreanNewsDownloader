@@ -11,7 +11,7 @@ using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public partial class DownloaderBase : IDownloader
+    internal partial class DownloaderBase : IDownloader
     {
         public List<string> HostUrls { get; set; }
 

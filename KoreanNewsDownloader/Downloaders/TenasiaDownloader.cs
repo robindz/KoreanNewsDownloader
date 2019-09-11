@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class TenasiaDownloader : DownloaderBase
+    internal class TenasiaDownloader : DownloaderBase
     {
         public TenasiaDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {

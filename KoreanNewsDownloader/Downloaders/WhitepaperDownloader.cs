@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    public class WhitepaperDownloader : DownloaderBase
+    internal class WhitepaperDownloader : DownloaderBase
     {
         public WhitepaperDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {
