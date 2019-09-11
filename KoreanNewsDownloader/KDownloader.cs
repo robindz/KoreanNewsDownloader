@@ -190,6 +190,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, DaumDownloader>()
                 .AddTransient<IDownloader, KwangjuDownloader>()
                 .AddTransient<IDownloader, FuturekoreaDownloader>()
+                .AddTransient<IDownloader, WowtvDownloader>()
                 .BuildServiceProvider();
         }
     }

@@ -4,20 +4,20 @@ using System.Net.Http;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class EdailyDownloader : DownloaderBase
+    public class WowtvDownloader : DownloaderBase
     {
-        public EdailyDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
+        public WowtvDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {
             HostUrls = new List<string>
             {
-                "www.edaily.co.kr"
+                "news.wowtv.co.kr"
             };
         }
 
         public override IEnumerable<string> GetArticleImages()
         {
             return Document.DocumentNode
-                .SelectSingleNode("//*[@class=\"news_body\"]")
+                .SelectSingleNode("//*[@id=\"divNewsContent\"]")
                 .Descendants("img")
                 .Select(x => x.GetAttributeValue("src", ""));
         }
