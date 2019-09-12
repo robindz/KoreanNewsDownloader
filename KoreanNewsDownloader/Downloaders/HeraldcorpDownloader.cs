@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
@@ -19,13 +18,7 @@ namespace KoreanNewsDownloader.Downloaders
         public override IEnumerable<string> GetArticleImages()
         {
             var images = base.GetArticleImages();
-
-            if (Uri.Host == HostUrls[1])
-            {
-                images = images.Select(x => Regex.Replace(x, @"idx=\d+", "idx=999"));
-            }
-
-            return images;
+            return images.Select(x => Regex.Replace(x, @"idx=\d+", "idx=999"));
         }
 
         public override IEnumerable<string> GetFilenames(IEnumerable<string> images)

@@ -13,7 +13,7 @@ URL: http://biz.heraldcorp.com/culture/view.php?ud=201901151754080859875_1
      http://pop.heraldcorp.com/view.php?ud=201907021700105694458_1
 M IMAGES: N
 SAVENAME: everything after last '=' in image url
-NOTE: pop.heraldcorp.com: replace 'idx=42' with 'idx=999' in image url, other: default
+NOTE: replace 'idx=[number]' with 'idx=999' in image url
 
 HANKYUNG.COM:
 URL: http://bntnews.hankyung.com/apps/news?popup=0&nid=04&c1=04&c2=04&c3=00&nkey=201812110834233&mode=sub_view
