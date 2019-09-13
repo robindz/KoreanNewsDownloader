@@ -658,3 +658,18 @@ IDJNEWS.KR:
 URL: http://www.idjnews.kr/news/articleView.html?idxno=93555
 M IMAGES: N
 SAVENAME: default
+
+SEOHAENEWS.NET:
+URL: http://www.seohaenews.net/news/article.html?no=57953
+M IMAGES: N
+SAVENAME: default
+
+SENTV.CO.KR:
+URL: http://www.sentv.co.kr/news/view/560495
+M IMAGES: N
+SAVENAME: default
+
+STRAIGHTNEWS.CO.KR:
+URL: http://straightnews.co.kr/news/articleView.html?idxno=55327
+M IMAGES: Y
+SAVENAME: default
