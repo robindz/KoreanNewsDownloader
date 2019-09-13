@@ -673,3 +673,23 @@ STRAIGHTNEWS.CO.KR:
 URL: http://straightnews.co.kr/news/articleView.html?idxno=55327
 M IMAGES: Y
 SAVENAME: default
+
+ASIATIME.CO.KR:
+URL: http://www.asiatime.co.kr/news/articleView.html?idxno=269870
+M IMAGES: Y
+SAVENAME: default
+
+NSPNA.COM:
+URL: http://www.nspna.com/news/?mode=view&newsid=382556
+M IMAGES: N
+SAVENAME: default
+
+BUSINESSPOST.CO.KR:
+URL: http://www.businesspost.co.kr/BP?command=article_view&num=125059
+M IMAGES: Y
+SAVENAME: default
+
+DAILYSECU.COM:
+URL: https://www.dailysecu.com/news/articleView.html?idxno=69074
+M IMAGES: N
+SAVENAME: default
