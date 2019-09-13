@@ -203,6 +203,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, KjdailyDownloader>()
                 .AddTransient<IDownloader, SportsworldiDownloader>()
                 .AddTransient<IDownloader, GokoreaDownloader>()
+                .AddTransient<IDownloader, IdjnewsDownloader>()
+                .AddTransient<IDownloader, SeohaenewsDownloader>()
                 .BuildServiceProvider();
         }
     }

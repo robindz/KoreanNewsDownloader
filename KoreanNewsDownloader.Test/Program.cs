@@ -12,6 +12,14 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
+            await downloader.LoadArticleAsync("http://www.seohaenews.net/news/article.html?no=57953");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("http://www.idjnews.kr/news/articleView.html?idxno=93555");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("http://www.gokorea.kr/news/articleView.html?idxno=82930");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
