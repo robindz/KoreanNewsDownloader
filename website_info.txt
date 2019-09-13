@@ -648,3 +648,8 @@ SPORTSWORLDI.COM:
 URL: http://www.sportsworldi.com/newsView/20190912503196
 M IMAGES: Y
 SAVENAME: default
+
+GOKOREA.KR:
+URL: http://www.gokorea.kr/news/articleView.html?idxno=406567
+M IMAGES: Y
+SAVENAME: default
