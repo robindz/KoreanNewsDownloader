@@ -638,3 +638,13 @@ DAEJEONTODAY.COM:
 URL: http://www.daejeontoday.com/news/articleView.html?idxno=567705
 M IMAGES: N
 SAVENAME: default
+
+KJDAILY.COM:
+URL: http://www.kjdaily.com/article.php?aid=1568018785482838078
+M IMAGES: N
+SAVENAME: default
+
+SPORTSWORLDI.COM:
+URL: http://www.sportsworldi.com/newsView/20190912503196
+M IMAGES: Y
+SAVENAME: default

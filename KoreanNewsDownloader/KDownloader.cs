@@ -200,6 +200,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, IncheonilboDownloader>()
                 .AddTransient<IDownloader, Goodnews1Downloader>()
                 .AddTransient<IDownloader, DaejeontodayDownloader>()
+                .AddTransient<IDownloader, KjdailyDownloader>()
+                .AddTransient<IDownloader, SportsworldiDownloader>()
                 .BuildServiceProvider();
         }
     }
