@@ -195,6 +195,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, FntodayDownloader>()
                 .AddTransient<IDownloader, GpkoreaDownloader>()
                 .AddTransient<IDownloader, NewsworksDownloader>()
+                .AddTransient<IDownloader, JoygmDownloader>()
                 .BuildServiceProvider();
         }
     }

@@ -12,6 +12,14 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
+            await downloader.LoadArticleAsync("http://www.joygm.com/news/articleView.html?idxno=62965");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("http://star.hankookilbo.com/News/Read/201811062091080318");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("http://www.newsworks.co.kr/news/articleView.html?idxno=393932");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -462,10 +470,6 @@ namespace KoreanNewsDownloader.Test
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("http://www.spotvnews.co.kr/?mod=news&act=articleView&idxno=246655&sc_code=&page=3&total=448");
-            titles.Add(downloader.GetArticleTitle());
-            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-
-            await downloader.LoadArticleAsync("http://star.hankookilbo.com/News/Read/201811062091080318");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 

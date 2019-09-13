@@ -388,7 +388,7 @@ SAVENAME: default
 
 HANKOOKILBO.COM:
 URL: http://star.hankookilbo.com/News/Read/201811062091080318
-M IMAGES: N
+M IMAGES: Y
 SAVENAME: default
 
 STARDAILYNEWS.CO.KR:
