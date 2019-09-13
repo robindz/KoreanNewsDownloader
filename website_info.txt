@@ -613,3 +613,13 @@ NEWSWORKS.CO.KR:
 URL: http://www.newsworks.co.kr/news/articleView.html?idxno=393932
 M IMAGES: N
 SAVENAME: default
+
+JOYGM.COM:
+URL: http://www.joygm.com/news/articleView.html?idxno=62965
+M IMAGES: N
+SAVENAME: default
+
+MTN.CO.KR:
+URL: http://news.mtn.co.kr/newscenter/news_viewer.mtn?gidx=2019091113405189770
+M IMAGES: N
+SAVENAME: default
