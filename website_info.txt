@@ -633,3 +633,8 @@ GOODNEWS1.COM:
 URL: http://goodnews1.com/news/news_view.asp?seq=90339
 M IMAGES: Y
 SAVENAME: default
+
+DAEJEONTODAY.COM:
+URL: http://www.daejeontoday.com/news/articleView.html?idxno=567705
+M IMAGES: N
+SAVENAME: default
