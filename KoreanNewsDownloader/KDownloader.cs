@@ -224,6 +224,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, KoreatimesDownloader>()
                 .AddTransient<IDownloader, PurpressDownloader>()
                 .AddTransient<IDownloader, KmibDownloader>()
+                .AddTransient<IDownloader, YtnDownloader>()
+                .AddTransient<IDownloader, NanumnewsDownloader>()
                 .BuildServiceProvider();
         }
     }

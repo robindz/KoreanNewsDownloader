@@ -761,3 +761,13 @@ KMIB.CO.KR:
 URL: http://news.kmib.co.kr/article/view.asp?arcid=0924097339&code=13180000&cp=du
 M IMAGES: N
 SAVENAME: default
+
+YTN.CO.KR:
+URL: https://www.ytn.co.kr/_sn/0117_201909131000086279
+M IMAGES: Y
+SAVENAME: default
+
+NANUMNEWS.COM:
+URL: http://www.nanumnews.com/sub_read.html?uid=75967
+M IMAGES: 
+SAVENAME: default
