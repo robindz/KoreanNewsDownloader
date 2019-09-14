@@ -756,3 +756,8 @@ PURPRESS.COM:
 URL: http://www.purpress.com/bbs/board.php?bo_table=star&wr_id=12847
 M IMAGES: Y
 SAVENAME: default
+
+KMIB.CO.KR:
+URL: http://news.kmib.co.kr/article/view.asp?arcid=0924097339&code=13180000&cp=du
+M IMAGES: N
+SAVENAME: default
