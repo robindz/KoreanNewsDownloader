@@ -235,6 +235,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, CnbnewsDownloader>()
                 .AddTransient<IDownloader, SmloungeDownloader>()
                 .AddTransient<IDownloader, JoongdoDownloader>()
+                .AddTransient<IDownloader, SisafocusDownloader>()
+                .AddTransient<IDownloader, StarjnDownloader>()
                 .BuildServiceProvider();
         }
     }

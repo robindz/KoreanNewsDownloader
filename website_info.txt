@@ -817,3 +817,13 @@ JOONGDO.CO.KR:
 URL: http://www.joongdo.co.kr/main/view.php?key=20190912001136002	
 M IMAGES: N
 SAVENAME: default
+
+SISAFOCUS.CO.KR:
+URL: http://www.sisafocus.co.kr/news/articleView.html?idxno=220463
+M IMAGES: Y
+SAVENAME: default
+
+STARJN.COM:
+URL: http://www.starjn.com/sub_read.html?uid=96398
+M IMAGES: N
+SAVENAME: default
