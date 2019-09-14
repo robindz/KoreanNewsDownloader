@@ -827,3 +827,8 @@ STARJN.COM:
 URL: http://www.starjn.com/sub_read.html?uid=96398
 M IMAGES: N
 SAVENAME: default
+
+KYEONGIN.COM:
+URL: http://www.kyeongin.com/main/view.php?key=20190912001530133
+M IMAGES: N
+SAVENAME: default

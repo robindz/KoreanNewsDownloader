@@ -12,6 +12,10 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader();
 
+            await downloader.LoadArticleAsync("http://kyeongin.com/main/view.php?key=20190912001530133");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("http://www.starjn.com/sub_read.html?uid=96398");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
