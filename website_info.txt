@@ -714,3 +714,8 @@ URL: http://www.christiantoday.co.kr/news/325264
 M IMAGES: N
 SAVENAME: default
 NOTE: remove everything after '?' in image url
+
+MEDICALWORLDNEWS.CO.KR:
+URL: http://www.medicalworldnews.co.kr/news/view.php?idx=1475665857
+M IMAGES: Y
+SAVENAME: default
