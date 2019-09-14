@@ -802,3 +802,18 @@ DIZZO.COM:
 URL: http://digitalchosun.dizzo.com/site/data/html_dir/2019/09/11/2019091180172.html
 M IMAGES: Y
 SAVENAME: default
+
+CNBNEWS.COM:
+URL: http://weekly.cnbnews.com/news/article.html?no=130160
+M IMAGES: Y
+SAVENAME: default
+
+SMLOUNGE.CO.KR:
+URL: https://www.smlounge.co.kr/woman/article/42783
+M IMAGES: Y
+SAVENAME: default
+
+JOONGDO.CO.KR:
+URL: http://www.joongdo.co.kr/main/view.php?key=20190912001136002	
+M IMAGES: N
+SAVENAME: default
