@@ -220,7 +220,9 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, KoreabiomedDownloader>()
                 .AddTransient<IDownloader, EtnewsDownloader>()
                 .AddTransient<IDownloader, StarnnewsDownloader>()
-                .AddSingleton<IDownloader, MbnDownloader>()
+                .AddTransient<IDownloader, MbnDownloader>()
+                .AddTransient<IDownloader, KoreatimesDownloader>()
+                .AddTransient<IDownloader, PurpressDownloader>()
                 .BuildServiceProvider();
         }
     }
