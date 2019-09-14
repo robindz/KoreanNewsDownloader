@@ -771,3 +771,8 @@ NANUMNEWS.COM:
 URL: http://www.nanumnews.com/sub_read.html?uid=75967
 M IMAGES: 
 SAVENAME: default
+
+JJAN.KR:
+URL: http://www.jjan.kr/news/articleView.html?idxno=2060249&sc_section_code=S1N36&sc_sub_section_code=S2N71
+M IMAGES: Y
+SAVENAME: default
