@@ -401,6 +401,11 @@ NOTE: replace 'thumbnail' and '_v150' with 'photo' and '' respectively in the im
 THECELUV.COM:
 URL: http://www.theceluv.com/article.php?aid=1545723443228418009
 M IMAGES: N
+
+KOREABIOMED.COM:
+URL: http://www.koreabiomed.com/news/articleList.html
+M IMAGES: N
+SAVENAME: default
 SAVENAME: default
 
 THEVIEWERS.CO.KR:
@@ -724,4 +729,9 @@ SAVENAME: default
 KSDAILY.CO.KR:
 URL: http://www.ksdaily.co.kr/news/articleView.html?idxno=76072
 M IMAGES: N
+SAVENAME: default
+
+ETNEWS.COM:
+URL: http://www.etnews.com/20190911000096
+M IMAGES: Y
 SAVENAME: default
