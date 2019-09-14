@@ -213,6 +213,8 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, DailysecuDownloader>()
                 .AddTransient<IDownloader, ThetravelnewsDownloader>()
                 .AddTransient<IDownloader, GwbizDownloader>()
+                .AddTransient<IDownloader, HsinewsDownloader>()
+                .AddTransient<IDownloader, ChristiantodayDownloader>()
                 .BuildServiceProvider();
         }
     }

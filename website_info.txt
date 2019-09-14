@@ -693,3 +693,24 @@ DAILYSECU.COM:
 URL: https://www.dailysecu.com/news/articleView.html?idxno=69074
 M IMAGES: N
 SAVENAME: default
+
+THETRAVELNEWS.CO.KR:
+URL: http://thetravelnews.co.kr/09/177674/
+M IMAGES: N
+SAVENAME: default
+
+GWBIZ.KR:
+URL: http://www.gwbiz.kr/sub_read.html?uid=70213
+M IMAGES: N
+SAVENAME: default
+
+HSINEWS.COM:
+URL: http://www.hsinews.com/sub_read.html?uid=18385
+M IMAGES: N
+SAVENAME: default
+
+CHRISTIANTODAY.CO.KR:
+URL: http://www.christiantoday.co.kr/news/325264
+M IMAGES: N
+SAVENAME: default
+NOTE: remove everything after '?' in image url
