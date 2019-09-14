@@ -786,3 +786,19 @@ KADO.NET:
 URL: http://www.kado.net/?mod=news&act=articleView&idxno=987087
 M IMAGES: N
 SAVENAME: default
+
+BEYONDPOST.CO.KR:
+URL: http://www.beyondpost.co.kr/view.php?ud=20190912080301638TJ20554_30
+M IMAGES: N
+SAVENAME: default
+NOTE: replace 'idx=[number]' with 'idx=999' in image url
+
+YNA.CO.KR:
+URL: https://www.yna.co.kr/view/AKR20190909045900005?input=1179m
+M IMAGES: N
+SAVENAME: default
+
+DIZZO.COM:
+URL: http://digitalchosun.dizzo.com/site/data/html_dir/2019/09/11/2019091180172.html
+M IMAGES: Y
+SAVENAME: default

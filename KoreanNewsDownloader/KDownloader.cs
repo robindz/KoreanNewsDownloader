@@ -229,6 +229,9 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, JjanDownloader>()
                 .AddTransient<IDownloader, GooddailynewsDownloader>()
                 .AddTransient<IDownloader, KadoDownloader>()
+                .AddTransient<IDownloader, BeyondpostDownloader>()
+                .AddTransient<IDownloader, YnaDownloader>()
+                .AddTransient<IDownloader, DizzoDownloader>()
                 .BuildServiceProvider();
         }
     }

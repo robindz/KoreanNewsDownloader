@@ -21,7 +21,7 @@ namespace KoreanNewsDownloader.Downloaders
                 .SelectSingleNode("//*[@id=\"articleBody\"]")
                 .Descendants("img")
                 .Select(x => x.GetAttributeValue("src", "").StartsWith("//") ? $"http:{x.GetAttributeValue("src", "")}"
-                                                                                 : x.GetAttributeValue("src", ""));
+                                                                             : x.GetAttributeValue("src", ""));
         }
 
         public override Encoding GetEncoding()
