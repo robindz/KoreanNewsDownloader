@@ -735,3 +735,14 @@ ETNEWS.COM:
 URL: http://www.etnews.com/20190911000096
 M IMAGES: Y
 SAVENAME: default
+
+STARNNEWS.COM:
+URL: http://www.starnnews.com/news/index.html?no=527183
+M IMAGES: N
+SAVENAME: default
+
+MBN.CO.KR:
+URL: http://star.mbn.co.kr/view.php?year=2019&no=724950&refer=portal
+	 http://www.mbn.co.kr/pages/news/newsView.php?news_seq_no=3935420
+M IMAGES: Y
+SAVENAME: default
