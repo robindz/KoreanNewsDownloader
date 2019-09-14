@@ -211,6 +211,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, NspnaDownloader>()
                 .AddTransient<IDownloader, BusinesspostDownloader>()
                 .AddTransient<IDownloader, DailysecuDownloader>()
+                .AddTransient<IDownloader, ThetravelnewsDownloader>()
                 .BuildServiceProvider();
         }
     }
