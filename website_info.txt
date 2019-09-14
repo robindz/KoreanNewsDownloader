@@ -78,6 +78,7 @@ SAVENAME: default
 
 IMBC.COM:
 URL: http://enews.imbc.com/News/RetrieveNewsInfo/242123
+     http://imnews.imbc.com/news/2019/politic/article/5401183_24691.html
 M IMAGES: Y
 SAVENAME: default
 
@@ -718,4 +719,9 @@ NOTE: remove everything after '?' in image url
 MEDICALWORLDNEWS.CO.KR:
 URL: http://www.medicalworldnews.co.kr/news/view.php?idx=1475665857
 M IMAGES: Y
+SAVENAME: default
+
+KSDAILY.CO.KR:
+URL: http://www.ksdaily.co.kr/news/articleView.html?idxno=76072
+M IMAGES: N
 SAVENAME: default

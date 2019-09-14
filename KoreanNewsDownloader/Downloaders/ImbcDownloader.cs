@@ -10,16 +10,23 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "enews.imbc.com"
+                "enews.imbc.com", "imnews.imbc.com"
             };
         }
 
         public override IEnumerable<string> GetArticleImages()
         {
+            if (Uri.Host == HostUrls[0])
+            {
+                return Document.DocumentNode
+                        .SelectSingleNode("//*[@class=\"ent-cont\"]")
+                        .Descendants("img")
+                        .Select(x => x.GetAttributeValue("src", ""));
+            }
+
             return Document.DocumentNode
-                    .SelectSingleNode("//*[@class=\"ent-cont\"]")
-                    .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", ""));
+                .SelectNodes("//figure/*/img")
+                .Select(x => x.GetAttributeValue("src", ""));
         }
     }
 }
