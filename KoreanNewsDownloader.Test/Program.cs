@@ -11,7 +11,11 @@ namespace KoreanNewsDownloader.Test
         {
             List<string> titles = new List<string>();
 
-            var downloader = new KDownloader(new WebProxy("1.245.107.123", 3128));
+            var downloader = new KDownloader(new WebProxy("", 0));
+
+            await downloader.LoadArticleAsync("http://coinreaders.com/sub_read.html?uid=5435");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("http://ccreview.co.kr/news/articleView.html?idxno=203724");
             titles.Add(downloader.GetArticleTitle());

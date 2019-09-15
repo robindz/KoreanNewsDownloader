@@ -850,3 +850,8 @@ CCREVIEW.CO.KR:
 URL: http://www.ccreview.co.kr/news/articleView.html?idxno=203271
 M IMAGES: Y
 SAVENAME: default
+
+COINREADERS.COM:
+URL: http://www.coinreaders.com/sub_read.html?uid=5435
+M IMAGES: Y
+SAVENAME: default
