@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Test
@@ -10,7 +11,23 @@ namespace KoreanNewsDownloader.Test
         {
             List<string> titles = new List<string>();
 
-            var downloader = new KDownloader();
+            var downloader = new KDownloader(new WebProxy("1.245.107.123", 3128));
+
+            await downloader.LoadArticleAsync("http://ccreview.co.kr/news/articleView.html?idxno=203724");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("http://kidstvnews.co.kr/view.php?ud=2019091217260399288322dbb067_29");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("https://www.asiae.co.kr/article/entertainment-star/2019091415183013928");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("http://www.interview365.com/news/articleView.html?idxno=88814");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("http://kyeongin.com/main/view.php?key=20190912001530133");
             titles.Add(downloader.GetArticleTitle());

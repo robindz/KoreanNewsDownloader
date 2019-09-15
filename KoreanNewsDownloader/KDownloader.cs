@@ -15,9 +15,9 @@ namespace KoreanNewsDownloader
         private readonly IDownloaderResolver _resolver;
         private IDownloader _downloader;
 
-        public KDownloader()
+        public KDownloader(WebProxy proxy)
         {
-            _services = ConfigureServices();
+            _services = ConfigureServices(proxy);
             _resolver = _services.GetRequiredService<IDownloaderResolver>();
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
@@ -59,14 +59,14 @@ namespace KoreanNewsDownloader
             return _resolver.GetDownloaderByName(host);
         }
 
-        private ServiceProvider ConfigureServices()
+        private ServiceProvider ConfigureServices(WebProxy proxy)
         {
             HttpClientHandler proxyHandler = new HttpClientHandler()
             {
                 AllowAutoRedirect = true,
                 UseCookies = true,
                 CookieContainer = new CookieContainer(),
-                Proxy = new WebProxy("203.246.112.133", 3128)
+                Proxy = proxy
             };
             ProxyHttpClient proxyHttpClient = new ProxyHttpClient(proxyHandler);
             proxyHttpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36");
@@ -238,6 +238,9 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, SisafocusDownloader>()
                 .AddTransient<IDownloader, StarjnDownloader>()
                 .AddTransient<IDownloader, KyeonginDownloader>()
+                .AddTransient<IDownloader, Interview365Downloader>()
+                .AddTransient<IDownloader, KidstvnewsDownloader>()
+                .AddTransient<IDownloader, CcreviewDownloader>()
                 .BuildServiceProvider();
         }
     }
