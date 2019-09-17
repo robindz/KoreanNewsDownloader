@@ -68,7 +68,8 @@ SAVENAME: remove ?var=... at end of url
 
 EDAILY.CO.KR: 
 URL: https://www.edaily.co.kr/news/read?newsId=01315286619442128&mediaCodeNo=258
-M IMAGES: N
+	 http://starin.edaily.co.kr/news/newspath.asp?newsid=01233286622621104
+M IMAGES: Y
 SAVENAME: default
 
 EGN.KR:
@@ -136,9 +137,11 @@ JOINS.COM:
 URL: http://isplus.live.joins.com/news/article/article.asp?total_id=22456266
 	 https://dcnewsj.joins.com/article/23518080?cloc=dcnewsj%7Clist
 	 http://koreajoongangdaily.joins.com/news/article/article.aspx?aid=3067809
+	 http://news.jtbc.joins.com/article/article.aspx?news_id=NB11880808
 M IMAGES: N: http://isplus.live.joins.com/news/article/article.asp?total_id=22456266
 		  Y: https://dcnewsj.joins.com/article/23518080?cloc=dcnewsj%7Clist
 			 http://koreajoongangdaily.joins.com/news/article/article.aspx?aid=3067809
+			 http://news.jtbc.joins.com/article/article.aspx?news_id=NB11880808
 SAVENAME: default
 
 ISSUEDAILY.COM:
@@ -853,5 +856,15 @@ SAVENAME: default
 
 COINREADERS.COM:
 URL: http://www.coinreaders.com/sub_read.html?uid=5435
+M IMAGES: Y
+SAVENAME: default
+
+PPNEWS.KR:
+URL: http://www.ppnews.kr/news/articleView.html?idxno=30007
+M IMAGES: N
+SAVENAME: default
+
+IWORLDTODAY.COM:
+URL: http://www.iworldtoday.com/news/articleView.html?idxno=256400
 M IMAGES: Y
 SAVENAME: default

@@ -1,25 +1,31 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 
 namespace KoreanNewsDownloader.Downloaders
 {
-    internal class EdailyDownloader : DownloaderBase
+    internal class IworldtodayDownloader : DownloaderBase
     {
-        public EdailyDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
+        public IworldtodayDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {
             HostUrls = new List<string>
             {
-                "www.edaily.co.kr", "starin.edaily.co.kr"
+                "www.iworldtoday.com", "iworldtoday.com"
             };
         }
 
         public override IEnumerable<string> GetArticleImages()
         {
             return Document.DocumentNode
-                .SelectSingleNode("//*[@class=\"news_body\"]")
+                .SelectSingleNode("//*[@id=\"CmAdContent\"]")
                 .Descendants("img")
                 .Select(x => x.GetAttributeValue("src", ""));
+        }
+
+        public override Encoding GetEncoding()
+        {
+            return Encoding.GetEncoding("EUC-KR");
         }
     }
 }

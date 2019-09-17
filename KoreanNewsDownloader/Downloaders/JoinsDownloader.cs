@@ -7,11 +7,11 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class JoinsDownloader : DownloaderBase
     {
-        public JoinsDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
+        public JoinsDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {
             HostUrls = new List<string>
             {
-                "isplus.live.joins.com", "dcnewsj.joins.com", "koreajoongangdaily.joins.com"
+                "isplus.live.joins.com", "dcnewsj.joins.com", "koreajoongangdaily.joins.com", "news.jtbc.joins.com"
             };
         }
 
@@ -28,10 +28,16 @@ namespace KoreanNewsDownloader.Downloaders
                     .Descendants("img")
                     .Select(x => x.GetAttributeValue("data-src", ""));
             }
+            else if (Uri.Host == HostUrls[2])
+            {
+                return Document.DocumentNode
+                    .SelectSingleNode("//*[@id=\"articlebody\"]")
+                    .Descendants("img")
+                    .Select(x => x.GetAttributeValue("src", ""));
+            }
 
             return Document.DocumentNode
-                .SelectSingleNode("//*[@id=\"articlebody\"]")
-                .Descendants("img")
+                .SelectNodes("//div[@class=\"jtbc_img\"]/div/img")
                 .Select(x => x.GetAttributeValue("src", ""));
         }
     }
