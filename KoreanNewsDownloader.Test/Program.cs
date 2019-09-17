@@ -11,7 +11,15 @@ namespace KoreanNewsDownloader.Test
         {
             List<string> titles = new List<string>();
 
-            var downloader = new KDownloader(new WebProxy("", 0));
+            var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
+
+            await downloader.LoadArticleAsync("http://thetravelnews.co.kr/09/178645/");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("http://www.thetravelnews.co.kr/07/168532/");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("http://coinreaders.com/sub_read.html?uid=5435");
             titles.Add(downloader.GetArticleTitle());
@@ -154,10 +162,6 @@ namespace KoreanNewsDownloader.Test
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("http://gwbiz.kr/sub_read.html?uid=70213");
-            titles.Add(downloader.GetArticleTitle());
-            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-
-            await downloader.LoadArticleAsync("http://www.thetravelnews.co.kr/07/168532/");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 

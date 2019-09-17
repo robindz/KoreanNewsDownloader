@@ -11,7 +11,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "www.webdaily.co.kr", "webdaily.co.kr"
+                "www.webdaily.co.kr", "webdaily.co.kr", "news.webdaily.co.kr"
             };
         }
 
