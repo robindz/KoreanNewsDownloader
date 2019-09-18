@@ -880,3 +880,8 @@ INSIGHTKOREA.CO.KR:
 URL: http://www.insightkorea.co.kr//news/articleView.html?idxno=58299
 M IMAGES: N
 SAVENAME: default
+
+FAMTIMES.CO.KR:
+URL: http://famtimes.co.kr/news/view/401439
+M IMAGES: Y
+SAVENAME: default
