@@ -926,3 +926,13 @@ FINTECHPOST.CO.KR:
 URL: http://www.fintechpost.co.kr/news/articleView.html?idxno=71353
 M IMAGES: N
 SAVENAME: default
+
+KOOKMINNEWS.COM:
+URL: http://www.kookminnews.com/news/view.php?idx=23783
+M IMAGES: N
+SAVENAME: default
+
+SNMNEWS.COM:
+URL: http://www.snmnews.com/news/articleView.html?idxno=452565
+M IMAGES: N
+SAVENAME: default
