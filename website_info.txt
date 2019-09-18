@@ -900,3 +900,8 @@ HORSEBIZ.CO.KR:
 URL: https://www.horsebiz.co.kr/news/articleView.html?idxno=47536
 M IMAGES: N
 SAVENAME: default
+
+IMINJU.NET:
+URL: http://www.iminju.net/news/articleView.html?idxno=48942
+M IMAGES: N
+SAVENAME: default
