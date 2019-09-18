@@ -868,3 +868,8 @@ IWORLDTODAY.COM:
 URL: http://www.iworldtoday.com/news/articleView.html?idxno=256400
 M IMAGES: Y
 SAVENAME: default
+
+MIL.KR:
+URL: http://kookbang.dema.mil.kr/newsWeb/20190918/13/BBSMSTR_000000010060/view.do
+M IMAGES: N
+SAVENAME: default
