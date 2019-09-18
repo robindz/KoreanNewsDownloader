@@ -915,3 +915,8 @@ OBSNEWS.CO.KR:
 URL: http://www.obsnews.co.kr/news/articleView.html?idxno=1177956
 M IMAGES: N
 SAVENAME: default
+
+PULSENEWS.CO.KR:
+URL: https://pulsenews.co.kr/view.php?year=2019&no=736518
+M IMAGES: Y
+SAVENAME: default
