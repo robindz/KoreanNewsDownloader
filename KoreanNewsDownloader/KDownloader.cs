@@ -249,6 +249,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, FamtimesDownloader>()
                 .AddTransient<IDownloader, Rpm9Downloader>()
                 .AddTransient<IDownloader, SeoulwireDownloader>()
+                .AddTransient<IDownloader, HorsebizDownloader>()
                 .BuildServiceProvider();
         }
     }

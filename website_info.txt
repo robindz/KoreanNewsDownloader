@@ -895,3 +895,8 @@ SEOULWIRE.COM:
 URL: http://www.seoulwire.com/news/articleView.html?idxno=220487
 M IMAGES: Y
 SAVENAME: default
+
+HORSEBIZ.CO.KR:
+URL: https://www.horsebiz.co.kr/news/articleView.html?idxno=47536
+M IMAGES: N
+SAVENAME: default
