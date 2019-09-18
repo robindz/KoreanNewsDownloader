@@ -18,7 +18,8 @@ namespace KoreanNewsDownloader.Downloaders
         {
             return Document.DocumentNode
                 .SelectNodes("//figure/img")
-                .Select(x => x.GetAttributeValue("src", ""));
+                .Select(x => x.GetAttributeValue("src", "").StartsWith("//") ? $"http:{x.GetAttributeValue("src", "")}"
+                                                                             : x.GetAttributeValue("src", ""));
         }
     }
 }
