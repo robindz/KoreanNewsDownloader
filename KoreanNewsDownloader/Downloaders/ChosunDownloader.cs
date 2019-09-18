@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 
@@ -10,8 +11,20 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "sports.chosun.com", "m.sportschosun.com"
+                "sports.chosun.com", "m.sportschosun.com", "news.chosun.com"
             };
+        }
+
+        public override IEnumerable<string> GetArticleImages()
+        {
+            if (Uri.Host == HostUrls[2])
+            {
+                return Document.DocumentNode
+                    .SelectNodes("//figure/img")
+                    .Select(x => x.GetAttributeValue("src", ""));
+            }
+
+            return base.GetArticleImages();
         }
 
         public override Encoding GetEncoding()

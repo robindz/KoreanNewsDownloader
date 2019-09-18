@@ -181,6 +181,7 @@ NOTE: extract the html from the script tag with id = '_clipContent' and remove e
 CHOSUN.COM:
 URL: http://sports.chosun.com/news/utype.htm?id=201906260100198980013567&ServiceDate=20190626
      http://m.sportschosun.com/news.htm?id=201904220100178910012180&ServiceDate=20190422&f_url=Fire#_enliple
+	 http://news.chosun.com/site/data/html_dir/2019/09/18/2019091800408.html
 M IMAGES: N
 SAVENAME: default
 

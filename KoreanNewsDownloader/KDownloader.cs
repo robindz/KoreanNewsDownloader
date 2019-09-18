@@ -255,6 +255,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, ObsnewsDownloader>()
                 .AddTransient<IDownloader, PulsenewsDownloader>()
                 .AddTransient<IDownloader, FintechpostDownloader>()
+                .AddTransient<IDownloader, KookminnewsDownloader>()
                 .BuildServiceProvider();
         }
     }

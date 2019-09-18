@@ -13,6 +13,14 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
 
+            await downloader.LoadArticleAsync("http://kookminnews.com/news/view.php?idx=23783");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("http://news.chosun.com/site/data/html_dir/2019/09/18/2019091800408.html");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("http://fintechpost.co.kr/news/articleView.html?idxno=71353");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
