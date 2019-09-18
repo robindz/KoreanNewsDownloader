@@ -910,3 +910,8 @@ PLUSKOREA.NET:
 URL: http://www.pluskorea.net/sub_read.html?uid=146994
 M IMAGES: N
 SAVENAME: default
+
+OBSNEWS.CO.KR:
+URL: http://www.obsnews.co.kr/news/articleView.html?idxno=1177956
+M IMAGES: N
+SAVENAME: default
