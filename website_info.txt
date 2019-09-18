@@ -936,3 +936,8 @@ SNMNEWS.COM:
 URL: http://www.snmnews.com/news/articleView.html?idxno=452565
 M IMAGES: N
 SAVENAME: default
+
+M-I.KR:
+URL: http://www.m-i.kr/news/articleView.html?idxno=638920
+M IMAGES: Y
+SAVENAME: default
