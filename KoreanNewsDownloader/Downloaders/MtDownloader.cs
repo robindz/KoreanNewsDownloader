@@ -42,8 +42,7 @@ namespace KoreanNewsDownloader.Downloaders
             else
             {
                 return Document.DocumentNode
-                    .SelectSingleNode("//*[@id=\"textBody\"]")
-                    .Descendants("img")
+                    .SelectNodes("//td[@class=\"img\"]/img")
                     .Select(x => x.GetAttributeValue("src", "").StartsWith("//") ? $"https:{x.GetAttributeValue("src", "")}"
                                                                                  : x.GetAttributeValue("src", ""))
                     .Select(x => x.Substring(0, x.IndexOf(".jpg") + 4));

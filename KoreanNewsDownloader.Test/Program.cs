@@ -13,6 +13,10 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
 
+            await downloader.LoadArticleAsync("https://news.mt.co.kr/mtview.php?no=2019081411000963342");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("http://www.newswave.kr/sub_read.html?uid=412651");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -362,10 +366,6 @@ namespace KoreanNewsDownloader.Test
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("https://news.v.daum.net/v/20190911052407025?f=o");
-            titles.Add(downloader.GetArticleTitle());
-            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-
-            await downloader.LoadArticleAsync("https://news.mt.co.kr/mtview.php?no=2019081411000963342");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
