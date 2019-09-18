@@ -890,3 +890,8 @@ RPM9.COM:
 URL: http://www.rpm9.com/news/article.html?id=20190918090021
 M IMAGES: Y
 SAVENAME: default
+
+SEOULWIRE.COM:
+URL: http://www.seoulwire.com/news/articleView.html?idxno=220487
+M IMAGES: Y
+SAVENAME: default
