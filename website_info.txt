@@ -920,3 +920,8 @@ PULSENEWS.CO.KR:
 URL: https://pulsenews.co.kr/view.php?year=2019&no=736518
 M IMAGES: Y
 SAVENAME: default
+
+FINTECHPOST.CO.KR:
+URL: http://www.fintechpost.co.kr/news/articleView.html?idxno=71353
+M IMAGES: N
+SAVENAME: default
