@@ -13,7 +13,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "nc.asiae.co.kr", "stoo.asiae.co.kr", "tvdaily.asiae.co.kr", "www.asiae.co.kr", "asiae.co.kr"
+                "nc.asiae.co.kr", "stoo.asiae.co.kr", "tvdaily.asiae.co.kr", "www.asiae.co.kr", "asiae.co.kr", "leaders.asiae.co.kr"
             };
         }
 
@@ -37,10 +37,18 @@ namespace KoreanNewsDownloader.Downloaders
             {
                 return base.GetArticleImages();
             }
+            else if (Uri.Host == HostUrls[3])
+            {
+                return Document.DocumentNode
+                    .SelectNodes("//div[@class=\"article_photo\"]/img")
+                    .Select(x => x.GetAttributeValue("src", ""));
+            }
 
             return Document.DocumentNode
-                .SelectNodes("//div[@class=\"article_photo\"]/img")
-                .Select(x => x.GetAttributeValue("src", ""));
+                .SelectSingleNode("//*[@id=\"articleBody\"]")
+                .Descendants("img")
+                .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://leaders.asiae.co.kr{x.GetAttributeValue("src", "")}"
+                                                                                 : x.GetAttributeValue("src", ""));
         }
 
         public override string GetArticleTitle()
@@ -58,7 +66,9 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override Encoding GetEncoding()
         {
-            if (Uri.Host == HostUrls[0] || Uri.Host == HostUrls[3] || Uri.Host == HostUrls[4])
+            if (Uri.Host == HostUrls[0] 
+             || Uri.Host == HostUrls[3] 
+             || Uri.Host == HostUrls[4])
                 return base.GetEncoding();
 
             return Encoding.GetEncoding("EUC-KR");
