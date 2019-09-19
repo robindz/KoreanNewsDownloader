@@ -13,6 +13,14 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
 
+            await downloader.LoadArticleAsync("https://www.dispatch.co.kr/2042291");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            await downloader.LoadArticleAsync("http://www.upinews.kr/news/newsview.php?ncode=1065605968763168");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("https://news.mt.co.kr/mtview.php?no=2019081411000963342");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -493,10 +501,6 @@ namespace KoreanNewsDownloader.Test
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
-            await downloader.LoadArticleAsync("https://www.dispatch.co.kr/1566345");
-            titles.Add(downloader.GetArticleTitle());
-            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-
             await downloader.LoadArticleAsync("http://www.dt.co.kr/contents.html?article_no=2019042202109965035019&ref=daum");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -795,10 +799,6 @@ namespace KoreanNewsDownloader.Test
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("https://www.tvreport.co.kr/1091393");
-            titles.Add(downloader.GetArticleTitle());
-            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-
-            await downloader.LoadArticleAsync("http://www.upinews.kr/news/newsview.php?ncode=1065605968763168");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
             

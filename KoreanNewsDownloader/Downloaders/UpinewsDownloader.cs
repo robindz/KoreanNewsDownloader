@@ -19,7 +19,7 @@ namespace KoreanNewsDownloader.Downloaders
             return Document.DocumentNode
                 .SelectSingleNode("//*[@id=\"viewConts\"]")
                 .Descendants("img")
-                .Select(x => $"http://www.upinews.kr/{x.GetAttributeValue("src", "")}");
+                .Select(x => $"http://www.upinews.kr/{x.GetAttributeValue("src", "")}".Replace("thum", "h3"));
         }
     }
 }

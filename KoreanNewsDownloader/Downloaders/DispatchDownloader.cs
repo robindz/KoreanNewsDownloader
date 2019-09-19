@@ -17,8 +17,8 @@ namespace KoreanNewsDownloader.Downloaders
         public override IEnumerable<string> GetArticleImages()
         {
             return Document.DocumentNode
-                .Descendants()
-                .Where(x => x.Name == "img" && x.GetAttributeValue("src", "").Contains("uploads"))
+                .SelectSingleNode("//section[@class=\"column read\"]")
+                .Descendants("img")
                 .Select(x => x.GetAttributeValue("src", ""));
         }
     }

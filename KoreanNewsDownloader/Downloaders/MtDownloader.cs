@@ -18,34 +18,41 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override IEnumerable<string> GetArticleImages()
         {
-            if (Uri.Host == HostUrls[0])
+            try
             {
-                return Document.DocumentNode
-                    .SelectSingleNode("//*[@id=\"textBody\"]")
-                    .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", ""))
-                    .Select(x => $"{x.Substring(0, x.LastIndexOf('/') - 2)}00{x.Substring(x.LastIndexOf('/'))}");
+                if (Uri.Host == HostUrls[0])
+                {
+                    return Document.DocumentNode
+                        .SelectSingleNode("//*[@id=\"textBody\"]")
+                        .Descendants("img")
+                        .Select(x => x.GetAttributeValue("src", ""))
+                        .Select(x => $"{x.Substring(0, x.LastIndexOf('/') - 2)}00{x.Substring(x.LastIndexOf('/'))}");
+                }
+                else if (Uri.Host == HostUrls[1])
+                {
+                    return Document.DocumentNode
+                        .SelectSingleNode("//*[@id=\"textBody\"]")
+                        .Descendants("img")
+                        .Select(x => x.GetAttributeValue("src", "").Replace("thumb", "image").Replace(".com/06", ".com"));
+                }
+                else if (Uri.Host == HostUrls[2])
+                {
+                    return Document.DocumentNode
+                        .SelectNodes("//*[@class=\"view_photo up\"]")
+                        .Select(x => x.GetAttributeValue("src", "").Replace("article", "article/original").Replace("_1024x", ""));
+                }
+                else
+                {
+                    return Document.DocumentNode
+                        .SelectNodes("//td[@class=\"img\"]/img")
+                        .Select(x => x.GetAttributeValue("src", "").StartsWith("//") ? $"https:{x.GetAttributeValue("src", "")}"
+                                                                                     : x.GetAttributeValue("src", ""))
+                        .Select(x => x.Substring(0, x.IndexOf(".jpg") + 4));
+                }
             }
-            else if (Uri.Host == HostUrls[1])
+            catch (Exception)
             {
-                return Document.DocumentNode
-                    .SelectSingleNode("//*[@id=\"textBody\"]")
-                    .Descendants("img")
-                    .Select(x => x.GetAttributeValue("src", "").Replace("thumb", "image").Replace(".com/06", ".com"));
-            }
-            else if (Uri.Host == HostUrls[2])
-            {
-                return Document.DocumentNode
-                    .SelectNodes("//*[@class=\"view_photo up\"]")
-                    .Select(x => x.GetAttributeValue("src", "").Replace("article", "article/original").Replace("_1024x", ""));
-            }
-            else
-            {
-                return Document.DocumentNode
-                    .SelectNodes("//td[@class=\"img\"]/img")
-                    .Select(x => x.GetAttributeValue("src", "").StartsWith("//") ? $"https:{x.GetAttributeValue("src", "")}"
-                                                                                 : x.GetAttributeValue("src", ""))
-                    .Select(x => x.Substring(0, x.IndexOf(".jpg") + 4));
+                return new List<string>();
             }
         }
 
