@@ -13,6 +13,10 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
 
+            await downloader.LoadArticleAsync("http://www.ksilbo.co.kr/news/articleView.html?idxno=724979");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
             await downloader.LoadArticleAsync("https://www.dispatch.co.kr/2042291");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));

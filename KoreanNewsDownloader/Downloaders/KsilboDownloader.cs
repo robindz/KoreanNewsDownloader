@@ -20,7 +20,8 @@ namespace KoreanNewsDownloader.Downloaders
             return Document.DocumentNode
                 .SelectSingleNode("//*[@id=\"CmAdContent\"]")
                 .Descendants("img")
-                .Select(x => x.GetAttributeValue("src", ""));
+                .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.ksilbo.co.kr{x.GetAttributeValue("src", "")}"
+                                                                                 : x.GetAttributeValue("src", ""));
         }
 
         public override Encoding GetEncoding()
