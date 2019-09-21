@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Web;
 
 namespace KoreanNewsDownloader.Downloaders
 {
@@ -20,6 +21,16 @@ namespace KoreanNewsDownloader.Downloaders
                 .SelectSingleNode("//*[@id=\"articleView\"]")
                 .Descendants("img")
                 .Select(x => x.GetAttributeValue("src", ""));
+        }
+
+        public override string GetArticleTitle()
+        {
+            return HttpUtility.HtmlDecode(Document.DocumentNode
+                .Descendants("title")
+                .First()
+                .InnerText
+                .Replace("&amp;quot;", "&quot;"))
+                .Trim();
         }
     }
 }
