@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Test
@@ -12,6 +13,21 @@ namespace KoreanNewsDownloader.Test
             List<string> titles = new List<string>();
 
             var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
+
+            await downloader.LoadArticleAsync("http://www.joynews24.com/view/1210320");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+
+            HttpClient client = new HttpClient();
+
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://www.xportsnews.com/?ac=article_view&entry_id=1171884");
+            HttpResponseMessage response = await client.SendAsync(request);
+            foreach (string s in response.Content.Headers.ContentEncoding) { Console.WriteLine(s); }
+            byte[] bytes = await response.Content.ReadAsByteArrayAsync();
+
+            downloader.LoadArticle(bytes, "http://www.xportsnews.com/?ac=article_view&entry_id=1171884");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("http://www.xportsnews.com/?ac=article_view&entry_id=1171884");
             titles.Add(downloader.GetArticleTitle());

@@ -35,6 +35,13 @@ namespace KoreanNewsDownloader.Downloaders
             Document.LoadHtml(html);
         }
 
+        public void LoadArticle(byte[] bytes, Uri uri)
+        {
+            Uri = ValidateUri(uri);
+            string html = GetEncoding().GetString(bytes);
+            Document.LoadHtml(html);
+        }
+
         public async Task DownloadArticleImagesAsync(string path, bool overwrite)
         {
             List<string> images = GetArticleImages().ToList();

@@ -20,7 +20,7 @@ namespace KoreanNewsDownloader.Downloaders
             if (Uri.Host == HostUrls[0])
             {
                 var images = base.GetArticleImages();
-                return images.Select(x => x.Replace("photo/", "original/"));
+                return images.Select(x => x.Replace("arch/photo/", "arch/original/"));
             }
 
             return Document.DocumentNode

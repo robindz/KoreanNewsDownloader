@@ -18,16 +18,19 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override IEnumerable<string> GetArticleImages()
         {
-            if (Uri.Host == HostUrls[0])
+            if (Uri.AbsoluteUri.Contains("/View/"))
             {
                 return Document.DocumentNode
                     .SelectNodes("//*[@class=\"gal-thumb cssAjaxLink\"]")
-                    .Select(x => Regex.Match(x.GetAttributeValue("style", ""), @"^.+(http.+jpg)").Groups.Last().Value.Replace("CT_T_IMG", "ORG_IMG_FILE").Replace("MT", "ORG"));
+                    .Select(x => Regex.Match(x.GetAttributeValue("style", ""), @"^.+(http.+jpg)").Groups.Last().Value
+                    .Replace("CT_T_IMG", "ORG_IMG_FILE")
+                    .Replace("PHT", "ORG")
+                    .Replace("MT", "ORG"));
             }
             else
             {
                 return Document.DocumentNode
-                    .SelectSingleNode("//*[@class=\"image line\"]")
+                    .SelectNodes("//*[@class=\"image line\"]")
                     .Descendants("img")
                     .Select(x => x.GetAttributeValue("src", "").Replace("STD", "ORG"));
             }

@@ -8,6 +8,7 @@ namespace KoreanNewsDownloader.Downloaders
     {
         List<string> HostUrls { get; set; }
         Task LoadArticleAsync(Uri uri);
+        void LoadArticle(byte[] bytes, Uri uri);
         Task DownloadArticleImagesAsync(string filePath, bool overwrite);
         IEnumerable<string> GetArticleImages();
         string GetArticleTitle();

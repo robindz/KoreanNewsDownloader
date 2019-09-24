@@ -39,6 +39,17 @@ namespace KoreanNewsDownloader
             await _downloader.DownloadArticleImagesAsync(path, overwrite);
         }
 
+        public void LoadArticle(byte[] bytes, string url)
+        {
+            LoadArticle(bytes, new Uri(url));
+        }
+
+        public void LoadArticle(byte[] bytes, Uri uri)
+        {
+            _downloader = GetDownloader(uri.Host);
+            _downloader.LoadArticle(bytes, uri);
+        }
+
         public IEnumerable<string> GetArticleImages()
         {
             return _downloader.GetArticleImages();

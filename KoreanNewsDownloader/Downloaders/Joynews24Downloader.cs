@@ -19,7 +19,8 @@ namespace KoreanNewsDownloader.Downloaders
             return Document.DocumentNode
                 .SelectSingleNode("//*[@id=\"articleBody\"]")
                 .Descendants("img")
-                .Select(x => x.GetAttributeValue("src", ""));
+                .Select(x => x.GetAttributeValue("src", ""))
+                .Where(x => !x.Contains("blank.svg"));
         }
     }
 }
