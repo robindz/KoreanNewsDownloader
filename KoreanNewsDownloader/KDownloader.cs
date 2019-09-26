@@ -271,6 +271,7 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, MiDownloader>()
                 .AddTransient<IDownloader, BusinesskoreaDownloader>()
                 .AddTransient<IDownloader, NewswaveDownloader>()
+                .AddTransient<IDownloader, MhnsDownloader>()
                 .BuildServiceProvider();
         }
     }

@@ -952,3 +952,8 @@ NEWSWAVE.KR:
 URL: http://www.newswave.kr/413041
 M IMAGES: N
 SAVENAME: default
+
+MHNS.CO.KR:
+URL: http://www.mhns.co.kr/news/articleView.html?idxno=298704
+M IMAGES: N
+SAVENAME: default

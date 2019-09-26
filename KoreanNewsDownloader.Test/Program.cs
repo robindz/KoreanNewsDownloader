@@ -14,11 +14,11 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
 
-            await downloader.LoadArticleAsync("http://www.joynews24.com/view/1210320");
+            await downloader.LoadArticleAsync("https://www.dispatch.co.kr/2043491");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
-            HttpClient client = new HttpClient();
+           HttpClient client = new HttpClient();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://www.xportsnews.com/?ac=article_view&entry_id=1171884");
             HttpResponseMessage response = await client.SendAsync(request);
