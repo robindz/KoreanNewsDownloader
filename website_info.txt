@@ -957,3 +957,8 @@ MHNS.CO.KR:
 URL: http://www.mhns.co.kr/news/articleView.html?idxno=298704
 M IMAGES: N
 SAVENAME: default
+
+NEWSFREEZONE.CO.KR:
+URL: http://www.newsfreezone.co.kr/news/articleView.html?idxno=200597
+M IMAGES: N
+SAVENAME: default
