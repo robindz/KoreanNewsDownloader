@@ -12,13 +12,14 @@ namespace KoreanNewsDownloader.Test
         {
             List<string> titles = new List<string>();
 
-            var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
-
-            await downloader.LoadArticleAsync("http://www.joynews24.com/view/1210320");
-            titles.Add(downloader.GetArticleTitle());
-            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+            var downloader = new KDownloader(new WebProxy("1.245.107.123", 3128));
 
             HttpClient client = new HttpClient();
+
+            await downloader.LoadArticleAsync("http://star.ohmynews.com/NWS_Web/OhmyStar/at_pg.aspx?CNTN_CD=A0002599003&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news");
+            titles.Add(downloader.GetArticleTitle());
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+            await downloader.DownloadArticleImagesAsync(@"C:\Twice\Photos\_a");
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://www.xportsnews.com/?ac=article_view&entry_id=1171884");
             HttpResponseMessage response = await client.SendAsync(request);

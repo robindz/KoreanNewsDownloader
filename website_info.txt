@@ -952,3 +952,23 @@ NEWSWAVE.KR:
 URL: http://www.newswave.kr/413041
 M IMAGES: N
 SAVENAME: default
+
+MKSPORTS.CO.KR
+URL: http://mksports.co.kr/view/2019/1083591/
+M IMAGES: N
+SAVENAME: default
+
+ANEWSA.COM:
+URL: https://www.anewsa.com/detail.php?number=2039542
+M IMAGES: N
+SAVENAME: default
+
+THEDRIVE.CO.KR:
+URL: http://www.thedrive.co.kr/news/newsview.php?ncode=1065607945304593
+M IMAGES: N
+SAVENAME: default
+
+ISSUEMAKER.KR:
+URL: http://www.issuemaker.kr/news/articleView.html?idxno=29861
+M IMAGES: N
+SAVENAME: default

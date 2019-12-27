@@ -6,7 +6,7 @@ namespace KoreanNewsDownloader.Downloaders
 {
     internal class TheviewersDownloader : DownloaderBase
     {
-        public TheviewersDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient) 
+        public TheviewersDownloader(HttpClient httpClient, ProxyHttpClient proxyHttpClient) : base(httpClient, proxyHttpClient)
         {
             HostUrls = new List<string>
             {
@@ -17,9 +17,11 @@ namespace KoreanNewsDownloader.Downloaders
         public override IEnumerable<string> GetArticleImages()
         {
             return Document.DocumentNode
-                    .SelectNodes("//figure/img")
-                    .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.theviewers.co.kr{x.GetAttributeValue("src", "")}"
-                                                                                     : x.GetAttributeValue("src", ""));
+                    .SelectNodes("//div[@class=\"cont-area\"]//img")
+                    .Select(x => x.GetAttributeValue("src", ""))
+                    .Where(x => x.Contains("Files"))
+                    .Select(x => x.StartsWith("/Files/") ? $"http://theviewers.co.kr{x}"
+                                                         : x);
         }
     }
 }
