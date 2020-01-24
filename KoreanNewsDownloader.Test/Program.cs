@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace KoreanNewsDownloader.Test
@@ -16,10 +18,26 @@ namespace KoreanNewsDownloader.Test
 
             HttpClient client = new HttpClient();
 
-            await downloader.LoadArticleAsync("http://star.ohmynews.com/NWS_Web/OhmyStar/at_pg.aspx?CNTN_CD=A0002599003&CMPT_CD=P0010&utm_source=naver&utm_medium=newsearch&utm_campaign=naver_news");
+            /*Process p = new Process();
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.FileName = "curl";
+            p.StartInfo.Arguments = "-L http://v.media.daum.net/v/20191228070208761?f=o";
+            p.Start();
+
+            string output = p.StandardOutput.ReadToEnd();
+            p.WaitForExit();
+
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            string temp = Encoding.GetEncoding("EUC-KR").GetString(Encoding.GetEncoding("EUC-KR").GetBytes(output));
+            string temp2 = Encoding.GetEncoding("EUC-KR").GetString(Encoding.UTF8.GetBytes(output));*/
+
+
+            await downloader.LoadArticleAsync("https://mdpr.jp/photo/detail/7373371");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            await downloader.DownloadArticleImagesAsync(@"C:\Twice\Photos\_a");
+            await downloader.DownloadArticleImagesAsync(@"C:\Twice\Photos\191231 NHK", true);
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://www.xportsnews.com/?ac=article_view&entry_id=1171884");
             HttpResponseMessage response = await client.SendAsync(request);
