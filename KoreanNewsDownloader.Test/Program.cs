@@ -15,7 +15,7 @@ namespace KoreanNewsDownloader.Test
 
             var downloader = new KDownloader(new WebProxy("112.217.199.122", 55872));
 
-            await downloader.LoadArticleAsync("http://biz.newdaily.co.kr/site/data/html/2020/01/30/2020013000302.html");
+            await downloader.LoadArticleAsync("http://star.ohmynews.com/NWS_Web/OhmyStar/at_pg.aspx?CNTN_CD=A0002501468");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
             Console.WriteLine(downloader.GetArticleImages().Count());

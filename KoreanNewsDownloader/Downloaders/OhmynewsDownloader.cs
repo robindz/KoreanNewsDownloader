@@ -22,7 +22,7 @@ namespace KoreanNewsDownloader.Downloaders
             {
                 return Document.DocumentNode
                     .SelectNodes("//*[@class=\"gal-thumb cssAjaxLink\"]")
-                    .Select(x => Regex.Match(x.GetAttributeValue("style", ""), @"^.+(http.+jpg)").Groups.Last().Value
+                    .Select(x => Regex.Match(x.GetAttributeValue("style", ""), @"^.+(http.+jpg)").Groups.Values.Last().Value
                     .Replace("CT_T_IMG", "ORG_IMG_FILE")
                     .Replace("PHT", "ORG")
                     .Replace("MT", "ORG"));
