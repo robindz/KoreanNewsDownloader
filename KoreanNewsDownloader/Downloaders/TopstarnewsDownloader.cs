@@ -16,7 +16,9 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override IEnumerable<string> GetArticleImages()
         {
-            var images = base.GetArticleImages();
+            var images = Document.DocumentNode
+                .SelectNodes("//figure/img")
+                .Select(x => x.GetAttributeValue("src", string.Empty));
 
             string title = Document.DocumentNode
                 .Descendants("meta")

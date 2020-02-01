@@ -424,7 +424,7 @@ NOTE: prepend 'http://cds.theviewers.co.kr' if the image url starts with '/news/
 
 TOPSTARNEWS.NET:
 URL: http://www.topstarnews.net/news/articleView.html?idxno=653891
-M IMAGES: N
+M IMAGES: Y
 SAVENAME: default
 NOTE: if the title of the article contains 'HD포토' or 'UHD포토' then replace 'thumbnail', 'v150' and '.jpg' with 'photo', '' and '_org.jpg' respectively
 
@@ -960,5 +960,10 @@ SAVENAME: default
 
 NEWSFREEZONE.CO.KR:
 URL: http://www.newsfreezone.co.kr/news/articleView.html?idxno=200597
+M IMAGES: N
+SAVENAME: default
+
+MARKETNEWS.CO.KR:
+URL: http://www.marketnews.co.kr/news/articleView.html?idxno=40919
 M IMAGES: N
 SAVENAME: default

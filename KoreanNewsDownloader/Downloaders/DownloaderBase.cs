@@ -49,6 +49,9 @@ namespace KoreanNewsDownloader.Downloaders
 
             IList<string> fileNames = GetFilenames(images).ToList();
 
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
             for (int i = 0; i < images.Count(); i++)
             {
                 await DownloadImageAsync(images[i], path, fileNames[i], overwrite ? FileMode.Create : FileMode.CreateNew);

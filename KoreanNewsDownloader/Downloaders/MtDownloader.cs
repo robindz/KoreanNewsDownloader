@@ -47,7 +47,7 @@ namespace KoreanNewsDownloader.Downloaders
                         .SelectNodes("//td[@class=\"img\"]/img")
                         .Select(x => x.GetAttributeValue("src", "").StartsWith("//") ? $"https:{x.GetAttributeValue("src", "")}"
                                                                                      : x.GetAttributeValue("src", ""))
-                        .Select(x => x.Substring(0, x.IndexOf(".jpg") + 4));
+                        .Select(x => x.Substring(0, x.IndexOf(".jpg") + 4).Replace("https://thumb.mt.co.kr/06", "http://image.mt.co.kr"));
                 }
             }
             catch (Exception)

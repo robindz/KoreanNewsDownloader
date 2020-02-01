@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,17 +13,19 @@ namespace KoreanNewsDownloader.Test
         {
             List<string> titles = new List<string>();
 
-            var downloader = new KDownloader(new WebProxy("1.1.1.1", 0));
+            var downloader = new KDownloader(new WebProxy("112.217.199.122", 55872));
 
-            await downloader.LoadArticleAsync("http://www.newsfreezone.co.kr/news/articleView.html?idxno=200597");
+            await downloader.LoadArticleAsync("http://biz.newdaily.co.kr/site/data/html/2020/01/30/2020013000302.html");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
+            Console.WriteLine(downloader.GetArticleImages().Count());
+            await downloader.DownloadArticleImagesAsync(@"E:\Twice\Photos\2019\191127 - DAHYUN x BEAUTY+", false);
 
             await downloader.LoadArticleAsync("http://newsfreezone.co.kr/news/articleView.html?idxno=200597");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
-           HttpClient client = new HttpClient();
+            HttpClient client = new HttpClient();
 
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://www.xportsnews.com/?ac=article_view&entry_id=1171884");
             HttpResponseMessage response = await client.SendAsync(request);
@@ -103,7 +106,7 @@ namespace KoreanNewsDownloader.Test
 
             await downloader.LoadArticleAsync("http://www.horsebiz.co.kr/news/articleView.html?idxno=47536");
             titles.Add(downloader.GetArticleTitle());
-            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));    
+            Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
 
             await downloader.LoadArticleAsync("http://seoulwire.com/news/articleView.html?idxno=220487");
             titles.Add(downloader.GetArticleTitle());
@@ -196,7 +199,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("https://en.seoul.co.kr/news/newsView.php?id=20190912500043&wlog_tag3=daum");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-        
+
             await downloader.LoadArticleAsync("http://joongdo.co.kr/main/view.php?key=20190912001136002");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -568,11 +571,11 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("https://www.getitk.com/%ED%8F%AC%ED%86%A0-%ED%8A%B8%EC%99%80%EC%9D%B4%EC%8A%A4-%EB%AF%B8%EB%AA%A8%EC%9D%98-%EC%8B%9C%EB%84%88%EC%A7%80-%ED%9A%A8%EA%B3%BC%EB%A5%BC-%EC%B2%B4%EA%B0%90%ED%95%98%EA%B3%A0-%EC%9E%88/");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://ilyoseoul.co.kr/news/articleView.html?idxno=304669");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://www.inews24.com/view/1138814");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -584,7 +587,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("https://photo.insight.co.kr/news/239073");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://www.intronews.net/news/articleView.html?idxno=146726");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -600,7 +603,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("http://www.issuedaily.com/news/news_view.php?ns_idx=219988");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
 
             await downloader.LoadArticleAsync("http://www.joynews24.com/view/1142298");
             titles.Add(downloader.GetArticleTitle());
@@ -629,15 +632,15 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("https://post.naver.com/viewer/postView.nhn?volumeNo=18717990&memberNo=29747755");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://sports.chosun.com/news/utype.htm?id=201906260100198980013567&ServiceDate=20190626");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://m.sportschosun.com/news.htm?id=201904220100178910012180&ServiceDate=20190422&f_url=Fire#_enliple");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("https://mdpr.jp/music/detail/1809786");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -677,7 +680,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("http://www.nbnnews.co.kr/news/articleView.html?idxno=226960");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://nc.asiae.co.kr/view.htm?idxno=2019021215491181796");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -781,7 +784,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("http://sports.khan.co.kr/entertainment/sk_index.html?art_id=201904221718003&sec_id=540101&pt=nv");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("https://www.mk.co.kr/star/photos/view/2018/12/771603/");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -797,7 +800,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("http://www.sportsq.co.kr/news/articleView.html?idxno=312470");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://www.sportsseoul.com/news/read/803439");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -829,7 +832,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("https://www.tvreport.co.kr/1091393");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             await downloader.LoadArticleAsync("http://viva100.com/main/view.php?key=20181106010002278");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
@@ -881,7 +884,7 @@ namespace KoreanNewsDownloader.Test
             await downloader.LoadArticleAsync("http://www.biztribune.co.kr/news/articleView.html?idxno=220259");
             titles.Add(downloader.GetArticleTitle());
             Console.WriteLine(string.Join("\n", downloader.GetArticleImages()));
-            
+
             Console.ReadKey();
         }
     }

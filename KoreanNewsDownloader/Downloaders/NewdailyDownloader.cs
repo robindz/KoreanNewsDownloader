@@ -10,7 +10,7 @@ namespace KoreanNewsDownloader.Downloaders
         {
             HostUrls = new List<string>
             {
-                "www.newdaily.co.kr"
+                "www.newdaily.co.kr", "newdaily.co.kr", "biz.newdaily.co.kr"
             };
         }
 
