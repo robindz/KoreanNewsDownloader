@@ -274,6 +274,10 @@ namespace KoreanNewsDownloader
                 .AddTransient<IDownloader, MhnsDownloader>()
                 .AddTransient<IDownloader, NewsfreezoneDownloader>()
                 .AddTransient<IDownloader, MarketnewsDownloader>()
+                .AddTransient<IDownloader, MksportsDownloader>()
+                .AddTransient<IDownloader, AnewsaDownloader>()
+                .AddTransient<IDownloader, ThedriveDownloader>()
+                .AddTransient<IDownloader, IssuemakerDownloader>()
                 .BuildServiceProvider();
         }
     }
