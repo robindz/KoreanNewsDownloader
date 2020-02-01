@@ -16,11 +16,19 @@ namespace KoreanNewsDownloader.Downloaders
 
         public override IEnumerable<string> GetArticleImages()
         {
+            if (Uri.AbsoluteUri.Contains("newsview.php"))
+            {
+                return Document.DocumentNode
+                    .SelectNodes("//*[@id=\"viewConts\"]//img")
+                    .Select(x => x.GetAttributeValue("src", string.Empty).StartsWith("/news/") ? $"http://www.asiatime.co.kr{x.GetAttributeValue("src", string.Empty).Replace("_thum", string.Empty)}"
+                                                                                               : x.GetAttributeValue("src", string.Empty).Replace("_thum", string.Empty));
+            }
+
             return Document.DocumentNode
-                .SelectSingleNode("//*[@id=\"article-view-content-div\"]")
+                .SelectSingleNode("//*[@id=\"viewConts\"]")
                 .SelectNodes("//figure/img")
-                .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.asiatime.co.kr{x.GetAttributeValue("src", "")}"
-                                                                                 : x.GetAttributeValue("src", ""));
+                .Select(x => x.GetAttributeValue("src", string.Empty).StartsWith("/news/") ? $"http://www.asiatime.co.kr{x.GetAttributeValue("src", string.Empty).Replace("_thum", string.Empty)}"
+                                                                                           : x.GetAttributeValue("src", string.Empty).Replace("_thum", string.Empty));
         }
     }
 }

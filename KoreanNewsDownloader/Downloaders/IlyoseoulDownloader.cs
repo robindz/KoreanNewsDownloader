@@ -17,7 +17,7 @@ namespace KoreanNewsDownloader.Downloaders
         public override IEnumerable<string> GetArticleImages()
         {
             return Document.DocumentNode
-                .SelectNodes("//figure/div/img")
+                .SelectNodes("//figure/img")
                 .Select(x => x.GetAttributeValue("src", "").StartsWith("/news/") ? $"http://cds.ilyoseoul.co.kr{x.GetAttributeValue("src", "")}"
                                                                                  : x.GetAttributeValue("src", ""));
         }
